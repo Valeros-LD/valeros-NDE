@@ -6,6 +6,7 @@ import { AddressWidget } from '../../../shared/widgets/library/domain-specific/a
 import { DatasetWidget } from '../../../shared/widgets/library/domain-specific/dataset-widget/dataset-widget.component';
 import { LinkWidget } from '../../../shared/widgets/library/generic/link-widget/link-widget.component';
 import {
+  featherAlertTriangle,
   featherAlignLeft,
   featherArchive,
   featherArrowRight,
@@ -38,7 +39,16 @@ export const BASE_WIDGETS_SETTINGS: WidgetsSettings = {
       },
     },
     {
-      id: 'license',
+      id: 'is-mock-data',
+      properties: ['isMockData'],
+      component: JsonWidget,
+      config: {
+        propertyLabel: 'Testdata',
+        icon: featherAlertTriangle,
+      },
+    },
+    {
+      id: 'is-part-of-license',
       properties: ['isPartOf'],
       component: LinkWidget,
       config: {
@@ -48,12 +58,30 @@ export const BASE_WIDGETS_SETTINGS: WidgetsSettings = {
       },
     },
     {
-      id: 'publisher',
+      id: 'license',
+      properties: ['license'],
+      component: LinkWidget,
+      config: {
+        propertyLabel: 'Licentie',
+        icon: featherFileText,
+      },
+    },
+    {
+      id: 'is-part-of-publisher',
       properties: ['isPartOf'],
       component: LinkWidget,
       config: {
         propertyLabel: 'Uitgever',
         propertyPath: 'publisher',
+        icon: featherUsers,
+      },
+    },
+    {
+      id: 'publisher',
+      properties: ['publisher'],
+      component: LinkWidget,
+      config: {
+        propertyLabel: 'Uitgever',
         icon: featherUsers,
       },
     },

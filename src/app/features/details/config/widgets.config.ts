@@ -26,10 +26,16 @@ export const DETAILS_WIDGETS_SETTINGS: WidgetsSettings = {
       widgetIds: ['name', 'description-header'],
     },
     {
-      widgetIds: ['image-gallery', 'type', 'additional-type', '*', 'license'],
+      widgetIds: [
+        'image-gallery',
+        'type',
+        'additional-type',
+        '*',
+        'is-part-of-license',
+      ],
     },
     {
-      widgetIds: ['dataset', 'publisher', 'is-based-on'],
+      widgetIds: ['dataset', 'is-part-of-publisher', 'is-based-on'],
     },
   ],
   hiddenProperties: ['id'],
