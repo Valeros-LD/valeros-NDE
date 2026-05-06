@@ -1,0 +1,9 @@
+:host ::ng-deep app-link-widget {
+  & .badge {
+    @apply py-3 px-3;
+
+    & span {
+      font-size: 0.75rem;
+    }
+  }
+}
