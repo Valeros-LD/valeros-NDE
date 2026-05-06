@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { SearchStore } from '../../state/search.store';
 import { FilterStore } from '../../state/filter.store';
 import { getFacetLabel } from '../../config/facet-labels.config';
+import { TooltipBadge } from "../../../../shared/tooltip-badge/tooltip-badge";
 
 @Component({
   selector: 'app-facets',
 
-  imports: [CommonModule],
+  imports: [CommonModule, TooltipBadge],
   templateUrl: './facets.component.html',
 })
 export class FacetsComponent {

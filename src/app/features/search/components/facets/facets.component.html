@@ -11,11 +11,15 @@
           {{ getFacetLabel(facet.name) }}
         </div>
         <div class="collapse-content">
-          <div class="mb-3">
+          <div class="mb-3 relative">
             <input
               type="text"
               placeholder="Filter..."
               class="input input-sm input-bordered w-full"
+            />
+            <app-tooltip-badge
+              tooltipText="Nog niet geïmplementeerd"
+              tooltipPosition="left"
             />
           </div>
           <div class="space-y-1 max-h-48 overflow-y-scroll">
