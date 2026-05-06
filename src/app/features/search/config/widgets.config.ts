@@ -10,6 +10,7 @@ import {
   featherArchive,
   featherArrowRight,
   featherArrowUpRight,
+  featherBriefcase,
   featherCalendar,
   featherCornerDownRight,
   featherCornerUpRight,
@@ -54,6 +55,15 @@ export const BASE_WIDGETS_SETTINGS: WidgetsSettings = {
         propertyLabel: 'Uitgever',
         propertyPath: 'publisher',
         icon: featherUsers,
+      },
+    },
+    {
+      id: 'hasOccupation',
+      properties: ['hasOccupation'],
+      component: LinkWidget,
+      config: {
+        propertyLabel: 'Beroep',
+        icon: featherBriefcase,
       },
     },
     {
