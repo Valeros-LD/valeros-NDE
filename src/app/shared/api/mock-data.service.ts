@@ -193,7 +193,7 @@ export class MockDataService {
 
     for (const [property, value] of Object.entries(node)) {
       let processed = this.addRandomGeoToPlaceObjects(value);
-      // processed = this.addRandomImageToDefinedTermObjects(processed ?? value);
+      processed = this.addRandomImageToDefinedTermObjects(processed ?? value);
       if (processed !== undefined) {
         enrichedNode[property] = processed;
       }
