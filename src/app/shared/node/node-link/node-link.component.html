@@ -1,43 +1,64 @@
-<div class="flex items-center gap-2 min-w-0">
-  <!-- TODO: Support ImageObject here as well, see https://schema.org/image -->
-  @if (node()['image']) {
-    <div class="avatar">
-      <div class="w-4 h-4 rounded">
-        <img
-          [src]="node()['image']"
-          [alt]="getNodeName(node())"
-          class="object-cover"
-        />
-      </div>
-    </div>
-  }
-
-  <div class="flex-1 min-w-0">
-    @if (isInternalLink()) {
-      <a
-        [routerLink]="['/details']"
-        [queryParams]="{ id: node().id }"
-        [attr.aria-label]="'Bekijk details van ' + getNodeName(node())"
-      >
-        <ng-container *ngTemplateOutlet="linkContent" />
-      </a>
+@if (isInternalLink()) {
+  <a
+    [routerLink]="['/details']"
+    [queryParams]="{ id: node().id }"
+    [attr.aria-label]="'Bekijk details van ' + getNodeName(node())"
+    [class.image-card]="isImageCard()"
+    [class.group]="isImageCard()"
+  >
+    @if (isImageCard()) {
+      <ng-container *ngTemplateOutlet="imageCardContent" />
     } @else {
-      <a
-        [href]="node().id"
-        target="_blank"
-        rel="noopener noreferrer"
-        [attr.aria-label]="'Bekijk externe link van ' + getNodeName(node())"
-      >
-        <ng-container *ngTemplateOutlet="linkContent" />
-        <ng-icon name="featherExternalLink" size="14" />
-      </a>
+      <ng-container *ngTemplateOutlet="inlineContent" />
+    }
+  </a>
+} @else {
+  <a
+    [href]="node().id"
+    target="_blank"
+    rel="noopener noreferrer"
+    [attr.aria-label]="'Bekijk externe link van ' + getNodeName(node())"
+    [class.image-card]="isImageCard()"
+    [class.group]="isImageCard()"
+    [class.external-inline]="!isImageCard()"
+  >
+    @if (isImageCard()) {
+      <ng-container
+        *ngTemplateOutlet="
+          imageCardContent;
+          context: { showExternalIcon: true }
+        "
+      />
+    } @else {
+      <ng-container *ngTemplateOutlet="inlineContent" />
+      <ng-icon name="featherExternalLink" size="14" />
+    }
+  </a>
+}
+
+<ng-template #imageCardContent let-showExternalIcon="showExternalIcon">
+  <!-- TODO: Support ImageObject here as well, see https://schema.org/image -->
+  <img
+    [src]="node()['image']"
+    [alt]="getNodeName(node())"
+    class="w-full h-24 object-cover"
+  />
+  <div class="overlay" [class.with-icon]="showExternalIcon">
+    <span class="underline text-white truncate block">{{
+      getNodeName(node())
+    }}</span>
+    @if (showExternalIcon) {
+      <ng-icon
+        name="featherExternalLink"
+        size="14"
+        class="text-white flex-shrink-0"
+      />
     }
   </div>
-</div>
+</ng-template>
 
-<ng-template #linkContent>
+<ng-template #inlineContent>
   <span class="underline">{{ getNodeName(node()) }}</span>
-
   @if (showType() && getNodeType(node())) {
     <span class="text-xs text-base-content/60" aria-label="Type">
       ({{ getNodeType(node()) }})

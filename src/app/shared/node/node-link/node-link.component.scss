@@ -1,3 +1,23 @@
 a {
   @apply inline-flex items-center gap-2;
+
+  &.image-card {
+    @apply block relative rounded overflow-hidden cursor-pointer;
+
+    .overlay {
+      @apply absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-2;
+
+      &.with-icon {
+        @apply flex items-center gap-1;
+
+        span {
+          @apply flex-1 min-w-0;
+        }
+      }
+    }
+  }
+
+  &.external-inline {
+    @apply inline-flex items-center gap-1;
+  }
 }

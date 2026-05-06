@@ -1,9 +1,17 @@
 @if (nodeValues().length > 0) {
   <div class="flex flex-wrap gap-2">
     @for (nodeValue of nodeValues(); track $index) {
-      <span class="badge badge-primary py-4 px-4">
-        <app-node-link [node]="nodeValue" [showType]="false" />
-      </span>
+      @if (nodeValue['image']) {
+        <app-node-link
+          [node]="nodeValue"
+          [showType]="false"
+          mode="image-card"
+        />
+      } @else {
+        <span class="badge badge-primary py-4 px-4">
+          <app-node-link [node]="nodeValue" [showType]="false" />
+        </span>
+      }
     }
   </div>
 }

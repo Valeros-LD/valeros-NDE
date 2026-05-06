@@ -23,11 +23,16 @@ import { featherExternalLink } from '@ng-icons/feather-icons';
 export class NodeLinkComponent {
   readonly node = input.required<NodeModel>();
   readonly showType = input<boolean>(true);
+  readonly mode = input<'inline' | 'image-card'>('inline');
 
   private nodeLinkService = inject(NodeLinkService);
 
   readonly isInternalLink = computed(() => {
     return this.nodeLinkService.isInternalLink(this.node());
+  });
+
+  readonly isImageCard = computed(() => {
+    return this.mode() === 'image-card' && !!this.node()['image'];
   });
 
   getNodeName(node: NodeModel): string {
