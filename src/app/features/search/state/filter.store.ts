@@ -34,7 +34,7 @@ export class FilterStore {
     const filterParam = this.serialize(filters);
 
     this.router.navigate([], {
-      queryParams: { filters: filterParam || undefined },
+      queryParams: { filters: filterParam || undefined, page: 1 },
       queryParamsHandling: 'merge',
     });
   }
@@ -45,7 +45,7 @@ export class FilterStore {
 
   clearFilters(): void {
     this.router.navigate([], {
-      queryParams: { filters: undefined },
+      queryParams: { filters: undefined, page: 1 },
       queryParamsHandling: 'merge',
     });
   }

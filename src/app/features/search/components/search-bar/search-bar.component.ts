@@ -49,7 +49,7 @@ export class SearchBarComponent {
   private performSearch(searchTerm: string): void {
     this.router.navigate([], {
       relativeTo: this.route,
-      queryParams: { q: searchTerm || undefined, filters: undefined },
+      queryParams: { q: searchTerm || undefined, filters: undefined, page: 1 },
       queryParamsHandling: 'merge',
     });
   }
