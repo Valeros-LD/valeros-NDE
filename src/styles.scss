@@ -8,3 +8,7 @@ html,
 body {
   @apply min-h-screen bg-app-bg;
 }
+
+.btn {
+  box-shadow: none;
+}
