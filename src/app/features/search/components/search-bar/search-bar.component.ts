@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SearchStore } from '../../state/search.store';
 import { AutocompleteDropdownComponent } from '../autocomplete-dropdown/autocomplete-dropdown.component';
-import { AutocompleteNode } from '../../types/autocomplete-node';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { featherSearch } from '@ng-icons/feather-icons';
 
@@ -61,14 +60,6 @@ export class SearchBarComponent {
     }
     const searchTerm = this.store.searchTerm();
     this.performSearch(searchTerm);
-  }
-
-  onAutocompleteSelect(item: AutocompleteNode): void {
-    const id = item.id;
-    if (id) {
-      this.autocomplete()?.hideAndSuppress();
-      this.router.navigate(['/details'], { queryParams: { id } });
-    }
   }
 
   onSuggestionSelect(suggestion: string): void {

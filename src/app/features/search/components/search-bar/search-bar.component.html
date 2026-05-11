@@ -27,7 +27,6 @@
     <app-autocomplete-dropdown
       #autocomplete
       [searchTerm]="store.searchTerm()"
-      (selectItem)="onAutocompleteSelect($event)"
       (selectSuggestion)="onSuggestionSelect($event)"
     />
   </div>

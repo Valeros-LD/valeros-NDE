@@ -3,13 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { buildHttpParams } from './http-params.util';
 import { MockDataService } from './mock-data.service';
-import { AutocompleteQuery } from '../../features/search/types/autocomplete-query';
-import { AutocompleteResponse } from '../../features/search/types/autocomplete-response';
 import { SearchQuery } from '../../features/search/types/search-query';
-import {
-  SearchResponse,
-  transformToAutocompleteResponse,
-} from '../../features/search/types/search-response';
+import { SearchResponse } from '../../features/search/types/search-response';
 import { NodeModel } from '../node/types/node.model';
 
 @Injectable({
@@ -35,14 +30,12 @@ export class ApiService {
       );
   }
 
-  autocomplete(query: AutocompleteQuery): Observable<AutocompleteResponse> {
-    // TODO: Replace hardcoded size and page
-    const params = buildHttpParams({ q: query.query, size: 5 });
-    const url = `${this.apiBaseUrl}/heritage-objects/page/1`;
+  autocomplete(query: SearchQuery): Observable<SearchResponse> {
+    const { page, ...queryParams } = query;
+    const params = buildHttpParams({ ...queryParams });
+    const url = `${this.apiBaseUrl}/terms/page/${page}`;
 
-    return this.http
-      .get<SearchResponse>(url, { params })
-      .pipe(map(transformToAutocompleteResponse));
+    return this.http.get<SearchResponse>(url, { params });
   }
 
   details(id: string): Observable<NodeModel> {

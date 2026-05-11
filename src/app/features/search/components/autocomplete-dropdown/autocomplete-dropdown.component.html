@@ -1,4 +1,4 @@
-@if (show() && hasResults()) {
+@if (show() && hasSuggestions()) {
   <div
     class="absolute z-10 w-full mt-2 bg-base-100 rounded-lg shadow-lg border border-base-300 max-h-96 overflow-y-auto"
     (mousedown)="$event.preventDefault()"
@@ -8,33 +8,14 @@
         <span class="loading loading-spinner loading-sm"></span>
       </div>
     } @else {
-      <!-- @if (results().length > 0) {
-        <div class="p-2">
-          <div class="text-xs font-semibold text-base-content/60 px-3 py-2">
-            Results
-          </div>
-          @for (item of results(); track item.id) {
-            <app-autocomplete-result-item
-              [item]="item"
-              (itemClick)="selectItem.emit(item)"
-            />
-          }
-        </div>
-      } -->
-
-      @if (suggestions().length > 0) {
-        <div class="p-2 border-t border-base-300">
-          <!-- <div class="text-xs font-semibold text-base-content/60 px-3 py-2">
-            Suggestions
-          </div> -->
-          @for (suggestion of suggestions(); track suggestion) {
-            <app-autocomplete-suggestion-item
-              [suggestion]="suggestion"
-              (suggestionClick)="selectSuggestion.emit(suggestion)"
-            />
-          }
-        </div>
-      }
+      <div class="p-2">
+        @for (suggestion of suggestions(); track suggestion) {
+          <app-autocomplete-suggestion-item
+            [suggestion]="suggestion"
+            (suggestionClick)="selectSuggestion.emit(suggestion)"
+          />
+        }
+      </div>
     }
   </div>
 }
