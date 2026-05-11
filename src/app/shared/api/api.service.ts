@@ -46,8 +46,10 @@ export class ApiService {
       const url = `${this.apiBaseUrl}/heritage-objects/${extractedId}`;
       mockObservable = this.http.get<NodeModel>(url);
     } else if (id.includes('v1/terms/')) {
-      const url = `${this.apiBaseUrl}/terms/${extractedId}`;
-      mockObservable = this.http.get<NodeModel>(url);
+      mockObservable = this.mockDataService.termDetails(id);
+
+      // const url = `${this.apiBaseUrl}/terms/${extractedId}`;
+      // mockObservable = this.http.get<NodeModel>(url);
     } else if (id.includes('v1/places/')) {
       mockObservable = this.mockDataService.placeDetails(id);
     } else if (id.includes('v1/organizations/')) {
