@@ -8,6 +8,7 @@ export interface WidgetsSettings {
   widgetOrder?: WidgetOrderGroup[];
   hiddenProperties?: string[];
   hiddenWidgetsById?: string[];
+  showArrowIndicator?: boolean;
 }
 
 export interface WidgetOrderGroup {

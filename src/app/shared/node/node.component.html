@@ -5,7 +5,9 @@
     class="node-card cursor-pointer block no-underline relative group hover:opacity-90 transition-opacity"
   >
     <ng-container *ngTemplateOutlet="cardContent" />
-    <app-arrow-indicator />
+    @if (showArrowIndicator()) {
+      <app-arrow-indicator />
+    }
   </a>
 } @else {
   <div class="node-card">

@@ -8,4 +8,5 @@ export const MAP_VIEW_WIDGETS_SETTINGS: WidgetsSettings = {
       widgetIds: ['image-thumb', 'name', 'description-without-label'],
     },
   ],
+  showArrowIndicator: false,
 };

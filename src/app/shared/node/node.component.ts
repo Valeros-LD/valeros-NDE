@@ -29,12 +29,21 @@ export class NodeComponent {
 
   private widgetService = inject(WidgetService);
 
+  private resolvedWidgetsSettings = computed(
+    () => this.widgetsSettings() ?? this.widgetService.getDefaultSettings(),
+  );
+
   widgetsByPosition: Signal<WidgetsByPosition> = computed(() => {
     const properties = Object.keys(this.data());
-    const widgetsSettings =
-      this.widgetsSettings() ?? this.widgetService.getDefaultSettings();
-    return this.widgetService.getWidgetsByPosition(properties, widgetsSettings);
+    return this.widgetService.getWidgetsByPosition(
+      properties,
+      this.resolvedWidgetsSettings(),
+    );
   });
+
+  protected showArrowIndicator = computed(
+    () => this.resolvedWidgetsSettings().showArrowIndicator ?? false,
+  );
 
   detailsRoute = computed(() => {
     const id = this.data().id;

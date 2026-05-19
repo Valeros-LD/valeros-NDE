@@ -94,4 +94,5 @@ export const BASE_WIDGETS_SETTINGS: WidgetsSettings = {
       widgetIds: ['name', 'description-without-label'],
     },
   ],
+  showArrowIndicator: true,
 };
