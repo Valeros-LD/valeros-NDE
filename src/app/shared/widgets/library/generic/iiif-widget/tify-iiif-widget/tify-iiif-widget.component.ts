@@ -21,6 +21,8 @@ interface IIIFManifest {
   ],
 })
 export class TifyIiifWidget extends BaseIiifWidget<Tify> {
+  private readonly defaultView: TifyView = null;
+
   protected async initializeViewer(
     manifestUrl: string,
     elementId: string,
@@ -36,7 +38,7 @@ export class TifyIiifWidget extends BaseIiifWidget<Tify> {
     const instance = new Tify({
       container: `#${elementId}`,
       manifestUrl: proxiedManifestUrl,
-      view: 'thumbnails',
+      view: this.defaultView,
     });
 
     this.instances.set(elementId, instance);
@@ -61,8 +63,8 @@ export class TifyIiifWidget extends BaseIiifWidget<Tify> {
         0;
 
       const view = canvasCount > 1 ? 'thumbnails' : null;
-      if (view !== 'thumbnails') {
-        instance.setView(view);
+      if (view !== this.defaultView) {
+        setTimeout(() => instance.setView(view));
       }
     } catch (error) {
       console.error(
