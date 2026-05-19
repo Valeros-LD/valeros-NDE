@@ -2,7 +2,7 @@
   <a
     [routerLink]="detailsRoute()"
     [queryParams]="detailsQueryParams()"
-    class="node-card cursor-pointer hover:bg-base-200 transition-colors block no-underline"
+    class="node-card cursor-pointer block no-underline relative group hover:opacity-90 transition-opacity"
   >
     <ng-container *ngTemplateOutlet="cardContent" />
     <app-arrow-indicator />
