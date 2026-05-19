@@ -13,7 +13,7 @@ import { NodeModel } from '../node/types/node.model';
 export class ApiService {
   private readonly http = inject(HttpClient);
   private readonly mockDataService = inject(MockDataService);
-  readonly apiBaseUrl = 'http://localhost:3000/v1';
+  readonly apiBaseUrl = 'https://datalaag.valeros.nl/v1';
 
   search(query: SearchQuery): Observable<SearchResponse> {
     const { page, ...queryParams } = query;
