@@ -1,9 +1,12 @@
 <div tabindex="-1" class="outline-none">
   <h2 class="text-lg">
-    <span class="font-bold">{{ totalResults() }} resultaten gevonden</span>
+    <span class="font-bold"
+      >{{ totalResults() | number: '1.0-0':'nl-NL' }} resultaten gevonden</span
+    >
     <!-- ({{ showingResults() }} getoond) -->
   </h2>
   <p class="text-sm text-gray-500">
-    Getoond: {{ showingResults() }} van {{ totalResults() }}
+    Getoond: {{ showingResults() | number: '1.0-0':'nl-NL' }} van {{
+    totalResults() | number: '1.0-0':'nl-NL' }}
   </p>
 </div>
