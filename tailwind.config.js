@@ -3,6 +3,9 @@ module.exports = {
   content: ['./src/**/*.{html,ts}'],
   theme: {
     extend: {
+      screens: {
+        xs: '320px',
+      },
       fontFamily: {
         sans: ['"Familjen Grotesk"', 'sans-serif'],
         mono: ['"Space Mono"', 'monospace'],
