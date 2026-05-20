@@ -2,14 +2,15 @@ import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchStore } from '../../state/search.store';
 import { FilterStore } from '../../state/filter.store';
+
+import { TooltipBadge } from '../../../../shared/tooltip-badge/tooltip-badge';
+import { NgIcon } from '@ng-icons/core';
 import {
   getFacetLabel,
   getFacetIcon,
   isFacetHidden,
   sortFacets,
-} from '../../config/facets.config';
-import { TooltipBadge } from '../../../../shared/tooltip-badge/tooltip-badge';
-import { NgIcon } from '@ng-icons/core';
+} from '../../../../config/facets.config';
 
 @Component({
   selector: 'app-facets',

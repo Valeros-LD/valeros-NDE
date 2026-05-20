@@ -1,11 +1,10 @@
-import { WidgetsSettings } from '../../../shared/widgets/types/widget-config';
-import { JsonWidget } from '../../../shared/widgets/library/generic/json-widget/json-widget.component';
-import { BASE_WIDGETS_SETTINGS } from '../../search/config/widgets/base-widgets.config';
-import { LinkWidget } from '../../../shared/widgets/library/generic/link-widget/link-widget.component';
-import { TextWidget } from '../../../shared/widgets/library/generic/text-widget/text-widget.component';
-import { MapWidget } from '../../../shared/widgets/library/generic/map-widget/map-widget.component';
-import { AddressWidget } from '../../../shared/widgets/library/domain-specific/address-widget/address-widget.component';
-import { MediaWidget } from '../../../shared/widgets/library/generic/media-widget/media-widget.component';
+import { WidgetsSettings } from '../../shared/widgets/types/widget-config';
+import { JsonWidget } from '../../shared/widgets/library/generic/json-widget/json-widget.component';
+import { LinkWidget } from '../../shared/widgets/library/generic/link-widget/link-widget.component';
+import { TextWidget } from '../../shared/widgets/library/generic/text-widget/text-widget.component';
+import { MapWidget } from '../../shared/widgets/library/generic/map-widget/map-widget.component';
+import { AddressWidget } from '../../shared/widgets/library/domain-specific/address-widget/address-widget.component';
+import { MediaWidget } from '../../shared/widgets/library/generic/media-widget/media-widget.component';
 import {
   featherAlertTriangle,
   featherBriefcase,
@@ -20,6 +19,7 @@ import {
   featherUser,
   featherUsers,
 } from '@ng-icons/feather-icons';
+import { BASE_WIDGETS_SETTINGS } from './base-widgets.config';
 
 export const DETAILS_WIDGETS_SETTINGS: WidgetsSettings = {
   mappings: [

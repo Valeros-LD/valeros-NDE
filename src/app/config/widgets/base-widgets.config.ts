@@ -1,15 +1,12 @@
-import { WidgetsSettings } from '../../../../shared/widgets/types/widget-config';
-import { JsonWidget } from '../../../../shared/widgets/library/generic/json-widget/json-widget.component';
-import { ImageGalleryWidget } from '../../../../shared/widgets/library/generic/image-gallery-widget/image-gallery-widget.component';
-import { DatasetWidget } from '../../../../shared/widgets/library/domain-specific/dataset-widget/dataset-widget.component';
-import { LinkWidget } from '../../../../shared/widgets/library/generic/link-widget/link-widget.component';
+import { WidgetsSettings } from '../../shared/widgets/types/widget-config';
+import { JsonWidget } from '../../shared/widgets/library/generic/json-widget/json-widget.component';
+import { ImageGalleryWidget } from '../../shared/widgets/library/generic/image-gallery-widget/image-gallery-widget.component';
+import { DatasetWidget } from '../../shared/widgets/library/domain-specific/dataset-widget/dataset-widget.component';
+import { LinkWidget } from '../../shared/widgets/library/generic/link-widget/link-widget.component';
 import {
   featherAlignLeft,
   featherArchive,
-  featherExternalLink,
-  featherFileText,
   featherGrid,
-  featherUsers,
 } from '@ng-icons/feather-icons';
 
 export const BASE_WIDGETS_SETTINGS: WidgetsSettings = {
@@ -44,7 +41,6 @@ export const BASE_WIDGETS_SETTINGS: WidgetsSettings = {
         icon: featherGrid,
       },
     },
-
     {
       id: 'additional-type',
       properties: ['additionalType'],

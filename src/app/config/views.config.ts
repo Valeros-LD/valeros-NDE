@@ -1,8 +1,8 @@
 import { featherGrid, featherList, featherMap } from '@ng-icons/feather-icons';
-import { ViewsSettings } from '../views/types/view-config';
-import { MasonryViewComponent } from '../views/library/masonry-view/masonry-view.component';
-import { ListViewComponent } from '../views/library/list-view/list-view.component';
-import { MapViewComponent } from '../views/library/map-view/map-view.component';
+import { ViewsSettings } from '../features/search/views/types/view-config';
+import { MasonryViewComponent } from '../features/search/views/library/masonry-view/masonry-view.component';
+import { ListViewComponent } from '../features/search/views/library/list-view/list-view.component';
+import { MapViewComponent } from '../features/search/views/library/map-view/map-view.component';
 import { GRID_VIEW_WIDGETS_SETTINGS } from './widgets/grid-widgets.config';
 import { LIST_VIEW_WIDGETS_SETTINGS } from './widgets/list-widgets.config';
 import { MAP_VIEW_WIDGETS_SETTINGS } from './widgets/map-widgets.config';

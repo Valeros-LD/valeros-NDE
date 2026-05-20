@@ -5,8 +5,7 @@ import {
   WidgetsSettings,
   WidgetPosition,
 } from '../types/widget-config';
-import { BASE_WIDGETS_SETTINGS } from '../../../features/search/config/widgets/base-widgets.config';
-import { DETAILS_WIDGETS_SETTINGS } from '../../../features/details/config/widgets.config';
+import { ConfigService } from '../../../config/config.service';
 import {
   WidgetsByPosition,
   WidgetGroup as WidgetGroupByPosition,
@@ -15,12 +14,15 @@ import {
 @Injectable({ providedIn: 'root' })
 export class WidgetService {
   private router = inject(Router);
+  private configService = inject(ConfigService);
 
   getDefaultSettings(): WidgetsSettings {
     const url = this.router.url;
-    return url.startsWith('/details')
-      ? DETAILS_WIDGETS_SETTINGS
-      : BASE_WIDGETS_SETTINGS;
+    const widgets = this.configService.widgets();
+    if (!widgets) {
+      throw new Error('Config not initialized');
+    }
+    return url.startsWith('/details') ? widgets.details : widgets.default;
   }
 
   getWidgetsByPosition(

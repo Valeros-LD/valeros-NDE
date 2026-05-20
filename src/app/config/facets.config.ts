@@ -1,12 +1,12 @@
 import { IconType } from '@ng-icons/core';
 import {
   featherArchive,
-  featherMapPin,
-  featherUser,
-  featherPackage,
+  featherFileText,
   featherGrid,
   featherUsers,
-  featherFileText,
+  featherUser,
+  featherMapPin,
+  featherPackage,
   featherTag,
 } from '@ng-icons/feather-icons';
 
@@ -28,18 +28,6 @@ export const FACETS_CONFIG: FacetConfig[] = [
   { name: 'publisher', label: 'Uitgever', icon: featherUsers },
   { name: 'license', label: 'Licentie', icon: featherFileText },
 ];
-
-// export const FACETS_CONFIG: FacetConfig[] = [
-//   { name: 'dataset', label: 'Dataset' },
-//   { name: 'contentLocation', label: 'Locatie' },
-//   { name: 'creator', label: 'Vervaardiger' },
-//   { name: 'subject', label: 'Onderwerp' },
-//   { name: 'genre', label: 'Genre' },
-//   { name: 'material', label: 'Materiaal' },
-//   { name: 'additionalType', label: 'Soort (aanvullend)' },
-//   { name: 'publisher', label: 'Uitgever' },
-//   { name: 'license', label: 'Licentie' },
-// ];
 
 const facetConfigMap = new Map(
   FACETS_CONFIG.map((config) => [config.name, config]),
