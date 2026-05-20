@@ -3,6 +3,7 @@ import {
   AfterViewInit,
   OnDestroy,
   computed,
+  inject,
   Signal,
 } from '@angular/core';
 import { BaseWidget } from '../../../infrastructure/base-widget';
@@ -10,12 +11,14 @@ import {
   AssociatedMediaNode,
   isIIIFPresentationManifest,
 } from '../../../../node/types/associated-media.node';
+import { IiifUrlTransformerService } from './iiif-url-transformer.service';
 
 @Directive()
 export abstract class BaseIiifWidget<T = unknown>
   extends BaseWidget
   implements AfterViewInit, OnDestroy
 {
+  protected readonly urlTransformer = inject(IiifUrlTransformerService);
   protected readonly instanceId = crypto.randomUUID();
   protected readonly instances: Map<string, T> = new Map();
 
@@ -29,7 +32,9 @@ export abstract class BaseIiifWidget<T = unknown>
   ngAfterViewInit(): void {
     this.manifestUrls().forEach((manifestUrl, index) => {
       const elementId = this.getElementId(index);
-      void this.initializeViewer(manifestUrl, elementId);
+      const transformedManifestUrl =
+        this.urlTransformer.transformManifestUrl(manifestUrl);
+      void this.initializeViewer(transformedManifestUrl, elementId);
     });
   }
 
