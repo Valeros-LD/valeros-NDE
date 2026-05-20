@@ -13,6 +13,7 @@ import { FacetsService } from '../search/components/facets/facets.service';
   selector: 'app-config-page',
   imports: [CdkDropList, CdkDrag, NgIcon],
   templateUrl: './config-page.component.html',
+  styleUrl: './config-page.component.scss',
 })
 export class ConfigPageComponent {
   protected configService = inject(ConfigService);
