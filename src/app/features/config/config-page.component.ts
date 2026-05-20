@@ -8,31 +8,13 @@ import {
 import { NgIcon } from '@ng-icons/core';
 import { ConfigService } from '../../config/config.service';
 import { FacetsService } from '../search/components/facets/facets.service';
+import { FacetsComponent } from '../search/components/facets/facets.component';
+import { FacetsConfig } from './facets-config/facets-config.component';
 
 @Component({
   selector: 'app-config-page',
-  imports: [CdkDropList, CdkDrag, NgIcon],
+  imports: [FacetsConfig],
   templateUrl: './config-page.component.html',
   styleUrl: './config-page.component.scss',
 })
-export class ConfigPageComponent {
-  protected configService = inject(ConfigService);
-  protected facetsService = inject(FacetsService);
-
-  protected readonly facets = this.configService.facets;
-
-  drop(event: CdkDragDrop<string[]>): void {
-    const facets = [...this.configService.facets()];
-    moveItemInArray(facets, event.previousIndex, event.currentIndex);
-    this.configService.updateFacets(facets);
-  }
-
-  toggleHidden(index: number): void {
-    const facets = [...this.configService.facets()];
-    facets[index] = {
-      ...facets[index],
-      hidden: !facets[index].hidden,
-    };
-    this.configService.updateFacets(facets);
-  }
-}
+export class ConfigPageComponent {}

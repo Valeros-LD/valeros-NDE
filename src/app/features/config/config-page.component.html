@@ -1,36 +1,4 @@
 <div class="space-y-2 p-6 max-w-7xl mx-auto">
   <h2 class="text-lg font-semibold">Facets</h2>
-  <ul cdkDropList (cdkDropListDropped)="drop($event)" class="space-y-1">
-    @for (facet of facets(); track facet.name; let i = $index) {
-      <li
-        cdkDrag
-        class="flex items-center gap-3 p-3 bg-white rounded cursor-move hover:shadow-md transition-all"
-        [class.opacity-40]="facet.hidden"
-      >
-        <input
-          type="checkbox"
-          class="checkbox checkbox-sm"
-          [checked]="!facet.hidden"
-          (click)="toggleHidden(i); $event.stopPropagation()"
-        />
-
-        <div class="flex items-center gap-2 flex-1">
-          @if (facetsService.getFacetIcon(facet.name)) {
-            <ng-icon
-              class="flex-shrink-0 inline-flex items-center"
-              [svg]="facetsService.getFacetIcon(facet.name)"
-              size="16"
-            />
-          }
-          <span
-            >{{ facet.label }}
-            <span class="font-mono opacity-50 text-sm"
-              >({{ facet.name }})</span
-            ></span
-          >
-        </div>
-        <span class="text-gray-400">⋮⋮</span>
-      </li>
-    }
-  </ul>
+  <app-facets-config />
 </div>
