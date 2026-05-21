@@ -40,36 +40,36 @@ export class ApiService {
 
   details(id: string): Observable<NodeModel> {
     const extractedId = id.split('/').pop() || id;
-    let mockObservable: Observable<NodeModel> | null = null;
+    let observable: Observable<NodeModel> | null = null;
 
     if (id.includes('v1/heritage-objects/')) {
       const url = `${this.apiBaseUrl}/heritage-objects/${extractedId}`;
-      mockObservable = this.http.get<NodeModel>(url);
+      observable = this.http.get<NodeModel>(url);
     } else if (id.includes('v1/terms/')) {
-      mockObservable = this.mockDataService.termDetails(id);
+      // mockObservable = this.mockDataService.termDetails(id);
 
-      // const url = `${this.apiBaseUrl}/terms/${extractedId}`;
-      // mockObservable = this.http.get<NodeModel>(url);
+      const url = `${this.apiBaseUrl}/terms/${extractedId}`;
+      observable = this.http.get<NodeModel>(url);
     } else if (id.includes('v1/places/')) {
-      mockObservable = this.mockDataService.placeDetails(id);
+      observable = this.mockDataService.placeDetails(id);
     } else if (id.includes('v1/organizations/')) {
-      mockObservable = this.mockDataService.organizationDetails(id);
+      observable = this.mockDataService.organizationDetails(id);
     } else if (id.includes('v1/persons/')) {
-      mockObservable = this.mockDataService.personDetails(id);
+      observable = this.mockDataService.personDetails(id);
     } else if (id.includes('v1/occupations/')) {
-      mockObservable = this.mockDataService.occupationDetails(id);
+      observable = this.mockDataService.occupationDetails(id);
     } else if (id.includes('v1/media-objects/')) {
-      mockObservable = this.mockDataService.mediaObjectDetails(id);
+      observable = this.mockDataService.mediaObjectDetails(id);
     } else if (id.includes('v1/licenses/')) {
-      mockObservable = this.mockDataService.licenseDetails(id);
+      observable = this.mockDataService.licenseDetails(id);
     } else if (id.includes('v1/datasets/')) {
-      mockObservable = this.mockDataService.datasetDetails(id);
+      observable = this.mockDataService.datasetDetails(id);
     } else {
       throw new Error(`Unsupported resource type for ID: ${id}`);
     }
 
     // TODO: Remove mock data enrichment when API is ready
-    return mockObservable.pipe(
+    return observable.pipe(
       map((node) => this.mockDataService.enrichNodeWithMockData(node)),
     );
   }
