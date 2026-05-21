@@ -38,6 +38,7 @@
 
 <ng-template #imageCardContent let-showExternalIcon="showExternalIcon">
   <div class="image-wrapper hover:opacity-90 transition-opacity">
+    <!-- TODO: Add skeleton -->
     <img
       [src]="getImageUrl(node())"
       [alt]="getNodeName(node())"
