@@ -1,6 +1,7 @@
 import { Injectable, inject, computed } from '@angular/core';
 import { ConfigService } from '../../config/config.service';
 import { getNestedValue } from '../data-utils/property-path.util';
+import { normalizeToFirst } from '../data-utils/value-normalization.util';
 import { NodeModel } from './types/node.model';
 
 @Injectable({ providedIn: 'root' })
@@ -14,8 +15,9 @@ export class NodeImageResolverService {
   getImageUrl(node: NodeModel): string | null {
     for (const path of this.imagePaths()) {
       const value = getNestedValue(node, path);
-      if (typeof value === 'string' && value) {
-        return value;
+      const normalized = normalizeToFirst(value);
+      if (typeof normalized === 'string' && normalized) {
+        return normalized;
       }
     }
     return null;
