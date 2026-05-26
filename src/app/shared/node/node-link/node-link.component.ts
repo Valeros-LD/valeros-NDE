@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { NgTemplateOutlet } from '@angular/common';
 import { normalizeToFirst } from '../../data-utils/value-normalization.util';
 import { NodeModel } from '../types/node.model';
+import { NodeLinkMode } from './node-link-mode';
 import { NodeLinkService } from './node-link.service';
 import { NodeImageResolverService } from '../node-image-resolver.service';
 import { NgIcon, provideIcons } from '@ng-icons/core';
@@ -26,7 +27,7 @@ import { addUriPrefix } from '../../../config/details-page-uri-prefix.config';
 export class NodeLinkComponent {
   readonly node = input.required<NodeModel>();
   readonly showType = input<boolean>(true);
-  readonly mode = input<'inline' | 'image-card'>('inline');
+  readonly mode = input<NodeLinkMode>('inline');
 
   private nodeLinkService = inject(NodeLinkService);
   private imageResolver = inject(NodeImageResolverService);
@@ -36,9 +37,7 @@ export class NodeLinkComponent {
   });
 
   readonly isImageCard = computed(() => {
-    return (
-      this.mode() === 'image-card' && this.imageResolver.hasImage(this.node())
-    );
+    return this.mode() === 'image-card';
   });
 
   getNodeName(node: NodeModel): string {
@@ -57,8 +56,10 @@ export class NodeLinkComponent {
     return normalizeToFirst<string>(node.type);
   }
 
-  getImageUrl(node: NodeModel): string | null {
-    return this.imageResolver.getImageUrl(node);
+  getImageUrl(node: NodeModel): string {
+    const imageUrl = this.imageResolver.getImageUrl(node);
+    // TODO: Replace placeholder image
+    return imageUrl || 'https://placehold.co/250x250?text=Geen+afbeelding';
   }
 
   protected readonly addUriPrefix = addUriPrefix;

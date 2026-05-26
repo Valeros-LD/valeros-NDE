@@ -1,10 +1,15 @@
 <div class="flex flex-wrap gap-2">
   @for (node of nodes(); track node.id) {
-    @if (imageResolver.hasImage(node)) {
-      <app-node-link [node]="node" [showType]="showType()" mode="image-card" />
+    @let nodeMode = getNodeMode(node);
+    @if (nodeMode === 'image-card') {
+      <app-node-link [node]="node" [showType]="showType()" [mode]="nodeMode" />
     } @else {
       <span class="badge badge-primary py-4 px-4">
-        <app-node-link [node]="node" [showType]="showType()" />
+        <app-node-link
+          [node]="node"
+          [showType]="showType()"
+          [mode]="nodeMode"
+        />
       </span>
     }
   }

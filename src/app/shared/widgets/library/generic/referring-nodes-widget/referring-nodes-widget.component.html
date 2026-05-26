@@ -12,6 +12,10 @@
       naar {{ node().name }}
     </div>
 
-    <app-node-link-list [nodes]="referringNodes()" [showType]="false" />
+    <app-node-link-list
+      [nodes]="referringNodes()"
+      [showType]="false"
+      [mode]="'image-card'"
+    />
   </div>
 }
