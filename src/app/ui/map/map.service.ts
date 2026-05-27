@@ -3,7 +3,7 @@ import * as L from 'leaflet';
 import { getNestedValue } from '../../data-utils/property-path.util';
 import { normalizeToArray } from '../../data-utils/value-normalization.util';
 import { isNodeModel, NodeModel } from '../../node/types/node.model';
-import { GeoCoordinates, isGeoCoordinates } from './geo-coordinates.model';
+import { GeoCoordinates, isGeoCoordinates } from './geo-coordinates';
 
 const defaultCircleMarkerOptions: L.CircleMarkerOptions = {
   radius: 8,
