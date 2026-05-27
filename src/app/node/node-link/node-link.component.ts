@@ -52,8 +52,7 @@ export class NodeLinkComponent {
 
   getImageUrl(node: NodeModel): string {
     const imageUrl = this.imageResolver.getImageUrl(node);
-    // TODO: Replace placeholder image
-    return imageUrl || 'https://placehold.co/250x250?text=Geen+afbeelding';
+    return imageUrl || '/image-loading-failed.svg';
   }
 
   protected readonly addUriPrefix = addUriPrefix;
