@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { featherFilter } from '@ng-icons/feather-icons';
-import { BreadcrumbService } from '../../details/details-page/breadcrumbs/breadcrumb.service';
+import { BreadcrumbService } from '../../details-page/breadcrumbs/breadcrumb.service';
 import { BreakpointService } from '../../ui/breakpoint/breakpoint.service';
 import { ErrorAlertComponent } from '../../ui/error-alert/error-alert.component';
 import { HeaderBannerComponent } from '../../ui/header-banner/header-banner.component';

@@ -4,7 +4,7 @@ import { NodeLinkListComponent } from '../../../node/node-link-list/node-link-li
 import { isNodeModel, NodeModel } from '../../../node/types/node.model';
 import { BaseWidget } from '../../base-widget';
 import { TextWidget } from '../text-widget/text-widget.component';
-import { TextWidgetOptions } from '../text-widget/text-widget.config';
+import { TextWidgetOptions } from '../text-widget/text-widget.options';
 
 @Component({
   selector: 'app-link-widget',

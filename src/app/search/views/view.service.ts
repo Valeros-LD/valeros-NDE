@@ -1,6 +1,6 @@
 import { Injectable, Type, inject } from '@angular/core';
 import { ConfigService } from '../../config/config-page/config.service';
-import { SearchResultsPresentationConfig } from '../../config/types/app-config';
+import { SearchResultsPresentationConfig } from '../../config/types/valeros-config';
 import { getViewComponent } from '../../config/view-component.registry';
 import { NodePresentationConfig } from '../../widgets/core/types/node-presentation-config';
 import { BaseResultsView } from './base-results-view';

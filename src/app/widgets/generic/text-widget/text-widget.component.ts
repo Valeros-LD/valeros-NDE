@@ -1,9 +1,9 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { Component, computed } from '@angular/core';
-import { HighlightedTextComponent } from '../../../node/highlighted-text/highlighted-text.component';
-import { TruncatedTextComponent } from '../../../node/truncated-text/truncated-text.component';
+import { HighlightedTextComponent } from '../../../ui/highlighted-text/highlighted-text.component';
+import { TruncatedTextComponent } from '../../../ui/truncated-text/truncated-text.component';
 import { BaseWidget } from '../../base-widget';
-import { TextWidgetOptions } from './text-widget.config';
+import { TextWidgetOptions } from './text-widget.options';
 
 @Component({
   selector: 'app-text-widget',

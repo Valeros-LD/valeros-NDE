@@ -1,12 +1,12 @@
 import { computed, effect, Injectable, signal } from '@angular/core';
 import { ViewsConfig } from '../../search/views/types/view-config';
 import { FacetConfig } from '../facets.config';
-import { AppConfig } from '../types/app-config';
+import { ValerosConfig } from '../types/valeros-config';
 
 @Injectable({ providedIn: 'root' })
 export class ConfigService {
   private readonly STORAGE_KEY = 'valerosConfig';
-  private config = signal<AppConfig | null>(null);
+  private config = signal<ValerosConfig | null>(null);
 
   readonly facets = computed(() => this.config()?.facets ?? []);
   readonly presentation = computed(() => this.config()?.presentation);
@@ -28,13 +28,13 @@ export class ConfigService {
     });
   }
 
-  initialize(config: AppConfig): void {
+  initialize(config: ValerosConfig): void {
     // TODO: Validate config structure
     const savedConfig = this.loadConfigFromSessionStorage();
     this.config.set(savedConfig ?? config);
   }
 
-  private loadConfigFromSessionStorage(): AppConfig | null {
+  private loadConfigFromSessionStorage(): ValerosConfig | null {
     return null;
 
     // const stored = sessionStorage.getItem(this.STORAGE_KEY);
@@ -47,7 +47,7 @@ export class ConfigService {
     // }
   }
 
-  updateConfig(updates: Partial<AppConfig>): void {
+  updateConfig(updates: Partial<ValerosConfig>): void {
     const current = this.config();
     if (current) {
       this.config.set({ ...current, ...updates });
@@ -61,7 +61,9 @@ export class ConfigService {
     }
   }
 
-  updatePresentation(presentation: Partial<AppConfig['presentation']>): void {
+  updatePresentation(
+    presentation: Partial<ValerosConfig['presentation']>,
+  ): void {
     const current = this.config();
     if (current) {
       this.config.set({
@@ -78,7 +80,7 @@ export class ConfigService {
     }
   }
 
-  getConfig(): AppConfig | null {
+  getConfig(): ValerosConfig | null {
     return this.config();
   }
 }

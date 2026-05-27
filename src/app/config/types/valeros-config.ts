@@ -8,7 +8,7 @@ export type SearchResultsPresentationConfig = Record<
   NodePresentationConfig
 >;
 
-export interface AppConfig {
+export interface ValerosConfig {
   facets: FacetConfig[];
   presentation: {
     default: NodePresentationConfig;

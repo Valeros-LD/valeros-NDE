@@ -20,7 +20,7 @@ import { Dimensions } from '../../../ui/image/types/dimensions';
 import { ImageModel } from '../../../ui/image/types/image.model';
 import { BaseWidget } from '../../base-widget';
 import { IiifImageService } from '../iiif-widget/iiif-image.service';
-import { ImageGalleryWidgetOptions } from './image-gallery-widget.config';
+import { ImageGalleryWidgetOptions } from './image-gallery-widget.options';
 
 @Component({
   selector: 'app-image-gallery-widget',
