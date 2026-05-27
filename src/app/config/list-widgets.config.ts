@@ -1,4 +1,4 @@
-import { WidgetsSettings } from '../widgets/types/widget-config';
+import { WidgetsSettings } from '../widgets/core/types/widget-config';
 import { BASE_WIDGETS_SETTINGS } from './base-widgets.config';
 
 export const LIST_VIEW_WIDGETS_SETTINGS: WidgetsSettings = {

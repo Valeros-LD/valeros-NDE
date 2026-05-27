@@ -10,12 +10,12 @@ import {
   addUriPrefix,
   removeUriPrefix,
 } from '../../routing/details-page-uri-prefix';
-import { BackToSearchComponent } from '../../ui/back-to-search/back-to-search.component';
-import { BreadcrumbService } from '../../ui/breadcrumbs/breadcrumb.service';
-import { BreadcrumbComponent } from '../../ui/breadcrumbs/breadcrumb/breadcrumb.component';
 import { ErrorAlertComponent } from '../../ui/error-alert/error-alert.component';
 import { LoadingSpinnerComponent } from '../../ui/loading-spinner/loading-spinner.component';
 import { PageTitleService } from '../../ui/page-title/page-title.service';
+import { BackToSearchComponent } from './back-to-search/back-to-search.component';
+import { BreadcrumbService } from './breadcrumbs/breadcrumb.service';
+import { BreadcrumbComponent } from './breadcrumbs/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-details',

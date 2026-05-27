@@ -1,4 +1,4 @@
-import { WidgetsSettings } from '../widgets/types/widget-config';
+import { WidgetsSettings } from '../widgets/core/types/widget-config';
 
 export const BASE_WIDGETS_SETTINGS: WidgetsSettings = {
   mappings: [

@@ -1,6 +1,6 @@
 import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, computed, inject } from '@angular/core';
-import { FacetsService } from '../../../search/components/facets/facets.service';
+import { FacetsService } from '../../../search/search-page/facets/facets.service';
 import { DraggableListItem } from '../../../ui/draggable-list/draggable-list-item';
 import { DraggableList } from '../../../ui/draggable-list/draggable-list.component';
 import { ConfigService } from '../config.service';

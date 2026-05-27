@@ -1,8 +1,8 @@
 import { Type } from '@angular/core';
-import { BaseResultsView } from '../search/views/infrastructure/base-results-view';
-import { ListViewComponent } from '../search/views/library/list-view/list-view.component';
-import { MapViewComponent } from '../search/views/library/map-view/map-view.component';
-import { MasonryViewComponent } from '../search/views/library/masonry-view/masonry-view.component';
+import { BaseResultsView } from '../search/views/base-results-view';
+import { ListViewComponent } from '../search/views/list-view/list-view.component';
+import { MapViewComponent } from '../search/views/map-view/map-view.component';
+import { MasonryViewComponent } from '../search/views/masonry-view/masonry-view.component';
 
 export const VIEW_COMPONENT_REGISTRY = {
   'list-view': ListViewComponent,

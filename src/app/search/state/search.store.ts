@@ -5,8 +5,8 @@ import { ApiService } from '../../api/api.service';
 import { NodeModel } from '../../node/types/node.model';
 import { Facet } from '../types/facet';
 import { SearchResponse } from '../types/search-response';
-import { ViewService } from '../views/infrastructure/view.service';
 import { ViewType } from '../views/types/view-type';
+import { ViewService } from '../views/view.service';
 import { FilterStore } from './filter.store';
 
 interface SearchUrlParams {

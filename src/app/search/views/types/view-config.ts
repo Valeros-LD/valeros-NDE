@@ -1,6 +1,6 @@
 import { IconKey } from '../../../config/icon.registry';
 import { ViewComponentKey } from '../../../config/view-component.registry';
-import { WidgetsSettings } from '../../../widgets/types/widget-config';
+import { WidgetsSettings } from '../../../widgets/core/types/widget-config';
 import { ViewType } from './view-type';
 
 export interface BaseViewConfig {

@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, inject, input, Signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { addUriPrefix } from '../routing/details-page-uri-prefix';
-import { DynamicWidgetComponent } from '../widgets/infrastructure/dynamic-widget/dynamic-widget.component';
-import { WidgetService } from '../widgets/infrastructure/widget.service';
-import { WidgetsSettings } from '../widgets/types/widget-config';
-import { WidgetsByPosition } from '../widgets/types/widgets-by-position';
+import { DynamicWidgetComponent } from '../widgets/core/dynamic-widget/dynamic-widget.component';
+import { WidgetsSettings } from '../widgets/core/types/widget-config';
+import { WidgetsByPosition } from '../widgets/core/types/widgets-by-position';
+import { WidgetService } from '../widgets/widget.service';
 import { ArrowIndicatorComponent } from './arrow-indicator/arrow-indicator.component';
 import { NodeModel } from './types/node.model';
 
