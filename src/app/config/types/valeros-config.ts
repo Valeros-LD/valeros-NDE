@@ -1,6 +1,7 @@
 import { ViewsConfig } from '../../search/views/types/view-config';
 import { ViewType } from '../../search/views/types/view-type';
 import { NodePresentationConfig } from '../../widgets/core/types/node-presentation-config';
+import { ApiConfig } from '../api.config';
 import { FacetConfig } from '../facets.config';
 
 export type SearchResultsPresentationConfig = Record<
@@ -9,9 +10,7 @@ export type SearchResultsPresentationConfig = Record<
 >;
 
 export interface ValerosConfig {
-  api: {
-    baseUrl: string;
-  };
+  api: ApiConfig;
   facets: FacetConfig[];
   presentation: {
     default: NodePresentationConfig;
