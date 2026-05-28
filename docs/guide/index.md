@@ -1,17 +1,28 @@
 # What is Valeros?
 
-Valeros is a reusable, NDE-compatible linked data browser. It is designed as a standard solution for [targeted search](https://zenodo.org/records/14938780) and [browsing and discovery](https://zenodo.org/records/14938780) of heritage data.
+Valeros is a **reusable, flexible heritage data browser**.
 
-For end users, it provides an intuitive interface to explore, search, and discover heritage collections, without needing to understand the complexities of linked data.
+It is designed as a standard solution for **targeted search** and **browsing and discovery** of heritage data. See the [Netwerk Digitaal Erfgoed](https://netwerkdigitaalerfgoed.nl/en/) (NDE) [user profiles publication](https://zenodo.org/records/14938780) for more information about these types of users and their needs.
 
-As a developer, Valeros lets you control what, how, and when data is shown to end users through simple configuration files. **No Angular, linked data, or SPARQL knowledge required.**
+As a developer, Valeros lets you control what, how, and when data is shown to end users through **simple configuration files**.
 
 ## Key Features
 
-- **NDE-compatible** - Complies with the [NDE vision](https://zenodo.org/records/17541400) for heritage data presentation
-- **Configuration-driven development** - Control the user experience through simple configuration files
-- **Built-in widgets** for common use cases (maps, images, IIIF viewers, etc., or [create your own](/guide/custom-widgets))
-- **View-specific configurations** - Different layouts for different contexts (show data as list, grid, map, or [create your own](/guide/custom-views))
+### Search & Discovery
+
+- **Full-text search** - Find heritage objects across all indexed fields
+- **Faceted filtering** - Narrow results by categories like date, location, or type
+- **Autocomplete** - Get suggestions as you type
+- **Sorting** - Order results by relevance, date, or custom criteria
+- **Connected heritage** - Discover related objects that share the same terms, people, or places
+
+### Data Presentation
+
+- **Flexible layouts** - Display results as lists, grids, maps, or [create your own views](/guide/custom-views)
+- **Built-in widgets** - Ready-to-use components for maps, images, IIIF viewers, and more, or [create your own](/guide/custom-widgets)
+- **Detail pages** - Dedicated pages for individual heritage objects with rich metadata
+- **IIIF support** - View high-resolution images with zoom and pan capabilities
+- **Source provenance** - Always link back to the original data source for transparency
 
 ## Architecture
 
@@ -21,8 +32,8 @@ Add a Mermaid diagram here to visualize the architecture
 
 Valeros follows the [NDE vision](https://zenodo.org/records/17541400) of **explicit separation between data and presentation layers**:
 
-- The **data layer** retrieves datasets registered in the [**NDE Dataset Register**](https://datasetregister.netwerkdigitaalerfgoed.nl/) and provides a standardized API
-- The **presentation layer** (this project) consumes the API and allows configuration of how data is displayed
+- The **data layer** retrieves datasets registered in the [**NDE Dataset Register**](https://datasetregister.netwerkdigitaalerfgoed.nl/) and provides a standardized API.
+- Valeros is a **presentation layer** that consumes the API and allows configuration of how data is displayed.
 
 ## Next Steps
 
