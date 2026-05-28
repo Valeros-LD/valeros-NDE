@@ -8,6 +8,7 @@ export class ConfigService {
   private readonly STORAGE_KEY = 'valerosConfig';
   private config = signal<ValerosConfig | null>(null);
 
+  readonly apiBaseUrl = computed(() => this.config()?.api.baseUrl ?? '');
   readonly facets = computed(() => this.config()?.facets ?? []);
   readonly presentation = computed(() => this.config()?.presentation);
   readonly views = computed(() => this.config()?.views);

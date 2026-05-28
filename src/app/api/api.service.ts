@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, Signal } from '@angular/core';
 import { map, Observable, throwError } from 'rxjs';
+import { ConfigService } from '../config/config-page/config.service';
 import { NodeModel } from '../node/types/node.model';
 import { SearchQuery } from '../search/types/search-query';
 import { SearchResponse } from '../search/types/search-response';
@@ -12,12 +13,13 @@ import { MockDataService } from './mock-data.service';
 export class ApiService {
   private readonly http = inject(HttpClient);
   private readonly mockDataService = inject(MockDataService);
-  readonly apiBaseUrl = 'https://datalaag.valeros.nl/v1';
+  private readonly configService = inject(ConfigService);
+  private readonly apiBaseUrl: Signal<string> = this.configService.apiBaseUrl;
 
   search(query: SearchQuery): Observable<SearchResponse> {
     const { page, ...queryParams } = query;
     const params = new HttpParams({ fromObject: queryParams });
-    const url = `${this.apiBaseUrl}/heritage-objects/page/${page}`;
+    const url = `${this.apiBaseUrl()}/heritage-objects/page/${page}`;
 
     // TODO: Remove mock data enrichment when API is ready
     return this.http
@@ -32,7 +34,7 @@ export class ApiService {
   autocomplete(query: SearchQuery): Observable<SearchResponse> {
     const { page, ...queryParams } = query;
     const params = new HttpParams({ fromObject: queryParams });
-    const url = `${this.apiBaseUrl}/terms/page/${page}`;
+    const url = `${this.apiBaseUrl()}/terms/page/${page}`;
 
     return this.http.get<SearchResponse>(url, { params });
   }
@@ -53,7 +55,7 @@ export class ApiService {
 
     for (const resource of apiResources) {
       if (id.includes(`v1/${resource}/`)) {
-        const url = `${this.apiBaseUrl}/${resource}/${extractedId}`;
+        const url = `${this.apiBaseUrl()}/${resource}/${extractedId}`;
         observable = this.http.get<NodeModel>(url);
         return observable.pipe(
           // TODO: Remove mock data enrichment when API is ready

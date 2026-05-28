@@ -9,6 +9,9 @@ export type SearchResultsPresentationConfig = Record<
 >;
 
 export interface ValerosConfig {
+  api: {
+    baseUrl: string;
+  };
   facets: FacetConfig[];
   presentation: {
     default: NodePresentationConfig;

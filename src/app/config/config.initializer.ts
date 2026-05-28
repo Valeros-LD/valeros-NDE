@@ -1,4 +1,5 @@
 import { inject } from '@angular/core';
+import { API_CONFIG } from './api.config';
 import { ConfigService } from './config-page/config.service';
 import { FACETS_CONFIG } from './facets.config';
 import { IMAGE_PATHS_CONFIG } from './image-paths.config';
@@ -12,6 +13,7 @@ export function initializeAppConfig() {
   const configService = inject(ConfigService);
 
   configService.initialize({
+    api: API_CONFIG,
     facets: FACETS_CONFIG,
     presentation: {
       default: LIST_PRESENTATION_CONFIG,
