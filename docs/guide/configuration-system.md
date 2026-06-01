@@ -34,12 +34,12 @@ Configures how facets are displayed in Valeros. The facets themselves are return
 
 ```ts
 export const FACETS_CONFIG: FacetConfig[] = [
-  { name: 'dataset', label: 'Dataset', icon: 'feather-archive' },
-  { name: 'contentLocation', label: 'Locatie', icon: 'feather-map-pin' },
+  { name: 'dataset', label: 'Dataset', icon: 'archive' },
+  { name: 'contentLocation', label: 'Locatie', icon: 'map-pin' },
   {
     name: 'creator',
     label: 'Vervaardiger',
-    icon: 'feather-user',
+    icon: 'user',
     hidden: true,
   },
   // ...
@@ -55,16 +55,16 @@ Each facet configuration supports:
 
 ### Presentation Configuration
 
-**Location:** `src/app/config/widgets/*.config.ts`
+**Location:** `src/app/config/presentation/*.ts`
 
 Defines how data is displayed in different contexts:
 
-- `list-widgets.config.ts` - List view presentation
-- `grid-widgets.config.ts` - Grid view presentation
-- `map-widgets.config.ts` - Map view presentation
-- `details-widgets.config.ts` - Detail page presentation
+- `list-presentation.config.ts` - List view presentation
+- `grid-presentation.config.ts` - Grid view presentation
+- `map-presentation.config.ts` - Map view presentation
+- `details-presentation.config.ts` - Detail page presentation
 
-See [Widget System](/guide/widget-system) for more details.
+See [Data Presentation](/guide/configuring-data-presentation) for more details.
 
 ### Views Configuration
 
@@ -100,7 +100,7 @@ Maps icon IDs to icon components from the [@ng-icons](https://ng-icons.github.io
 
 **Adding new icons:**
 
-1. Import the icon from `@ng-icons/feather-icons`:
+1. Import the icon from `@ng-icons/feather-icons` (or another icon set from [@ng-icons](https://ng-icons.github.io/ng-icons/)):
 
 ```ts
 import {
@@ -114,7 +114,7 @@ import {
 ```ts
 export const ICON_REGISTRY = {
   // ... existing icons
-  'feather-new-icon': featherNewIcon,
+  'new-icon': featherNewIcon,
 } as const;
 ```
 
@@ -178,5 +178,5 @@ The goal is to provide:
 This would make configuration accessible to users without technical skills, enabling anyone to customize Valeros without needing to understand TypeScript or code.
 
 ::: warning Work in Progress
-This feature is still in active development and highly experimental. The UI and functionality may change significantly.
+This feature is still in active development. The UI and functionality may change significantly.
 :::
