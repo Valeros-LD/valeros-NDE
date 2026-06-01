@@ -175,6 +175,7 @@ export const mediaWidget: Widget = {
   options: {
     showPropertyLabel: false,
     position: 'left',
+    iiifViewer: 'tify',
   },
 };
 

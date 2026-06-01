@@ -1,19 +1,27 @@
 @if (hasManifest()) {
-  <!-- <app-mirador-iiif-widget
-    [node]="node()"
-    [property]="property()"
-    [options]="options()"
-  />
-  <app-universalviewer-iiif-widget
-    [node]="node()"
-    [property]="property()"
-    [options]="options()"
-  /> -->
-  <app-tify-iiif-widget
-    [node]="node()"
-    [property]="property()"
-    [options]="options()"
-  ></app-tify-iiif-widget>
+  @switch (viewerType()) {
+    @case ('tify') {
+      <app-tify-iiif-widget
+        [node]="node()"
+        [property]="property()"
+        [options]="options()"
+      />
+    }
+    @case ('mirador') {
+      <app-mirador-iiif-widget
+        [node]="node()"
+        [property]="property()"
+        [options]="options()"
+      />
+    }
+    @case ('universalviewer') {
+      <app-universalviewer-iiif-widget
+        [node]="node()"
+        [property]="property()"
+        [options]="options()"
+      />
+    }
+  }
 } @else {
   <app-image-gallery-widget
     [node]="node()"
