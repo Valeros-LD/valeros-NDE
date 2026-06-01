@@ -309,6 +309,15 @@ export const datasetWithoutLabelWidget: PropertyWidget = {
   },
 };
 
+export const separatorWidget: PropertyWidget = {
+  id: 'separator',
+  properties: [],
+  componentId: 'separator-widget',
+  options: {
+    showPropertyLabel: false,
+  },
+};
+
 export const fallbackWidget: PropertyWidget = {
   id: 'fallback',
   properties: [],

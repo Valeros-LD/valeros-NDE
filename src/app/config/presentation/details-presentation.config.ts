@@ -51,6 +51,7 @@ export const DETAILS_PRESENTATION_CONFIG: NodePresentationConfig = {
     isPartOfPublisherWidget,
     isBasedOnWidget,
     referringNodesWidget,
+    // separatorWidget,
   ],
   displayedWidgetIds: [
     'name',
@@ -62,6 +63,7 @@ export const DETAILS_PRESENTATION_CONFIG: NodePresentationConfig = {
     'is-part-of-license',
     'dataset',
     'is-part-of-publisher',
+    // 'separator',
     'is-based-on',
     'referring-nodes',
   ],

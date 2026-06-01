@@ -43,6 +43,13 @@ export class WidgetService {
       });
     });
 
+    const widgetsWithNoProperties = presentationConfig.widgets.filter(
+      (w) => w.properties.length === 0,
+    );
+    widgetsWithNoProperties.forEach((widget) => {
+      widgetsWithProperties.push({ property: '', widget });
+    });
+
     return widgetsWithProperties;
   }
 

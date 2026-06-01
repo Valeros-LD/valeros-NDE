@@ -8,6 +8,7 @@ import { LinkWidget } from '../../../widgets/generic/link-widget/link-widget.com
 import { MapWidget } from '../../../widgets/generic/map-widget/map-widget.component';
 import { MediaWidget } from '../../../widgets/generic/media-widget/media-widget.component';
 import { ReferringNodesWidget } from '../../../widgets/generic/referring-nodes-widget/referring-nodes-widget.component';
+import { SeparatorWidget } from '../../../widgets/generic/separator-widget/separator-widget.component';
 import { TextWidget } from '../../../widgets/generic/text-widget/text-widget.component';
 
 export const WIDGET_COMPONENT_REGISTRY = {
@@ -20,6 +21,7 @@ export const WIDGET_COMPONENT_REGISTRY = {
   'dataset-widget': DatasetWidget,
   'address-widget': AddressWidget,
   'referring-nodes-widget': ReferringNodesWidget,
+  'separator-widget': SeparatorWidget,
 } as const;
 
 export type WidgetComponentKey = keyof typeof WIDGET_COMPONENT_REGISTRY;
