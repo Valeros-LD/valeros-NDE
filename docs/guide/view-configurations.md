@@ -1,46 +1,144 @@
 # View Configurations
 
-Views define how search results are displayed to users. Valeros supports multiple view types for different use cases.
+Views define how search results are displayed to users. Valeros supports multiple [view types](/guide/view-configurations.html#built-in-view-types) for different use cases. You can extend this by [creating your own views](/guide/custom-views).
 
-## Available View Types
+## View Configuration File
 
-Valeros supports the following built-in view types:
+View configurations are controlled through the configuration file in `src/app/config/views/views.config.ts`.
 
-- `'list'` - List view with thumbnails and metadata
-- `'grid'` - Grid/masonry view for image-heavy collections
-- `'map'` - Map view for geographic exploration
+## Basic Structure
 
-Use one of these types to get started or [create a custom view](/guide/custom-views).
+The default views configuration file has the following structure:
 
-## Configuration
-
-Views are configured in:
-
-```
-src/app/features/search/config/views.config.ts
-```
-
-### Example Configuration
-
-```typescript
-export const SEARCH_VIEWS_CONFIG: ViewsSettings = {
-  mappings: [
+```ts
+export const SEARCH_VIEWS_CONFIG: ViewsConfig = {
+  views: [
     {
       type: 'list',
-      component: ListViewComponent, // Extends BaseResultsView
-      config: {
+      componentId: 'list-view',
+      options: {
         pageSize: 20,
         showPagination: true,
         showResultsCount: true,
       },
-      icon: featherList,
+      icon: 'list',
       label: 'Lijst weergave',
-      widgetsSettings: LIST_VIEW_WIDGETS_SETTINGS,
+      presentationConfig: LIST_PRESENTATION_CONFIG,
     },
+    // ... more views
+  ],
+  defaultView: 'list',
+};
+```
+
+### Configuration Properties
+
+- **`views`** - Array of view configurations. Each view has:
+  - **`type`** - Unique identifier of the view's `ViewType` (e.g., `'grid'`, `'list'`, or `'map'`)
+  - **`componentId`** - Component to render (`'list-view'`, `'masonry-view'`, `'map-view'`, as defined in `src/app/config/views/view-component.registry.ts`)
+  - **`options`** - View-specific options (see [View Options](#view-options))
+  - **`icon`** - Icon name for the view switcher (see [Icon Registry](/guide/configuration-system#icon-registry))
+  - **`label`** - Display label for the view switcher
+  - **`presentationConfig`** - [Presentation configuration](/guide/configuring-data-presentation) for this view
+
+- **`defaultView`** - The view type to show by default
+
+## Built-in View Types
+
+A **view** defines how search results are displayed to users. Each view has a specific layout and behavior suited for different use cases.
+
+Valeros supports the following built-in view types:
+
+- **`'list'`** - List view with thumbnails and metadata (component: `'list-view'`)
+- **`'grid'`** - Grid/masonry view for image-heavy collections (component: `'masonry-view'`)
+- **`'map'`** - Map view for geographic exploration (component: `'map-view'`)
+
+TODO: Add video of view switcher.
+
+## View Options
+
+All views support the following **base options** (see `BaseViewOptions` in `src/app/search/views/types/view-options.ts`):
+
+- **`pageSize`** - Number of results to show per page (default: `20`)
+- **`showPagination`** - Whether to show pagination controls (default: `true`)
+- **`showResultsCount`** - Whether to show the total results count (default: `true`)
+- **`showSort`** - Whether to show sort controls (default: `true`)
+- **`hidden`** - Whether to hide the view from the view switcher (default: `false`)
+
+## Common Tasks
+
+### Changing the Default View
+
+The default view is controlled by the `defaultView` property. Set it to the `type` of the view you want to show by default:
+
+```ts
+export const SEARCH_VIEWS_CONFIG: ViewsConfig = {
+  views: [
+    // ...
+  ],
+  defaultView: 'grid', // Show grid view by default
+};
+```
+
+### Customizing View Options
+
+You can customize view behavior by modifying the `options` object (see [View Options](#view-options)):
+
+```ts
+{
+  type: 'map',
+  componentId: 'map-view',
+  options: {
+    pageSize: 100,        // Show more results on the map
+    showPagination: false, // Hide pagination for map view
+    showResultsCount: true,
+    showSort: false,       // Hide sort controls for map view
+  },
+  icon: 'map',
+  label: 'Kaart weergave',
+  presentationConfig: MAP_PRESENTATION_CONFIG,
+}
+```
+
+### Changing View Order
+
+The order of views in the view switcher is controlled by the order in the `views` array. Simply reorder the view configurations:
+
+```ts
+export const SEARCH_VIEWS_CONFIG: ViewsConfig = {
+  views: [
+    // Grid view will appear first in the switcher
     {
       type: 'grid',
       // ...
     },
+    // List view will appear second
+    {
+      type: 'list',
+      // ...
+    },
+    // Map view will appear last
+    {
+      type: 'map',
+      // ...
+    },
+  ],
+  defaultView: 'grid',
+};
+```
+
+### Removing a View
+
+To remove a view, simply delete its configuration from the `views` array and update `defaultView` if needed:
+
+```ts
+export const SEARCH_VIEWS_CONFIG: ViewsConfig = {
+  views: [
+    {
+      type: 'list',
+      // ...
+    },
+    // Grid view removed
     {
       type: 'map',
       // ...
@@ -50,55 +148,21 @@ export const SEARCH_VIEWS_CONFIG: ViewsSettings = {
 };
 ```
 
-## View-Specific Widget Configurations
+## View-Specific Presentation Configurations
 
-Each view can have its own [widget configuration](/guide/widget-system). For example, a **List View** might show thumbnails on the left with title and description, while a **Grid View** shows only images in a masonry layout.
+Each view can have its own [presentation configuration](/guide/configuring-data-presentation) that controls how data is displayed.
 
-### Example configuration
+For example: A **List View** might show thumbnails on the left with title, description, and metadata.
 
-```typescript
-// List view shows thumbnails on the left with title and description
-const LIST_VIEW_WIDGETS: WidgetsSettings = {
-  ...BASE_WIDGETS_SETTINGS,
-  widgetOrder: [
-    {
-      widgetIds: ['image-thumb-left', 'name', 'description'],
-    },
-  ],
-};
-
-// Grid view shows only images in a masonry layout
-const GRID_VIEW_WIDGETS: WidgetsSettings = {
-  ...BASE_WIDGETS_SETTINGS,
-  widgetOrder: [
-    {
-      widgetIds: ['image-thumb'],
-    },
-  ],
-};
-
-export const SEARCH_VIEWS_CONFIG: ViewsSettings = {
-  mappings: [
-    {
-      type: 'list',
-      component: ListViewComponent,
-      widgetsSettings: LIST_VIEW_WIDGETS,
-      // ...
-    },
-    {
-      type: 'grid',
-      component: MasonryViewComponent,
-      widgetsSettings: GRID_VIEW_WIDGETS,
-      // ...
-    },
-  ],
-};
+```ts
+{
+  type: 'list',
+  componentId: 'list-view',
+  options: { /* ... */ },
+  icon: 'list',
+  label: 'Lijst weergave',
+  presentationConfig: LIST_PRESENTATION_CONFIG, // Specific to list view
+}
 ```
 
-## Switching Views
-
-::: warning TODO
-Add screenshot here
-:::
-
-Users can switch between views using the view switcher component in the search interface.
+See [Configuring Data Presentation](/guide/configuring-data-presentation) for details on creating and customizing presentation configurations.
