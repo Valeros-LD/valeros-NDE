@@ -1,14 +1,14 @@
 import { NodePresentationConfig } from '../../widgets/core/types/node-presentation-config';
 import {
-  COMMON_SEARCH_RESULT_WIDGETS,
-  COMMON_WIDGETS,
-  FALLBACK_WIDGET,
-} from './widgets/common-widgets.config';
+  baseWidgets,
+  fallbackWidget,
+  searchResultWidgets,
+} from './widgets/widgets.config';
 
 export const LIST_PRESENTATION_CONFIG: NodePresentationConfig = {
   widgets: [
-    ...COMMON_WIDGETS,
-    ...COMMON_SEARCH_RESULT_WIDGETS,
+    ...baseWidgets,
+    ...searchResultWidgets,
     {
       id: 'image-thumb-left',
       properties: ['associatedMedia'],
@@ -35,6 +35,6 @@ export const LIST_PRESENTATION_CONFIG: NodePresentationConfig = {
       widgetIds: ['image-thumb-left', 'name', 'description-without-label'],
     },
   ],
-  fallbackWidget: FALLBACK_WIDGET,
+  fallbackWidget: fallbackWidget,
   showArrowIndicator: true,
 };

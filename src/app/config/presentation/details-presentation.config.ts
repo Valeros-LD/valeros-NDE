@@ -1,12 +1,9 @@
 import { NodePresentationConfig } from '../../widgets/core/types/node-presentation-config';
-import {
-  COMMON_WIDGETS,
-  FALLBACK_WIDGET,
-} from './widgets/common-widgets.config';
+import { baseWidgets, fallbackWidget } from './widgets/widgets.config';
 
 export const DETAILS_PRESENTATION_CONFIG: NodePresentationConfig = {
   widgets: [
-    ...COMMON_WIDGETS,
+    ...baseWidgets,
     {
       id: 'description-header',
       properties: ['description'],
@@ -228,6 +225,6 @@ export const DETAILS_PRESENTATION_CONFIG: NodePresentationConfig = {
       widgetIds: ['referring-nodes'],
     },
   ],
-  fallbackWidget: FALLBACK_WIDGET,
+  fallbackWidget: fallbackWidget,
   showArrowIndicator: true,
 };
