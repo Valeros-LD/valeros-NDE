@@ -3,21 +3,15 @@
 > [!WARNING]  
 > This project is currently in active development and not yet ready for production use.
 
-Valeros is a reusable and flexible heritage data browser. We focus on two main [user profiles](zenodo.org/records/14938780):
+Valeros is a **reusable, flexible heritage data browser**.
 
-1. Targeted search
-2. Browsing and discovery
+It is designed as a standard solution for **targeted search** and **browsing and discovery** of heritage data. See the [Netwerk Digitaal Erfgoed](https://netwerkdigitaalerfgoed.nl/en/) (NDE) [user profiles publication](https://zenodo.org/records/14938780) for more information about these types of users and their needs.
 
-## Architecture
-
-Valeros follows the [NDE vision](https://zenodo.org/records/17541400) of **explicit separation between data and presentation layers**:
-
-- The **data layer** retrieves datasets registered in the [NDE Dataset Register](https://datasetregister.netwerkdigitaalerfgoed.nl/) and provides a standardized API to the presentation layer ([implementation details](https://github.com/netwerk-digitaal-erfgoed/prototypes-data-layers/)).
-- The **presentation layer** (this project) consumes the API and allows configuration of how data is displayed to end users.
+As a developer, Valeros lets you control what, how, and when data is shown to end users through **simple configuration files**.
 
 ## Documentation
 
-_TODO: Add link to guide here._
+You can find more information on how to use and configure Valeros in the documentation at [docs.valeros.nl](https://docs.valeros.nl).
 
 ## License
 
