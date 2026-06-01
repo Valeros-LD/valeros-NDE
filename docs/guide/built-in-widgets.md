@@ -128,9 +128,12 @@ Orchestrator widget that selects the appropriate media viewer based on available
 - **IIIF viewer** - When IIIF Presentation manifest is available (Tify, Mirador, or UniversalViewer)
 - **ImageGalleryWidget** - When no IIIF manifest is available
 
-::: warning TODO
-Pass preferred IIIF viewer as config to media widget and document it here
-:::
+**Options**:
+
+- `iiifViewer` (optional): Specify which IIIF viewer to use when a manifest is available
+  - `'tify'` (default) - Tify IIIF viewer
+  - `'mirador'` - Mirador IIIF viewer
+  - `'universalviewer'` - UniversalViewer IIIF viewer
 
 **Example**:
 
@@ -142,6 +145,7 @@ Pass preferred IIIF viewer as config to media widget and document it here
   options: {
     showPropertyLabel: false,
     position: 'left',
+    iiifViewer: 'tify',
   },
 }
 ```
