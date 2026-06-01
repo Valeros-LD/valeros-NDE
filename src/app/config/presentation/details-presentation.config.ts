@@ -24,7 +24,7 @@ import {
   mediaWidget,
   publisherWidget,
   referringNodesWidget,
-} from './widgets/widgets.config';
+} from './widgets/widgets';
 
 export const DETAILS_PRESENTATION_CONFIG: NodePresentationConfig = {
   widgets: [

@@ -315,5 +315,3 @@ export const fallbackWidget: PropertyWidget = {
   componentId: 'json-widget',
   options: {},
 };
-
-

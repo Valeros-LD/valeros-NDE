@@ -4,7 +4,7 @@ import {
   datasetWidget,
   nameWidget,
   typeWidget,
-} from './widgets.config';
+} from './widgets';
 
 export const baseWidgets: PropertyWidget[] = [
   nameWidget,

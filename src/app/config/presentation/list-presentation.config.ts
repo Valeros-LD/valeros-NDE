@@ -4,7 +4,7 @@ import {
   datasetWithoutLabelWidget,
   fallbackWidget,
   imageThumbLeftWidget,
-} from './widgets/widgets.config';
+} from './widgets/widgets';
 
 export const LIST_PRESENTATION_CONFIG: NodePresentationConfig = {
   widgets: [
