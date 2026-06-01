@@ -1,8 +1,8 @@
-import { PropertyWidget, WidgetPosition } from './node-presentation-config';
+import { Widget, WidgetPosition } from './node-presentation-config';
 
 export interface WidgetWithProperty {
   property: string;
-  widget: PropertyWidget;
+  widget: Widget;
 }
 
 export type WidgetsByPosition = Record<WidgetPosition, WidgetWithProperty[]>;

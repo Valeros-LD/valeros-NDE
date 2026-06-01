@@ -1,6 +1,6 @@
-import { PropertyWidget } from '../../../widgets/core/types/node-presentation-config';
+import { Widget } from '../../../widgets/core/types/node-presentation-config';
 
-export const nameWidget: PropertyWidget = {
+export const nameWidget: Widget = {
   id: 'name',
   properties: ['name'],
   componentId: 'link-widget',
@@ -10,7 +10,7 @@ export const nameWidget: PropertyWidget = {
   },
 };
 
-export const typeWidget: PropertyWidget = {
+export const typeWidget: Widget = {
   id: 'type',
   properties: ['type'],
   componentId: 'link-widget',
@@ -20,7 +20,7 @@ export const typeWidget: PropertyWidget = {
   },
 };
 
-export const additionalTypeWidget: PropertyWidget = {
+export const additionalTypeWidget: Widget = {
   id: 'additional-type',
   properties: ['additionalType'],
   componentId: 'link-widget',
@@ -31,7 +31,7 @@ export const additionalTypeWidget: PropertyWidget = {
   },
 };
 
-export const datasetWidget: PropertyWidget = {
+export const datasetWidget: Widget = {
   id: 'dataset',
   properties: ['isPartOf'],
   componentId: 'dataset-widget',
@@ -41,7 +41,7 @@ export const datasetWidget: PropertyWidget = {
   },
 };
 
-export const imageThumbWidget: PropertyWidget = {
+export const imageThumbWidget: Widget = {
   id: 'image-thumb',
   properties: ['associatedMedia'],
   componentId: 'image-gallery-widget',
@@ -54,7 +54,7 @@ export const imageThumbWidget: PropertyWidget = {
   },
 };
 
-export const descriptionWithoutLabelWidget: PropertyWidget = {
+export const descriptionWithoutLabelWidget: Widget = {
   id: 'description-without-label',
   properties: ['description'],
   componentId: 'link-widget',
@@ -65,7 +65,7 @@ export const descriptionWithoutLabelWidget: PropertyWidget = {
   },
 };
 
-export const descriptionHeaderWidget: PropertyWidget = {
+export const descriptionHeaderWidget: Widget = {
   id: 'description-header',
   properties: ['description'],
   componentId: 'link-widget',
@@ -75,7 +75,7 @@ export const descriptionHeaderWidget: PropertyWidget = {
   },
 };
 
-export const isMockDataWidget: PropertyWidget = {
+export const isMockDataWidget: Widget = {
   id: 'is-mock-data',
   properties: ['isMockData'],
   componentId: 'text-widget',
@@ -85,7 +85,7 @@ export const isMockDataWidget: PropertyWidget = {
   },
 };
 
-export const licenseWidget: PropertyWidget = {
+export const licenseWidget: Widget = {
   id: 'license',
   properties: ['license'],
   componentId: 'link-widget',
@@ -95,7 +95,7 @@ export const licenseWidget: PropertyWidget = {
   },
 };
 
-export const publisherWidget: PropertyWidget = {
+export const publisherWidget: Widget = {
   id: 'publisher',
   properties: ['publisher'],
   componentId: 'link-widget',
@@ -105,7 +105,7 @@ export const publisherWidget: PropertyWidget = {
   },
 };
 
-export const hasOccupationWidget: PropertyWidget = {
+export const hasOccupationWidget: Widget = {
   id: 'has-occupation',
   properties: ['hasOccupation'],
   componentId: 'link-widget',
@@ -115,7 +115,7 @@ export const hasOccupationWidget: PropertyWidget = {
   },
 };
 
-export const genreWidget: PropertyWidget = {
+export const genreWidget: Widget = {
   id: 'genre',
   properties: ['genre'],
   componentId: 'link-widget',
@@ -125,7 +125,7 @@ export const genreWidget: PropertyWidget = {
   },
 };
 
-export const aboutWidget: PropertyWidget = {
+export const aboutWidget: Widget = {
   id: 'about',
   properties: ['about'],
   componentId: 'link-widget',
@@ -135,7 +135,7 @@ export const aboutWidget: PropertyWidget = {
   },
 };
 
-export const contentLocationWidget: PropertyWidget = {
+export const contentLocationWidget: Widget = {
   id: 'content-location',
   properties: ['contentLocation', 'location'],
   componentId: 'map-widget',
@@ -146,7 +146,7 @@ export const contentLocationWidget: PropertyWidget = {
   },
 };
 
-export const birthPlaceWidget: PropertyWidget = {
+export const birthPlaceWidget: Widget = {
   id: 'birth-place',
   properties: ['birthPlace'],
   componentId: 'map-widget',
@@ -157,7 +157,7 @@ export const birthPlaceWidget: PropertyWidget = {
   },
 };
 
-export const deathPlaceWidget: PropertyWidget = {
+export const deathPlaceWidget: Widget = {
   id: 'death-place',
   properties: ['deathPlace'],
   componentId: 'map-widget',
@@ -168,7 +168,7 @@ export const deathPlaceWidget: PropertyWidget = {
   },
 };
 
-export const mediaWidget: PropertyWidget = {
+export const mediaWidget: Widget = {
   id: 'media',
   properties: ['associatedMedia'],
   componentId: 'media-widget',
@@ -178,7 +178,7 @@ export const mediaWidget: PropertyWidget = {
   },
 };
 
-export const materialWidget: PropertyWidget = {
+export const materialWidget: Widget = {
   id: 'material',
   properties: ['material'],
   componentId: 'link-widget',
@@ -188,7 +188,7 @@ export const materialWidget: PropertyWidget = {
   },
 };
 
-export const creatorWidget: PropertyWidget = {
+export const creatorWidget: Widget = {
   id: 'creator',
   properties: ['creator'],
   componentId: 'link-widget',
@@ -198,7 +198,7 @@ export const creatorWidget: PropertyWidget = {
   },
 };
 
-export const dateCreatedWidget: PropertyWidget = {
+export const dateCreatedWidget: Widget = {
   id: 'date-created',
   properties: ['dateCreated'],
   componentId: 'link-widget',
@@ -208,7 +208,7 @@ export const dateCreatedWidget: PropertyWidget = {
   },
 };
 
-export const birthDateWidget: PropertyWidget = {
+export const birthDateWidget: Widget = {
   id: 'birth-date',
   properties: ['birthDate'],
   componentId: 'link-widget',
@@ -218,7 +218,7 @@ export const birthDateWidget: PropertyWidget = {
   },
 };
 
-export const deathDateWidget: PropertyWidget = {
+export const deathDateWidget: Widget = {
   id: 'death-date',
   properties: ['deathDate'],
   componentId: 'link-widget',
@@ -228,14 +228,14 @@ export const deathDateWidget: PropertyWidget = {
   },
 };
 
-export const geoWidget: PropertyWidget = {
+export const geoWidget: Widget = {
   id: 'geo',
   properties: ['geo'],
   componentId: 'map-widget',
   options: {},
 };
 
-export const addressWidget: PropertyWidget = {
+export const addressWidget: Widget = {
   id: 'address',
   properties: ['address'],
   componentId: 'address-widget',
@@ -245,7 +245,7 @@ export const addressWidget: PropertyWidget = {
   },
 };
 
-export const isPartOfLicenseWidget: PropertyWidget = {
+export const isPartOfLicenseWidget: Widget = {
   id: 'is-part-of-license',
   properties: ['isPartOf'],
   componentId: 'link-widget',
@@ -256,7 +256,7 @@ export const isPartOfLicenseWidget: PropertyWidget = {
   },
 };
 
-export const isPartOfPublisherWidget: PropertyWidget = {
+export const isPartOfPublisherWidget: Widget = {
   id: 'is-part-of-publisher',
   properties: ['isPartOf'],
   componentId: 'link-widget',
@@ -267,7 +267,7 @@ export const isPartOfPublisherWidget: PropertyWidget = {
   },
 };
 
-export const isBasedOnWidget: PropertyWidget = {
+export const isBasedOnWidget: Widget = {
   id: 'is-based-on',
   properties: ['isBasedOn'],
   componentId: 'link-widget',
@@ -277,7 +277,7 @@ export const isBasedOnWidget: PropertyWidget = {
   },
 };
 
-export const referringNodesWidget: PropertyWidget = {
+export const referringNodesWidget: Widget = {
   id: 'referring-nodes',
   properties: ['id'],
   componentId: 'referring-nodes-widget',
@@ -287,7 +287,7 @@ export const referringNodesWidget: PropertyWidget = {
   },
 };
 
-export const imageThumbLeftWidget: PropertyWidget = {
+export const imageThumbLeftWidget: Widget = {
   id: 'image-thumb-left',
   properties: ['associatedMedia'],
   componentId: 'image-gallery-widget',
@@ -300,7 +300,7 @@ export const imageThumbLeftWidget: PropertyWidget = {
   },
 };
 
-export const datasetWithoutLabelWidget: PropertyWidget = {
+export const datasetWithoutLabelWidget: Widget = {
   id: 'dataset-without-label',
   properties: ['isPartOf'],
   componentId: 'dataset-widget',
@@ -309,7 +309,7 @@ export const datasetWithoutLabelWidget: PropertyWidget = {
   },
 };
 
-export const separatorWidget: PropertyWidget = {
+export const separatorWidget: Widget = {
   id: 'separator',
   properties: [],
   componentId: 'separator-widget',
@@ -318,7 +318,7 @@ export const separatorWidget: PropertyWidget = {
   },
 };
 
-export const fallbackWidget: PropertyWidget = {
+export const fallbackWidget: Widget = {
   id: 'fallback',
   properties: [],
   componentId: 'json-widget',

@@ -1,4 +1,4 @@
-import { PropertyWidget } from '../../../widgets/core/types/node-presentation-config';
+import { Widget } from '../../../widgets/core/types/node-presentation-config';
 import {
   additionalTypeWidget,
   datasetWidget,
@@ -6,7 +6,7 @@ import {
   typeWidget,
 } from './widgets';
 
-export const baseWidgets: PropertyWidget[] = [
+export const baseWidgets: Widget[] = [
   nameWidget,
   typeWidget,
   additionalTypeWidget,

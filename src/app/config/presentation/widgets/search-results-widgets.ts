@@ -1,8 +1,8 @@
-import { PropertyWidget } from '../../../widgets/core/types/node-presentation-config';
+import { Widget } from '../../../widgets/core/types/node-presentation-config';
 import { baseWidgets } from './base-widgets';
 import { descriptionWithoutLabelWidget, imageThumbWidget } from './widgets';
 
-export const searchResultWidgets: PropertyWidget[] = [
+export const searchResultWidgets: Widget[] = [
   ...baseWidgets,
   imageThumbWidget,
   descriptionWithoutLabelWidget,

@@ -17,7 +17,7 @@ import { NodeModel } from '../../../node/types/node.model';
 import { BaseWidget } from '../../base-widget';
 import { LinkWidget } from '../../generic/link-widget/link-widget.component';
 import { PropertyLabelWrapperComponent } from '../property-label-wrapper/property-label-wrapper.component';
-import { PropertyWidget } from '../types/node-presentation-config';
+import { Widget } from '../types/node-presentation-config';
 
 @Component({
   selector: 'app-dynamic-widget',
@@ -28,7 +28,7 @@ import { PropertyWidget } from '../types/node-presentation-config';
 export class DynamicWidgetComponent implements AfterViewInit {
   data = input.required<NodeModel>();
   property = input.required<string>();
-  widget = input.required<PropertyWidget>();
+  widget = input.required<Widget>();
 
   widgetContainer = viewChild.required('widgetContainer', {
     read: ViewContainerRef,

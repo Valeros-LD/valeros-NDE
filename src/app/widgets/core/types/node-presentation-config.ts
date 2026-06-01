@@ -2,13 +2,13 @@ import { IconKey } from '../../../config/icon.registry';
 import { WidgetComponentKey } from '../../../config/presentation/widgets/widget-component.registry';
 
 export interface NodePresentationConfig {
-  widgets: PropertyWidget[];
+  widgets: Widget[];
   displayedWidgetIds: string[];
-  fallbackWidget: PropertyWidget;
+  fallbackWidget: Widget;
   showArrowIndicator?: boolean;
 }
 
-export interface PropertyWidget {
+export interface Widget {
   id: string;
   properties: string[];
   componentId: WidgetComponentKey;
