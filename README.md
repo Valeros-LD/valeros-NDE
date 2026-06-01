@@ -11,7 +11,7 @@ As a developer, Valeros lets you control what, how, and when data is shown to en
 
 ## Documentation
 
-You can find more information on how to use and configure Valeros in the documentation at [docs.valeros.nl](https://docs.valeros.nl).
+You can find more information on how to use and configure Valeros at [docs.valeros.nl](https://docs.valeros.nl).
 
 ## License
 
