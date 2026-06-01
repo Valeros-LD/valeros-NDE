@@ -2,6 +2,10 @@
 
 This guide will help you get Valeros up and running on your local machine.
 
+## Tech Stack
+
+Valeros is built with [Angular](https://angular.dev/) following the [Angular style guide](https://angular.dev/style-guide). We use modern Angular features including [signals](https://angular.dev/essentials/signals) for reactive state management, [standalone components](https://angular.dev/essentials/components), and [control flow syntax](https://angular.dev/guide/templates/control-flow). For styling, we use [**TailwindCSS**](https://tailwindcss.com/) with [**DaisyUI**](https://daisyui.com/) as the component library.
+
 ## Prerequisites
 
 ::: info Data Layer Dependency
