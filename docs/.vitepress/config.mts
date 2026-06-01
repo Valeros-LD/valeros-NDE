@@ -2,7 +2,7 @@ import { withMermaid } from 'vitepress-plugin-mermaid';
 
 export default withMermaid({
   title: 'Valeros',
-  description: 'NDE-compatible, configuration-driven linked data browser',
+  description: 'Reusable, flexible heritage data browser',
 
   themeConfig: {
     // logo: '/logo.svg',
@@ -15,7 +15,7 @@ export default withMermaid({
       { text: 'Guide', link: '/guide/' },
       {
         text: 'GitHub',
-        link: 'https://github.com/view-a-LOD/Valeros-NDE',
+        link: 'https://github.com/Valeros-LD/Valeros-NDE',
       },
     ],
 
@@ -56,7 +56,7 @@ export default withMermaid({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/view-a-LOD/Valeros-NDE',
+        link: 'https://github.com/Valeros-LD/Valeros-NDE',
       },
     ],
 

@@ -3,8 +3,7 @@ layout: home
 
 hero:
   name: Valeros
-  text: NDE-compatible linked data browser
-  tagline: No coding or linked data experience required.
+  text: Reusable, flexible heritage data browser
 
   actions:
     - theme: brand
@@ -12,18 +11,22 @@ hero:
       link: /guide/index.md
     - theme: alt
       text: View on GitHub
-      link: https://github.com/view-a-LOD/Valeros-NDE
+      link: https://github.com/Valeros-LD/Valeros-NDE
 
 features:
+  - icon: 🔍
+    title: Powerful Search & Discovery
+    details: Full-text search with faceted filtering, autocomplete, and sorting. Discover connected heritage through shared terms, people, and places.
+
   - icon: 🧩
-    title: Reusable Widgets
-    details: Built-in widgets for common use cases. Build your own for specific needs.
+    title: Flexible Widget System
+    details: 10+ built-in widgets for images, maps, and IIIF viewers. Map data properties to components without code or build custom widgets.
 
   - icon: 📝
     title: Configuration-Driven
-    details: Control the user experience through simple configuration files.
+    details: Control data presentation through TypeScript configs. Define content, styling, and layout without code.
 
-  - icon: 💻
-    title: Reusable Views
-    details: Visualize data in different ways&#58; list, grid and map views built-in.
+  - icon: 🖼️
+    title: IIIF Support
+    details: Native IIIF Presentation support with multiple viewers  built-in for high-resolution images (Tify, Mirador, UniversalViewer).
 ---
