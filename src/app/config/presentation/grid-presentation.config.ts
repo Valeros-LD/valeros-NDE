@@ -4,11 +4,7 @@ import { fallbackWidget } from './widgets/widgets';
 
 export const GRID_PRESENTATION_CONFIG: NodePresentationConfig = {
   widgets: [...searchResultWidgets],
-  display: [
-    {
-      widgetIds: ['image-thumb'],
-    },
-  ],
+  displayedWidgetIds: ['image-thumb'],
   fallbackWidget: fallbackWidget,
   showArrowIndicator: true,
 };

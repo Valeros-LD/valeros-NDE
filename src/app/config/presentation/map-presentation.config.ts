@@ -4,11 +4,7 @@ import { fallbackWidget } from './widgets/widgets';
 
 export const MAP_PRESENTATION_CONFIG: NodePresentationConfig = {
   widgets: [...searchResultWidgets],
-  display: [
-    {
-      widgetIds: ['image-thumb', 'name', 'description-without-label'],
-    },
-  ],
+  displayedWidgetIds: ['image-thumb', 'name', 'description-without-label'],
   fallbackWidget: fallbackWidget,
   showArrowIndicator: false,
 };

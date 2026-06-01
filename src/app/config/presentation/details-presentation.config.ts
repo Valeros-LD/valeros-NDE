@@ -52,25 +52,18 @@ export const DETAILS_PRESENTATION_CONFIG: NodePresentationConfig = {
     isBasedOnWidget,
     referringNodesWidget,
   ],
-  display: [
-    {
-      widgetIds: ['name', 'description-header'],
-    },
-    {
-      widgetIds: [
-        'media',
-        'type',
-        'additional-type',
-        '*',
-        'is-part-of-license',
-      ],
-    },
-    {
-      widgetIds: ['dataset', 'is-part-of-publisher', 'is-based-on'],
-    },
-    {
-      widgetIds: ['referring-nodes'],
-    },
+  displayedWidgetIds: [
+    'name',
+    'description-header',
+    'media',
+    'type',
+    'additional-type',
+    '*',
+    'is-part-of-license',
+    'dataset',
+    'is-part-of-publisher',
+    'is-based-on',
+    'referring-nodes',
   ],
   fallbackWidget: fallbackWidget,
   showArrowIndicator: true,

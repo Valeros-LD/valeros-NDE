@@ -3,15 +3,9 @@ import { WidgetComponentKey } from '../../../config/presentation/widgets/widget-
 
 export interface NodePresentationConfig {
   widgets: PropertyWidget[];
-  display: DisplayGroup[];
+  displayedWidgetIds: string[];
   fallbackWidget: PropertyWidget;
   showArrowIndicator?: boolean;
-}
-
-export interface DisplayGroup {
-  label?: string;
-  widgetIds: string[];
-  collapsible?: boolean;
 }
 
 export interface PropertyWidget {

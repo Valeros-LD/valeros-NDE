@@ -12,11 +12,7 @@ export const LIST_PRESENTATION_CONFIG: NodePresentationConfig = {
     imageThumbLeftWidget,
     datasetWithoutLabelWidget,
   ],
-  display: [
-    {
-      widgetIds: ['image-thumb-left', 'name', 'description-without-label'],
-    },
-  ],
+  displayedWidgetIds: ['image-thumb-left', 'name', 'description-without-label'],
   fallbackWidget: fallbackWidget,
   showArrowIndicator: true,
 };

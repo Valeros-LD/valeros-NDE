@@ -1,158 +1,112 @@
 import { Injectable } from '@angular/core';
+import { NodePresentationConfig } from './core/types/node-presentation-config';
 import {
-  NodePresentationConfig,
-  PropertyWidget,
-  WidgetPosition,
-} from './core/types/node-presentation-config';
-import {
-  WidgetGroup as WidgetGroupByPosition,
   WidgetsByPosition,
+  WidgetWithProperty,
 } from './core/types/widgets-by-position';
 
 @Injectable({ providedIn: 'root' })
 export class WidgetService {
-  // TODO: Refactor for readability
   getWidgetsByPosition(
     properties: string[],
     presentationConfig: NodePresentationConfig,
   ): WidgetsByPosition {
-    const { display } = presentationConfig;
+    const { displayedWidgetIds } = presentationConfig;
 
-    // 1. Match properties to widget(s)
-    const collectWidgetsForProperties = (
-      properties: string[],
-    ): Array<{ property: string; widget: PropertyWidget }> => {
-      const widgets: Array<{ property: string; widget: PropertyWidget }> = [];
+    const widgetsWithProperties: WidgetWithProperty[] =
+      this.matchPropertiesToWidgets(properties, presentationConfig);
 
-      const getWidgetsForProperty = (property: string): PropertyWidget[] => {
-        const widgets = presentationConfig.widgets.filter((w) =>
-          w.properties.includes(property),
-        );
-        return widgets.length > 0
-          ? widgets
-          : [presentationConfig.fallbackWidget];
-      };
+    const orderedWidgets: WidgetWithProperty[] = this.filterAndOrderWidgets(
+      widgetsWithProperties,
+      displayedWidgetIds,
+    );
 
-      properties.forEach((property) => {
-        getWidgetsForProperty(property).forEach((widget) => {
-          widgets.push({ property, widget });
-        });
-      });
-      return widgets;
-    };
+    return this.groupByPosition(orderedWidgets);
+  }
 
-    // 2. Order and group widgets based on the display configuration
-    const orderAndGroupWidgets = (
-      widgets: Array<{ property: string; widget: PropertyWidget }>,
-    ): WidgetGroupByPosition[] => {
-      if (!display || display.length === 0) {
-        return [
-          {
-            items: widgets.sort((a, b) => a.property.localeCompare(b.property)),
-          },
-        ];
+  private matchPropertiesToWidgets(
+    properties: string[],
+    presentationConfig: NodePresentationConfig,
+  ): WidgetWithProperty[] {
+    const widgetsWithProperties: WidgetWithProperty[] = [];
+    properties.forEach((property) => {
+      let widgetsForProperty = presentationConfig.widgets.filter((w) =>
+        w.properties.includes(property),
+      );
+
+      if (widgetsForProperty.length === 0) {
+        widgetsForProperty = [presentationConfig.fallbackWidget];
       }
 
-      const widgetMap = new Map<
-        string,
-        Array<{ property: string; widget: PropertyWidget }>
-      >();
+      widgetsForProperty.forEach((widget) => {
+        widgetsWithProperties.push({ property, widget });
+      });
+    });
 
-      // Group widgets by ID
-      widgets.forEach((item) => {
-        const id = item.widget.id || '';
-        if (!widgetMap.has(id)) {
-          widgetMap.set(id, []);
+    return widgetsWithProperties;
+  }
+
+  private filterAndOrderWidgets(
+    widgetsWithProperties: WidgetWithProperty[],
+    displayedWidgetIds: string[],
+  ): WidgetWithProperty[] {
+    const widgetMap = new Map<string, WidgetWithProperty[]>();
+    widgetsWithProperties.forEach((widgetWithProperty) => {
+      const id = widgetWithProperty.widget.id || '';
+      if (!widgetMap.has(id)) {
+        widgetMap.set(id, []);
+      }
+      widgetMap.get(id)!.push(widgetWithProperty);
+    });
+
+    const displayedWidgets: WidgetWithProperty[] = [];
+
+    const noDisplayOrderSpecified =
+      !displayedWidgetIds || displayedWidgetIds.length === 0;
+    if (noDisplayOrderSpecified) {
+      // No order specified, sort alphabetically by property
+      displayedWidgets.push(
+        ...widgetsWithProperties.sort((a, b) =>
+          a.property.localeCompare(b.property),
+        ),
+      );
+    } else {
+      const explicitlyOrderedIds = new Set(
+        displayedWidgetIds.filter((id) => id !== '*'),
+      );
+
+      displayedWidgetIds.forEach((widgetId) => {
+        if (widgetId === '*') {
+          const widgetsNotExplicitlyOrdered = Array.from(widgetMap.entries())
+            .filter(([id]) => !explicitlyOrderedIds.has(id) || id === '')
+            .flatMap(([, items]) => items)
+            .sort((a, b) => a.property.localeCompare(b.property));
+          displayedWidgets.push(...widgetsNotExplicitlyOrdered);
+        } else if (widgetMap.has(widgetId)) {
+          displayedWidgets.push(...widgetMap.get(widgetId)!);
         }
-        widgetMap.get(id)!.push(item);
       });
+    }
 
-      // Track which widget IDs are explicitly ordered in the config
-      const allOrderedIds = new Set<string>();
-      display.forEach((group) => {
-        group.widgetIds.forEach((id) => allOrderedIds.add(id));
-      });
+    return displayedWidgets;
+  }
 
-      const groupedWidgets: WidgetGroupByPosition[] = [];
-
-      // Build groups in the order specified by display config
-      display.forEach((group) => {
-        const groupItems: Array<{ property: string; widget: PropertyWidget }> =
-          [];
-
-        group.widgetIds.forEach((widgetId) => {
-          if (widgetId === '*') {
-            // Add all remaining widgets not yet added
-            widgetMap.forEach((items, id) => {
-              if (!allOrderedIds.has(id) || id === '') {
-                groupItems.push(...items);
-              }
-            });
-          } else if (widgetMap.has(widgetId)) {
-            groupItems.push(...widgetMap.get(widgetId)!);
-          }
-        });
-
-        if (groupItems.length > 0) {
-          groupedWidgets.push({
-            label: group.label,
-            items: groupItems,
-          });
-        }
-      });
-
-      return groupedWidgets;
+  private groupByPosition(
+    orderedWidgets: WidgetWithProperty[],
+  ): WidgetsByPosition {
+    const byPosition: WidgetsByPosition = {
+      top: [],
+      left: [],
+      main: [],
+      right: [],
+      bottom: [],
     };
 
-    // 3. Split groups into position-based arrays
-    const groupWidgetsByPosition = (
-      groups: WidgetGroupByPosition[],
-    ): WidgetsByPosition => {
-      const byPosition: WidgetsByPosition = {
-        top: [],
-        left: [],
-        main: [],
-        right: [],
-        bottom: [],
-      };
+    orderedWidgets.forEach(({ property, widget }) => {
+      const position = widget.options?.position || 'main';
+      byPosition[position].push({ property, widget });
+    });
 
-      groups.forEach((group) => {
-        const positionGroups: Record<
-          WidgetPosition,
-          Array<{ property: string; widget: PropertyWidget }>
-        > = {
-          top: [],
-          left: [],
-          main: [],
-          right: [],
-          bottom: [],
-        };
-
-        group.items.forEach(({ property, widget }) => {
-          const position = widget.options?.position || 'main';
-          positionGroups[position].push({ property, widget });
-        });
-
-        Object.entries(positionGroups).forEach(([position, items]) => {
-          const hasItemsForPosition = items.length > 0;
-          if (hasItemsForPosition) {
-            byPosition[position as WidgetPosition].push({
-              label: group.label,
-              items,
-            });
-          }
-        });
-      });
-
-      return byPosition;
-    };
-
-    const collectedWidgets: Array<{
-      property: string;
-      widget: PropertyWidget;
-    }> = collectWidgetsForProperties(properties);
-    const groupedWidgets: WidgetGroupByPosition[] =
-      orderAndGroupWidgets(collectedWidgets);
-    return groupWidgetsByPosition(groupedWidgets);
+    return byPosition;
   }
 }
