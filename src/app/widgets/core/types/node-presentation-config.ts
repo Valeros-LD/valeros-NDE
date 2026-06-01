@@ -25,6 +25,6 @@ export interface BaseWidgetOptions {
   propertyPath?: string;
   icon?: IconKey;
   position?: WidgetPosition;
-  fullWidth?: boolean;
+  noPadding?: boolean;
   showOriginalLink?: boolean;
 }

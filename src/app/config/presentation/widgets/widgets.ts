@@ -50,7 +50,7 @@ export const imageThumbWidget: Widget = {
     position: 'top',
     maxThumbnails: 1,
     enableLightbox: false,
-    fullWidth: true,
+    noPadding: true,
   },
 };
 
@@ -296,7 +296,7 @@ export const imageThumbLeftWidget: Widget = {
     position: 'left',
     maxThumbnails: 1,
     enableLightbox: false,
-    fullWidth: true,
+    noPadding: true,
   },
 };
 

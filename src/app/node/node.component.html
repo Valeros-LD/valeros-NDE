@@ -84,8 +84,8 @@
     [data]="data()"
     [property]="item.property"
     [widget]="item.widget"
-    [class.-mx-4]="item.widget.options?.fullWidth"
-    [class.-mt-4]="item.widget.options?.fullWidth && first"
-    [class.-mb-4]="item.widget.options?.fullWidth && last"
+    [class.-mx-4]="item.widget.options?.noPadding"
+    [class.-mt-4]="item.widget.options?.noPadding && first"
+    [class.-mb-4]="item.widget.options?.noPadding && last"
   />
 </ng-template>
