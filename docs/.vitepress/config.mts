@@ -7,6 +7,10 @@ export default withMermaid({
   themeConfig: {
     // logo: '/logo.svg',
 
+    outline: {
+      level: [2, 3],
+    },
+
     nav: [
       { text: 'Guide', link: '/guide/' },
       {
