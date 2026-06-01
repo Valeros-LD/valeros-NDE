@@ -16,7 +16,7 @@ export const typeWidget: PropertyWidget = {
   componentId: 'link-widget',
   options: {
     propertyLabel: 'Soort',
-    icon: 'feather-grid',
+    icon: 'grid',
   },
 };
 
@@ -27,7 +27,7 @@ export const additionalTypeWidget: PropertyWidget = {
   options: {
     propertyLabel: 'Soort (aanvullend)',
     propertyPath: 'name',
-    icon: 'feather-grid',
+    icon: 'grid',
   },
 };
 
@@ -37,7 +37,7 @@ export const datasetWidget: PropertyWidget = {
   componentId: 'dataset-widget',
   options: {
     propertyLabel: 'Dataset',
-    icon: 'feather-archive',
+    icon: 'archive',
   },
 };
 
@@ -81,7 +81,7 @@ export const isMockDataWidget: PropertyWidget = {
   componentId: 'text-widget',
   options: {
     propertyLabel: 'Testdata',
-    icon: 'feather-alert-triangle',
+    icon: 'alert-triangle',
   },
 };
 
@@ -91,7 +91,7 @@ export const licenseWidget: PropertyWidget = {
   componentId: 'link-widget',
   options: {
     propertyLabel: 'Licentie',
-    icon: 'feather-file-text',
+    icon: 'file-text',
   },
 };
 
@@ -101,7 +101,7 @@ export const publisherWidget: PropertyWidget = {
   componentId: 'link-widget',
   options: {
     propertyLabel: 'Uitgever',
-    icon: 'feather-users',
+    icon: 'users',
   },
 };
 
@@ -111,7 +111,7 @@ export const hasOccupationWidget: PropertyWidget = {
   componentId: 'link-widget',
   options: {
     propertyLabel: 'Beroep',
-    icon: 'feather-briefcase',
+    icon: 'briefcase',
   },
 };
 
@@ -121,7 +121,7 @@ export const genreWidget: PropertyWidget = {
   componentId: 'link-widget',
   options: {
     propertyLabel: 'Genre',
-    icon: 'feather-tag',
+    icon: 'tag',
   },
 };
 
@@ -131,7 +131,7 @@ export const aboutWidget: PropertyWidget = {
   componentId: 'link-widget',
   options: {
     propertyLabel: 'Over',
-    icon: 'feather-info',
+    icon: 'info',
   },
 };
 
@@ -141,7 +141,7 @@ export const contentLocationWidget: PropertyWidget = {
   componentId: 'map-widget',
   options: {
     propertyLabel: 'Locatie',
-    icon: 'feather-map-pin',
+    icon: 'map-pin',
     showOriginalLink: true,
   },
 };
@@ -152,7 +152,7 @@ export const birthPlaceWidget: PropertyWidget = {
   componentId: 'map-widget',
   options: {
     propertyLabel: 'Geboorteplaats',
-    icon: 'feather-map-pin',
+    icon: 'map-pin',
     showOriginalLink: true,
   },
 };
@@ -163,7 +163,7 @@ export const deathPlaceWidget: PropertyWidget = {
   componentId: 'map-widget',
   options: {
     propertyLabel: 'Plaats van overlijden',
-    icon: 'feather-map-pin',
+    icon: 'map-pin',
     showOriginalLink: true,
   },
 };
@@ -184,7 +184,7 @@ export const materialWidget: PropertyWidget = {
   componentId: 'link-widget',
   options: {
     propertyLabel: 'Materiaal',
-    icon: 'feather-package',
+    icon: 'package',
   },
 };
 
@@ -194,7 +194,7 @@ export const creatorWidget: PropertyWidget = {
   componentId: 'link-widget',
   options: {
     propertyLabel: 'Vervaardiger',
-    icon: 'feather-user',
+    icon: 'user',
   },
 };
 
@@ -204,7 +204,7 @@ export const dateCreatedWidget: PropertyWidget = {
   componentId: 'link-widget',
   options: {
     propertyLabel: 'Vervaardigingsdatum',
-    icon: 'feather-calendar',
+    icon: 'calendar',
   },
 };
 
@@ -214,7 +214,7 @@ export const birthDateWidget: PropertyWidget = {
   componentId: 'link-widget',
   options: {
     propertyLabel: 'Geboortedatum',
-    icon: 'feather-calendar',
+    icon: 'calendar',
   },
 };
 
@@ -224,7 +224,7 @@ export const deathDateWidget: PropertyWidget = {
   componentId: 'link-widget',
   options: {
     propertyLabel: 'Overlijdensdatum',
-    icon: 'feather-calendar',
+    icon: 'calendar',
   },
 };
 
@@ -241,7 +241,7 @@ export const addressWidget: PropertyWidget = {
   componentId: 'address-widget',
   options: {
     propertyLabel: 'Adres',
-    icon: 'feather-home',
+    icon: 'home',
   },
 };
 
@@ -252,7 +252,7 @@ export const isPartOfLicenseWidget: PropertyWidget = {
   options: {
     propertyLabel: 'Licentie',
     propertyPath: 'license',
-    icon: 'feather-file-text',
+    icon: 'file-text',
   },
 };
 
@@ -263,7 +263,7 @@ export const isPartOfPublisherWidget: PropertyWidget = {
   options: {
     propertyLabel: 'Uitgever',
     propertyPath: 'publisher',
-    icon: 'feather-users',
+    icon: 'users',
   },
 };
 
@@ -273,7 +273,7 @@ export const isBasedOnWidget: PropertyWidget = {
   componentId: 'link-widget',
   options: {
     propertyLabel: 'Gebaseerd op',
-    icon: 'feather-external-link',
+    icon: 'external-link',
   },
 };
 
@@ -283,7 +283,7 @@ export const referringNodesWidget: PropertyWidget = {
   componentId: 'referring-nodes-widget',
   options: {
     propertyLabel: 'Verwijzende objecten',
-    icon: 'feather-link',
+    icon: 'link',
   },
 };
 
