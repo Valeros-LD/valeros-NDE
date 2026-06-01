@@ -3,6 +3,8 @@
 > [!WARNING]  
 > This project is currently in active development and not yet ready for production use.
 
+<a href="https://valeros.nl" target="_blank"><img width="3023" height="1554" alt="image" src="https://github.com/user-attachments/assets/27c2adbd-d500-4b90-8bdc-46e7a0b3807a" /></a>
+
 Valeros is a **reusable, flexible heritage data browser**.
 
 It is designed as a standard solution for **targeted search** and **browsing and discovery** of heritage data. See the [Netwerk Digitaal Erfgoed](https://netwerkdigitaalerfgoed.nl/en/) (NDE) [user profiles publication](https://zenodo.org/records/14938780) for more information about these types of users and their needs.
