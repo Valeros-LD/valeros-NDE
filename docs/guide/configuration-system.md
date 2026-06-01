@@ -12,13 +12,13 @@ The configuration system consists of three main components:
 
 ## Configuration Files
 
-Configuration is split into separate files for maintainability:
+Configuration is split into separate files for maintainability. These files are combined into a single centralized Valeros configuration during initialization (see [Initialization](#initialization)).
 
 ### Data Layer API Configuration
 
 **Location:** `src/app/config/api.config.ts`
 
-Defines the data layer endpoint (see [Architecture](/guide/#architecture) for more details):
+Defines the data layer endpoint (see [Architecture](/guide/#architecture)):
 
 ```ts
 export const API_CONFIG: ApiConfig = {
@@ -30,7 +30,7 @@ export const API_CONFIG: ApiConfig = {
 
 **Location:** `src/app/config/facets.config.ts`
 
-Configures how facets are displayed in Valeros. The facets themselves are returned by the data layer (see [heritage objects endpoint](https://github.com/netwerk-digitaal-erfgoed/prototypes-data-layers/blob/main/apps/valeros-api/API.md#get-the-heritage-objects-collection)), this configuration file allows you to customize their presentation:
+Configures how facets are displayed in Valeros. The facets themselves are returned by the data layer (see [API spec](https://github.com/netwerk-digitaal-erfgoed/prototypes-data-layers/blob/main/apps/valeros-api/API.md#get-the-heritage-objects-collection)), this configuration file allows you to customize their presentation:
 
 ```ts
 export const FACETS_CONFIG: FacetConfig[] = [

@@ -31,9 +31,9 @@ export default withMermaid({
               text: 'Configuration System',
               link: '/guide/configuration-system',
             },
-            { text: 'Widget System', link: '/guide/widget-system' },
+            // { text: 'Widget System', link: '/guide/widget-system' },
             { text: 'Built-in Widgets', link: '/guide/built-in-widgets' },
-            { text: 'View Configurations', link: '/guide/view-configurations' },
+            // { text: 'View Configurations', link: '/guide/view-configurations' },
           ],
         },
         {

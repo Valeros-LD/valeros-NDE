@@ -23,6 +23,16 @@ cd Valeros-NDE
 npm install
 ```
 
+## Configuration
+
+To use a different data layer endpoint, update the `baseUrl` in `src/app/config/api.config.ts`:
+
+```typescript
+export const API_CONFIG: ApiConfig = {
+  baseUrl: 'https://datalaag.valeros.nl/v1', // Change this to your data layer URL
+};
+```
+
 ## Running the Application
 
 Start the development server:
