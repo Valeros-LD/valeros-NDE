@@ -1,4 +1,4 @@
-# Valeros - Flexible heritage data browser
+# Valeros - Reusable, flexible heritage data browser
 
 > [!WARNING]  
 > This project is currently in active development and not yet ready for production use.
