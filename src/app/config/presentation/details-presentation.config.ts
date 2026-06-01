@@ -1,5 +1,8 @@
 import { NodePresentationConfig } from '../../widgets/core/types/node-presentation-config';
-import { COMMON_WIDGETS, FALLBACK_WIDGET } from './common-widgets.config';
+import {
+  COMMON_WIDGETS,
+  FALLBACK_WIDGET,
+} from './widgets/common-widgets.config';
 
 export const DETAILS_PRESENTATION_CONFIG: NodePresentationConfig = {
   widgets: [

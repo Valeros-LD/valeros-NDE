@@ -1,4 +1,4 @@
-import { PropertyWidget } from '../../widgets/core/types/node-presentation-config';
+import { PropertyWidget } from '../../../widgets/core/types/node-presentation-config';
 
 export const COMMON_WIDGETS: PropertyWidget[] = [
   {

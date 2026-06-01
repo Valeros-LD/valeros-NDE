@@ -3,15 +3,15 @@ import {
   COMMON_SEARCH_RESULT_WIDGETS,
   COMMON_WIDGETS,
   FALLBACK_WIDGET,
-} from './common-widgets.config';
+} from './widgets/common-widgets.config';
 
-export const MAP_PRESENTATION_CONFIG: NodePresentationConfig = {
+export const GRID_PRESENTATION_CONFIG: NodePresentationConfig = {
   widgets: [...COMMON_WIDGETS, ...COMMON_SEARCH_RESULT_WIDGETS],
   display: [
     {
-      widgetIds: ['image-thumb', 'name', 'description-without-label'],
+      widgetIds: ['image-thumb'],
     },
   ],
   fallbackWidget: FALLBACK_WIDGET,
-  showArrowIndicator: false,
+  showArrowIndicator: true,
 };

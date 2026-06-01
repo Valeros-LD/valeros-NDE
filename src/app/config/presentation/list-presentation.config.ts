@@ -3,7 +3,7 @@ import {
   COMMON_SEARCH_RESULT_WIDGETS,
   COMMON_WIDGETS,
   FALLBACK_WIDGET,
-} from './common-widgets.config';
+} from './widgets/common-widgets.config';
 
 export const LIST_PRESENTATION_CONFIG: NodePresentationConfig = {
   widgets: [
