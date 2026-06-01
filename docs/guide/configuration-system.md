@@ -1,6 +1,6 @@
 # Configuration System
 
-Valeros uses a centralized configuration system that controls many aspects of the application, from API endpoints to data presentation. This system is built around the `ConfigService` and is initialized at application startup.
+Valeros uses a centralized configuration system that controls many aspects of the application, from [API endpoints](/guide/configuration-system.html#data-layer-api-configuration) to [data presentation](/guide/configuring-data-presentation). This system is built around the `ConfigService` and is initialized at application startup.
 
 ## Architecture Overview
 
