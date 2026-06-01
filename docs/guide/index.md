@@ -2,13 +2,9 @@
 
 Valeros is a **reusable, flexible heritage data browser**.
 
-It is designed as a standard solution for **targeted search** and **browsing and discovery** of heritage data, see the [Netwerk Digitaal Erfgoed](https://netwerkdigitaalerfgoed.nl/en/) (NDE) [user profiles publication](https://zenodo.org/records/14938780) for more information about these types of users and their needs.
+It is designed as a standard solution for **targeted search** and **browsing and discovery** of heritage data. See the [Netwerk Digitaal Erfgoed](https://netwerkdigitaalerfgoed.nl/en/) (NDE) [user profiles publication](https://zenodo.org/records/14938780) for more information about these types of users and their needs.
 
-As a developer, Valeros lets you control what, how, and when data is shown to end users through **simple configuration files**.
-
-::: warning TODO
-Add link to configuration system
-:::
+As a developer, Valeros lets you control what, how, and when data is shown to end users through **simple configuration files** (see [Configuration System](/guide/configuration-system)).
 
 ## Key Features
 
@@ -29,6 +25,12 @@ Add link to configuration system
 - **Source provenance** - Always link back to the original data source for transparency
 
 ## Architecture
+
+### Tech Stack
+
+Valeros is built with [Angular](https://angular.dev/) following the [Angular style guide](https://angular.dev/style-guide). We use modern Angular features including [signals](https://angular.dev/essentials/signals) for reactive state management, [standalone components](https://angular.dev/essentials/components), and [control flow syntax](https://angular.dev/guide/templates/control-flow). For styling, we use [**TailwindCSS**](https://tailwindcss.com/) with [**DaisyUI**](https://daisyui.com/) as the component library.
+
+### Data & Presentation Layers
 
 ::: warning TODO
 Add a Mermaid diagram here to visualize the architecture

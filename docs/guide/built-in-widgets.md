@@ -1,12 +1,10 @@
 # Built-in Widgets
 
-Valeros comes with a comprehensive set of built-in widgets for common use cases. Each widget can be configured using base options (available to all widgets) and component-specific options.
+Valeros comes with a comprehensive set of built-in widgets for common use cases. Each widget can be configured using base options (available to all widgets) or component-specific options.
 
 To create your own custom widget components, see [Creating Custom Widgets](/guide/custom-widgets).
 
-## Generic Widgets
-
-### TextWidget
+## TextWidget
 
 **Component ID**: `text-widget`
 
@@ -16,8 +14,8 @@ Simple text display for descriptive content.
 
 **Component-Specific Options** (`TextWidgetOptions`):
 
-- **`asHeader`** - Render text as a header
-- **`largeFont`** - Use larger font size
+- **`asHeader`** - Render text as a semantic `<h2>` header element with bold styling (mutually exclusive with `largeFont`)
+- **`largeFont`** - Use larger font size without header semantics (mutually exclusive with `asHeader`)
 - **`maxLength`** - Truncate text at specified length
 - **`enableHighlights`** - Enable search term highlighting
 
@@ -36,7 +34,7 @@ Simple text display for descriptive content.
 }
 ```
 
-### LinkWidget
+## LinkWidget
 
 **Component ID**: `link-widget`
 
@@ -46,8 +44,8 @@ Displays clickable links to entities and concepts. Uses `TextWidgetOptions` for 
 
 **Component-Specific Options** (`TextWidgetOptions`):
 
-- **`asHeader`** - Render text as a header
-- **`largeFont`** - Use larger font size
+- **`asHeader`** - Render literal values as a semantic `<h2>` header element with bold styling (mutually exclusive with `largeFont`)
+- **`largeFont`** - Use larger font size for literal values without header semantics (mutually exclusive with `asHeader`)
 - **`maxLength`** - Truncate text at specified length
 - **`enableHighlights`** - Enable search term highlighting
 
@@ -65,7 +63,7 @@ Displays clickable links to entities and concepts. Uses `TextWidgetOptions` for 
 }
 ```
 
-### ImageGalleryWidget
+## ImageGalleryWidget
 
 **Component ID**: `image-gallery-widget`
 
@@ -94,7 +92,7 @@ Image gallery with zoom and [PhotoSwipe](https://photoswipe.com/) lightbox.
 }
 ```
 
-### MapWidget
+## MapWidget
 
 **Component ID**: `map-widget`
 
@@ -117,7 +115,7 @@ Geographic visualization with [Leaflet](https://github.com/Leaflet/Leaflet).
 }
 ```
 
-### MediaWidget
+## MediaWidget
 
 **Component ID**: `media-widget`
 
@@ -148,7 +146,7 @@ Pass preferred IIIF viewer as config to media widget and document it here
 }
 ```
 
-### JsonWidget
+## JsonWidget
 
 **Component ID**: `json-widget`
 
@@ -156,7 +154,7 @@ Fallback widget for unmapped properties. Displays raw JSON data.
 
 **Used for**: Any property without specific widget mapping
 
-### ReferringNodesWidget
+## ReferringNodesWidget
 
 **Component ID**: `referring-nodes-widget`
 
@@ -178,7 +176,7 @@ Displays objects that reference the current object.
 }
 ```
 
-### SeparatorWidget
+## SeparatorWidget
 
 **Component ID**: `separator-widget`
 
@@ -202,9 +200,7 @@ Visual separator between sections.
 }
 ```
 
-## Domain-Specific Widgets
-
-### AddressWidget
+## AddressWidget
 
 **Component ID**: `address-widget`
 
@@ -226,7 +222,7 @@ Displays [postal addresses](https://docs.nde.nl/schema-profile/#PostalAddress) i
 }
 ```
 
-### DatasetWidget
+## DatasetWidget
 
 **Component ID**: `dataset-widget`
 

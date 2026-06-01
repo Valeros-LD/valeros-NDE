@@ -78,7 +78,7 @@ See [View Configurations](/guide/view-configurations) for more details.
 
 **Location:** `src/app/config/image-paths.config.ts`
 
-Defines which fields contain image URLs. These paths are used by the `NodeImageResolverService` to locate and extract image URLs from heritage object data.
+Defines which properties contain image URLs. These paths are used by the `NodeImageResolverService` to locate and extract image URLs from heritage object data.
 
 ```ts
 export const IMAGE_PATHS_CONFIG: string[] = [
@@ -89,7 +89,7 @@ export const IMAGE_PATHS_CONFIG: string[] = [
 ```
 
 ::: info
-Currently, data layer fields are based on the [Schema.org Application Profile for NDE (SCHEMA-AP-NDE)](https://docs.nde.nl/schema-profile/), but this might change in the future.
+Currently, data layer properties are based on the [Schema.org Application Profile for NDE (SCHEMA-AP-NDE)](https://docs.nde.nl/schema-profile/), but this might change in the future.
 :::
 
 ### Icon Registry
