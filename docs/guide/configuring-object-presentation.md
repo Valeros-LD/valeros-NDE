@@ -229,8 +229,6 @@ The widget positioning layout structure is defined in `NodeComponent`. Widget po
 - **`right`** - Right sidebar (on desktop)
 - **`bottom`** - Full-width area at the bottom
 
-TODO: Add screenshot showing the layout positions
-
 ### Example: Positioning Widgets
 
 ```ts
@@ -264,5 +262,3 @@ On mobile devices, the layout collapses into a single column in this order:
 3. Main
 4. Right
 5. Bottom
-
-TODO: Add video showing collapsing behavior
