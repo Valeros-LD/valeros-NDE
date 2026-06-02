@@ -217,6 +217,10 @@ displayedWidgetIds: [
 
 Widgets can be positioned in different areas using the `position` option.
 
+::: tip Implementation Details
+The widget positioning layout structure is defined in `NodeComponent`. Widget position grouping logic is handled by `WidgetService`.
+:::
+
 ### Available Positions
 
 - **`top`** - Full-width area at the top
