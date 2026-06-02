@@ -39,7 +39,7 @@ export const SEARCH_VIEWS_CONFIG: ViewsConfig = {
   - **`options`** - View-specific options (see [View Options](#view-options))
   - **`icon`** - Icon name for the view switcher (see [Icon Registry](/guide/icon-registry))
   - **`label`** - Display label for the view switcher
-  - **`presentationConfig`** - [Presentation configuration](/guide/configuring-data-presentation) for this view
+  - **`presentationConfig`** - [Object presentation configuration](/guide/configuring-object-presentation) for this view
 
 - **`defaultView`** - The view type to show by default
 
@@ -150,7 +150,7 @@ export const SEARCH_VIEWS_CONFIG: ViewsConfig = {
 
 ## View-Specific Presentation Configurations
 
-Each view can have its own [presentation configuration](/guide/configuring-data-presentation) that controls how data is displayed.
+Each view can have its own [object presentation configuration](/guide/configuring-object-presentation) that controls how heritage objects are displayed.
 
 For example: A **List View** might show thumbnails on the left with title, description, and metadata.
 
@@ -165,4 +165,4 @@ For example: A **List View** might show thumbnails on the left with title, descr
 }
 ```
 
-See [Configuring Data Presentation](/guide/configuring-data-presentation) for details on creating and customizing presentation configurations.
+See [Configuring Object Presentation](/guide/configuring-object-presentation) for details on creating and customizing presentation configurations.

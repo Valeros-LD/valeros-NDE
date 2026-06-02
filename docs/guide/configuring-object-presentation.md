@@ -1,10 +1,10 @@
-# Configuring Data Presentation
+# Configuring Object Presentation (Widget System)
 
-Valeros allows you to control how data is displayed to end users through simple configuration files.
+Valeros allows you to control how heritage objects are displayed to end users through simple configuration files.
 
 ## Presentation Configuration Files
 
-Data presentation is controlled through configuration files in `src/app/config/presentation/`:
+Object presentation is controlled through configuration files in `src/app/config/presentation/`:
 
 - **`list-presentation.config.ts`** - Configure how objects appear in list view
 - **`grid-presentation.config.ts`** - Configure how objects appear in grid view

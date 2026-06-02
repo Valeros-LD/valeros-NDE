@@ -21,7 +21,7 @@ Valeros provides several configuration files to customize different aspects of t
 - **[Data Layer / API](/guide/api-configuration)** - Configure the data layer endpoint
 - **[Facets](/guide/facets-configuration)** - Customize how facets are displayed
 - **[Search Views](/guide/search-views)** - Configure how search results are displayed (list, grid, map, ...)
-- **[Data Presentation](/guide/configuring-data-presentation)** - Control how object data is displayed through widgets
+- **[Object Presentation](/guide/configuring-object-presentation)** - Control how heritage objects are displayed through widgets
 - **[Styling](/guide/styling)** - Customize the visual appearance of Valeros
 
 ## Initialization

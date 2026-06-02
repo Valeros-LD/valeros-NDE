@@ -49,8 +49,8 @@ export default withMermaid({
               link: '/guide/search-views',
             },
             {
-              text: 'Data Presentation',
-              link: '/guide/configuring-data-presentation',
+              text: 'Object Presentation & Widgets',
+              link: '/guide/configuring-object-presentation',
             },
             { text: 'Built-in Widgets', link: '/guide/built-in-widgets' },
             { text: 'Styling', link: '/guide/styling' },
