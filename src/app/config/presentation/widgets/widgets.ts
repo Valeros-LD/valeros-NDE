@@ -6,7 +6,8 @@ export const nameWidget: Widget = {
   componentId: 'link-widget',
   options: {
     showPropertyLabel: false,
-    asHeader: true,
+    asH2: true,
+    bold: true,
   },
 };
 

@@ -29,7 +29,8 @@ export class LinkWidget extends BaseWidget {
 
   textOptions = computed(() => ({
     showPropertyLabel: false,
-    asHeader: this.typedOptions().asHeader,
+    asH2: this.typedOptions().asH2,
+    bold: this.typedOptions().bold,
     largeFont: this.typedOptions().largeFont,
     maxLength: this.typedOptions().maxLength,
     enableHighlights: this.typedOptions().enableHighlights,

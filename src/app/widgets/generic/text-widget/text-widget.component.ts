@@ -12,12 +12,16 @@ import { TextWidgetOptions } from './text-widget.options';
   imports: [NgTemplateOutlet, HighlightedTextComponent, TruncatedTextComponent],
 })
 export class TextWidget extends BaseWidget {
-  asHeader = computed(() => {
-    return (this.options() as TextWidgetOptions).asHeader === true;
+  asH2 = computed(() => {
+    return (this.options() as TextWidgetOptions).asH2 === true;
   });
 
   largeFont = computed(() => {
     return (this.options() as TextWidgetOptions).largeFont === true;
+  });
+
+  bold = computed(() => {
+    return (this.options() as TextWidgetOptions).bold === true;
   });
 
   maxLength = computed(() => {

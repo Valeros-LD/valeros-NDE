@@ -14,8 +14,9 @@ Simple text display for descriptive content.
 
 **Component-Specific Options** (`TextWidgetOptions`):
 
-- **`asHeader`** - Render text as a semantic `<h2>` header element with bold styling (mutually exclusive with `largeFont`)
-- **`largeFont`** - Use larger font size without header semantics (mutually exclusive with `asHeader`)
+- **`asH2`** - Render text as a semantic `<h2>` header element
+- **`bold`** - Apply bold font weight
+- **`largeFont`** - Use larger font size
 - **`maxLength`** - Truncate text at specified length
 - **`enableHighlights`** - Enable search term highlighting
 
@@ -38,16 +39,9 @@ Simple text display for descriptive content.
 
 **Component ID**: `link-widget`
 
-Displays clickable links to entities and concepts. Uses `TextWidgetOptions` for literal values.
+Displays clickable links to entities and concepts. Uses `TextWidgetOptions` for literal values (see [TextWidget](#textwidget) for available options).
 
 **Example Properties**: `creator`, `publisher`, `about`, `genre`, `material`, `hasOccupation`
-
-**Component-Specific Options** (`TextWidgetOptions`):
-
-- **`asHeader`** - Render literal values as a semantic `<h2>` header element with bold styling (mutually exclusive with `largeFont`)
-- **`largeFont`** - Use larger font size for literal values without header semantics (mutually exclusive with `asHeader`)
-- **`maxLength`** - Truncate text at specified length
-- **`enableHighlights`** - Enable search term highlighting
 
 **Example**:
 
