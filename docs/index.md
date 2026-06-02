@@ -15,7 +15,7 @@ hero:
 
 features:
   - icon: 🔍
-    title: Powerful Search & Discovery
+    title: Search & Discovery
     details: Full-text search with faceted filtering, autocomplete, and sorting. Discover connected heritage through shared terms, people, and places.
 
   - icon: 🧩
