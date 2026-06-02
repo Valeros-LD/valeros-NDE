@@ -1,8 +1,8 @@
 # Configuration System
 
-Valeros uses a centralized configuration system that controls many aspects of the application, from [API endpoints](/guide/configuration-system.html#data-layer-api-configuration) to [data presentation](/guide/configuring-data-presentation). This system is built around the `ConfigService` and is initialized at application startup.
+Valeros uses a centralized configuration system that controls many aspects of the application. This system is built around the `ConfigService` and is initialized at application startup.
 
-## Architecture Overview
+## Architecture
 
 The configuration system consists of three main components:
 
@@ -14,109 +14,15 @@ The configuration system consists of three main components:
 
 Configuration is split into separate files for maintainability. These files are combined into a single centralized Valeros configuration during initialization (see [Initialization](#initialization)).
 
-### Data Layer API Configuration
+### Available Configurations
 
-**Location:** `src/app/config/api.config.ts`
+Valeros provides several configuration files to customize different aspects of the application:
 
-Defines the data layer endpoint (see [Architecture](/guide/#architecture)):
-
-```ts
-export const API_CONFIG: ApiConfig = {
-  baseUrl: 'https://datalaag.valeros.nl/v1',
-};
-```
-
-### Facets Configuration
-
-**Location:** `src/app/config/facets.config.ts`
-
-Configures how facets are displayed in Valeros. The facets themselves are returned by the data layer (see [API spec](https://github.com/netwerk-digitaal-erfgoed/prototypes-data-layers/blob/main/apps/valeros-api/API.md#get-the-heritage-objects-collection)), this configuration file allows you to customize their presentation:
-
-```ts
-export const FACETS_CONFIG: FacetConfig[] = [
-  { name: 'dataset', label: 'Dataset', icon: 'archive' },
-  { name: 'contentLocation', label: 'Locatie', icon: 'map-pin' },
-  {
-    name: 'creator',
-    label: 'Vervaardiger',
-    icon: 'user',
-    hidden: true,
-  },
-  // ...
-];
-```
-
-Each facet configuration supports:
-
-- `name` - Matches the facet name from the data layer
-- `label` - Display label in the UI
-- `icon` - Optional icon key from the [Icon Registry](#icon-registry)
-- `hidden` - Optional flag to hide the facet from the UI
-
-### Presentation Configuration
-
-**Location:** `src/app/config/presentation/*.ts`
-
-Defines how data is displayed in different contexts:
-
-- `list-presentation.config.ts` - List view presentation
-- `grid-presentation.config.ts` - Grid view presentation
-- `map-presentation.config.ts` - Map view presentation
-- `details-presentation.config.ts` - Detail page presentation
-
-See [Data Presentation](/guide/configuring-data-presentation) for more details.
-
-### Views Configuration
-
-**Location:** `src/app/config/views/views.config.ts`
-
-Defines available search result views (list, grid, map).
-
-See [View Configurations](/guide/view-configurations) for more details.
-
-### Image Paths Configuration
-
-**Location:** `src/app/config/image-paths.config.ts`
-
-Defines which properties contain image URLs. These paths are used by the `NodeImageResolverService` to locate and extract image URLs from heritage object data.
-
-```ts
-export const IMAGE_PATHS_CONFIG: string[] = [
-  'image',
-  'thumbnailUrl',
-  'associatedMedia.thumbnailUrl',
-];
-```
-
-::: info
-Currently, data layer properties are based on the [Schema.org Application Profile for NDE (SCHEMA-AP-NDE)](https://docs.nde.nl/schema-profile/), but this might change in the future.
-:::
-
-### Icon Registry
-
-**Location:** `src/app/config/icon.registry.ts`
-
-Maps icon IDs to icon components from the [@ng-icons](https://ng-icons.github.io/ng-icons/) library. This provides type-safe icon references throughout the application via the `IconKey` type.
-
-**Adding new icons:**
-
-1. Import the icon from `@ng-icons/feather-icons` (or another icon set from [@ng-icons](https://ng-icons.github.io/ng-icons/)):
-
-```ts
-import {
-  // ... existing imports
-  featherNewIcon,
-} from '@ng-icons/feather-icons';
-```
-
-2. Register it in the `ICON_REGISTRY`:
-
-```ts
-export const ICON_REGISTRY = {
-  // ... existing icons
-  'new-icon': featherNewIcon,
-} as const;
-```
+- **[Data Layer / API](/guide/api-configuration)** - Configure the data layer endpoint
+- **[Facets](/guide/facets-configuration)** - Customize how facets are displayed
+- **[Search Views](/guide/search-views)** - Configure how search results are displayed (list, grid, map, ...)
+- **[Data Presentation](/guide/configuring-data-presentation)** - Control how object data is displayed through widgets
+- **[Styling](/guide/styling)** - Customize the visual appearance of Valeros
 
 ## Initialization
 

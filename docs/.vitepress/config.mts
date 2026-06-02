@@ -36,12 +36,34 @@ export default withMermaid({
               link: '/guide/configuration-system',
             },
             {
+              text: 'Data Layer / API',
+              link: '/guide/api-configuration',
+            },
+
+            {
+              text: 'Facets',
+              link: '/guide/facets-configuration',
+            },
+            {
+              text: 'Search Views (List/Grid/Map)',
+              link: '/guide/search-views',
+            },
+            {
               text: 'Data Presentation',
               link: '/guide/configuring-data-presentation',
             },
             { text: 'Built-in Widgets', link: '/guide/built-in-widgets' },
-            { text: 'View Configurations', link: '/guide/view-configurations' },
             { text: 'Styling', link: '/guide/styling' },
+          ],
+        },
+        {
+          text: 'Reference',
+          items: [
+            {
+              text: 'Image Paths',
+              link: '/guide/image-paths',
+            },
+            { text: 'Icon Registry', link: '/guide/icon-registry' },
           ],
         },
         {

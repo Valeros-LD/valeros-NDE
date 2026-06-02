@@ -1,6 +1,6 @@
-# View Configurations
+# Configuring Search Views (List/Grid/Map)
 
-Views define how search results are displayed to users. Valeros supports multiple [view types](/guide/view-configurations.html#built-in-view-types) for different use cases. You can extend this by [creating your own views](/guide/custom-views).
+Views define how search results are displayed to users. Valeros supports multiple [view types](/guide/search-views.html#built-in-view-types) for different use cases. You can extend this by [creating your own views](/guide/custom-views).
 
 ## View Configuration File
 
@@ -37,7 +37,7 @@ export const SEARCH_VIEWS_CONFIG: ViewsConfig = {
   - **`type`** - Unique identifier of the view's `ViewType` (e.g., `'grid'`, `'list'`, or `'map'`)
   - **`componentId`** - Component to render (`'list-view'`, `'masonry-view'`, `'map-view'`, as defined in `src/app/config/views/view-component.registry.ts`)
   - **`options`** - View-specific options (see [View Options](#view-options))
-  - **`icon`** - Icon name for the view switcher (see [Icon Registry](/guide/configuration-system#icon-registry))
+  - **`icon`** - Icon name for the view switcher (see [Icon Registry](/guide/icon-registry))
   - **`label`** - Display label for the view switcher
   - **`presentationConfig`** - [Presentation configuration](/guide/configuring-data-presentation) for this view
 
