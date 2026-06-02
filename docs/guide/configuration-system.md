@@ -68,21 +68,3 @@ export const appConfig: ApplicationConfig = {
 **Location:** `src/app/config/config-page/config.service.ts`
 
 The `ConfigService` manages the application configuration and makes it available throughout the application. All configuration files are loaded at startup and accessed via this service internally by Valeros components.
-
-## Runtime Configuration UI (Experimental)
-
-**Location:** `src/app/config/config-page/`
-
-We're currently experimenting with a UI for changing configuration at runtime. This feature would allow you to adjust all of the configuration settings mentioned on this page through a visual interface, without needing to edit TypeScript files or write code.
-
-The goal is to provide:
-
-- A user-friendly interface for tweaking configuration settings
-- Real-time preview of changes
-- The ability to export and deploy updated configurations
-
-This would make configuration accessible to users without technical skills, enabling anyone to customize Valeros without needing to understand TypeScript or code.
-
-::: warning Work in Progress
-This feature is still in active development. The UI and functionality may change significantly.
-:::

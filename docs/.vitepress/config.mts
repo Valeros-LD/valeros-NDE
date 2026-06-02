@@ -60,6 +60,10 @@ export default withMermaid({
               link: '/guide/configuration-system',
             },
             {
+              text: 'Configuration UI (Experimental)',
+              link: '/guide/config-ui',
+            },
+            {
               text: 'Image Paths',
               link: '/guide/image-paths',
             },
