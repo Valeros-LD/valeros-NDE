@@ -1,11 +1,13 @@
-<div class="relative">
-  <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
-  <div
-    #mapContainer
-    class="h-[300px] w-full rounded-lg overflow-hidden"
-    (click)="$event.stopPropagation()"
-  ></div>
-  <app-tooltip-badge
-    tooltipText="Let op: Coördinaten zijn willekeurig gegenerereerd en komen niet voor in de oorspronkelijke dataset"
-  />
-</div>
+@if (hasCoordinates()) {
+  <div class="relative">
+    <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
+    <div
+      #mapContainer
+      class="h-[300px] w-full rounded-lg overflow-hidden"
+      (click)="$event.stopPropagation()"
+    ></div>
+    <app-tooltip-badge
+      tooltipText="Let op: Coördinaten zijn willekeurig gegenerereerd en komen niet voor in de oorspronkelijke dataset"
+    />
+  </div>
+}

@@ -28,15 +28,20 @@ export class MapWidget extends BaseWidget implements AfterViewInit {
     );
   });
 
+  private coordinates = computed(() => {
+    return this.mapService.extractCoordinatesFromNodes(this.nodes(), [
+      this.property(),
+    ]);
+  });
+
+  protected hasCoordinates = computed(() => this.coordinates().length > 0);
+
   ngAfterViewInit(): void {
     this.initMap();
   }
 
   private initMap(): void {
-    const coordinates = this.mapService.extractCoordinatesFromNodes(
-      this.nodes(),
-      [this.property()],
-    );
+    const coordinates = this.coordinates();
 
     if (coordinates.length === 0) {
       console.warn('No coordinates found, skipping map initialization');
