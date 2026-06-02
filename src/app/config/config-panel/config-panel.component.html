@@ -1,5 +1,5 @@
 <button
-  class="btn btn-circle btn-primary fixed bottom-6 right-6 z-[1000]"
+  class="btn btn-circle btn-primary fixed bottom-6 right-6 z-[1001]"
   (click)="togglePanel()"
   aria-label="Open instellingen"
 >
@@ -8,14 +8,14 @@
 
 @if (isPanelOpen()) {
   <div
-    class="fixed inset-0 bg-black bg-opacity-50 z-[999] transition-opacity cursor-pointer"
+    class="fixed inset-0 bg-black bg-opacity-50 z-[1000] transition-opacity cursor-pointer"
     (click)="closePanel()"
   ></div>
 
   <div
     cdkDrag
     cdkDragBoundary=".cdk-overlay-container"
-    class="fixed bg-base-100 z-[1000] flex flex-col shadow-2xl rounded-lg overflow-hidden w-[40rem] max-w-[calc(100vw-3rem)] mx-6 max-h-[80vh] right-0 bottom-20"
+    class="fixed bg-base-100 z-[1001] flex flex-col shadow-2xl rounded-lg overflow-hidden w-[40rem] max-w-[calc(100vw-3rem)] mx-6 max-h-[80vh] right-0 bottom-20"
   >
     <div
       cdkDragHandle
