@@ -8,7 +8,6 @@ Create a custom widget when:
 
 - You need specialized rendering logic for a specific data type
 - [Built-in widgets](/guide/built-in-widgets) don't provide the functionality you need
-- You want to combine multiple data properties in a unique way
 
 For simple customization, consider using [widget options](/guide/configuring-object-presentation#widget-options) with existing widgets first.
 
