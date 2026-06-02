@@ -1,15 +1,15 @@
 @for (address of addresses(); track $index) {
   <div>
-    @if (address?.streetAddress) {
+    @if (address.streetAddress) {
       <div>{{ address.streetAddress }}</div>
     }
 
-    @if (formatPostalInfo(address)) {
-      <div>{{ formatPostalInfo(address) }}</div>
+    @if (address.postalInfo) {
+      <div>{{ address.postalInfo }}</div>
     }
 
-    @if (formatRegionInfo(address)) {
-      <div>{{ formatRegionInfo(address) }}</div>
+    @if (address.regionInfo) {
+      <div>{{ address.regionInfo }}</div>
     }
   </div>
 }

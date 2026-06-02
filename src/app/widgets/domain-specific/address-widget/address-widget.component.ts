@@ -10,36 +10,27 @@ export interface PostalAddress {
   addressCountry?: string;
 }
 
+interface FormattedAddress extends PostalAddress {
+  postalInfo: string;
+  regionInfo: string;
+}
+
 @Component({
   selector: 'app-address-widget',
-
   imports: [],
   templateUrl: './address-widget.component.html',
 })
 export class AddressWidget extends BaseWidget {
-  addresses = computed<PostalAddress[]>(() => {
-    return this.values() as PostalAddress[];
+  addresses = computed<FormattedAddress[]>(() => {
+    const rawAddresses = this.values() as PostalAddress[];
+    return rawAddresses.map((address) => ({
+      ...address,
+      postalInfo: [address.postalCode, address.addressLocality]
+        .filter(Boolean)
+        .join(' '),
+      regionInfo: [address.addressRegion, address.addressCountry]
+        .filter(Boolean)
+        .join(', '),
+    }));
   });
-
-  formatPostalInfo(address: PostalAddress): string {
-    const parts = [];
-    if (address.postalCode) {
-      parts.push(address.postalCode);
-    }
-    if (address.addressLocality) {
-      parts.push(address.addressLocality);
-    }
-    return parts.join(' ');
-  }
-
-  formatRegionInfo(address: PostalAddress): string {
-    const parts = [];
-    if (address.addressRegion) {
-      parts.push(address.addressRegion);
-    }
-    if (address.addressCountry) {
-      parts.push(address.addressCountry);
-    }
-    return parts.join(', ');
-  }
 }
