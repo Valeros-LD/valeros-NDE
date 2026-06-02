@@ -2,6 +2,11 @@
 
 Views define how search results are displayed to users. Valeros supports multiple [view types](/guide/search-views.html#built-in-view-types) for different use cases. You can extend this by [creating your own views](/guide/custom-views).
 
+<video controls width="100%" style="max-width: 800px; margin: 1rem 0;">
+  <source src="./view-switching.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ## View Configuration File
 
 View configurations are controlled through the configuration file in `src/app/config/views/views.config.ts`.
