@@ -41,6 +41,7 @@ export default withMermaid({
             },
             { text: 'Built-in Widgets', link: '/guide/built-in-widgets' },
             { text: 'View Configurations', link: '/guide/view-configurations' },
+            { text: 'Styling', link: '/guide/styling' },
           ],
         },
         {
