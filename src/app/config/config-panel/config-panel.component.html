@@ -1,0 +1,40 @@
+<button
+  class="btn btn-circle btn-primary fixed bottom-6 right-6 z-50"
+  (click)="togglePanel()"
+  aria-label="Open instellingen"
+>
+  <ng-icon name="featherSettings" size="24"></ng-icon>
+</button>
+
+@if (isPanelOpen()) {
+  <div
+    class="fixed inset-0 bg-black bg-opacity-30 z-40 transition-opacity cursor-pointer"
+    (click)="closePanel()"
+  ></div>
+
+  <div
+    cdkDrag
+    cdkDragBoundary=".cdk-overlay-container"
+    class="fixed bg-base-100 z-50 flex flex-col shadow-2xl rounded-lg overflow-hidden w-[40rem] max-w-[calc(100vw-3rem)] mx-6 max-h-[80vh] right-0 bottom-20"
+  >
+    <div
+      cdkDragHandle
+      class="flex items-center justify-between p-4 border-b cursor-move select-none"
+    >
+      <h2 class="text-xl font-bold flex items-center gap-2">
+        <ng-icon name="featherSettings" size="20"></ng-icon>
+        Instellingen
+      </h2>
+      <button
+        class="btn btn-ghost btn-sm btn-circle"
+        (click)="closePanel()"
+        aria-label="Close settings"
+      >
+        <ng-icon name="featherX" size="20"></ng-icon>
+      </button>
+    </div>
+    <div class="overflow-y-auto flex-1 bg-gray-200">
+      <app-config-page />
+    </div>
+  </div>
+}
