@@ -1,6 +1,6 @@
 # Data Layer Setup
 
-Valeros connects to a data layer API to retrieve heritage objects. See [Architecture](/guide#data-presentation-layers) for more information.
+Valeros connects to a data layer API to retrieve heritage objects. See [Architecture](/guide/#data-presentation-layers) for more information.
 
 ## API Configuration
 
