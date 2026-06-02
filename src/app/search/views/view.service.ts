@@ -1,4 +1,4 @@
-import { Injectable, Type, inject } from '@angular/core';
+import { Injectable, Type, computed, inject } from '@angular/core';
 import { ConfigService } from '../../config/config-page/config.service';
 import { SearchResultsPresentationConfig } from '../../config/types/valeros-config';
 import { getViewComponent } from '../../config/views/view-component.registry';
@@ -11,6 +11,11 @@ import { ViewType } from './types/view-type';
 @Injectable({ providedIn: 'root' })
 export class ViewService {
   private configService = inject(ConfigService);
+
+  readonly allViewDefinitions = computed(() => {
+    const views = this.configService.views();
+    return views?.views.filter((v: ViewDefinition) => !v.options.hidden) || [];
+  });
 
   getViewComponent(viewType: ViewType): Type<BaseResultsView> | null {
     const definition = this.getViewDefinition(viewType);
@@ -26,11 +31,6 @@ export class ViewService {
     return (
       views?.views.find((v: ViewDefinition) => v.type === viewType) || null
     );
-  }
-
-  getAllViewDefinitions(): ViewDefinition[] {
-    const views = this.configService.views();
-    return views?.views.filter((v: ViewDefinition) => !v.options.hidden) || [];
   }
 
   getDefaultViewType(): ViewType {

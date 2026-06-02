@@ -18,7 +18,7 @@ export class ViewSwitcherComponent {
   currentView = input.required<ViewType>();
   viewChange = output<ViewType>();
 
-  protected readonly availableViews = this.viewService.getAllViewDefinitions();
+  protected readonly availableViews = this.viewService.allViewDefinitions;
   protected readonly getIcon = getIcon;
 
   onViewChange(viewType: ViewType): void {
