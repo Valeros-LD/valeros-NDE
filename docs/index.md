@@ -20,11 +20,11 @@ features:
 
   - icon: 🧩
     title: Flexible Widget System
-    details: 10+ built-in widgets for images, maps, and IIIF viewers. Map data properties to components without code or build custom widgets.
+    details: Built-in widgets for images, maps, and IIIF viewers. Map data properties to components without code or build custom widgets.
 
   - icon: 📝
     title: Configuration-Driven
-    details: Control data presentation through TypeScript configs. Define content, styling, and layout without code.
+    details: Control data presentation through simple TypeScript configs. Define content, styling, and layout without code.
 
   - icon: 🖼️
     title: IIIF Support
