@@ -32,10 +32,6 @@ export default withMermaid({
           text: 'Configuration',
           items: [
             {
-              text: 'Configuration System',
-              link: '/guide/configuration-system',
-            },
-            {
               text: 'Data Layer / API',
               link: '/guide/api-configuration',
             },
@@ -59,6 +55,10 @@ export default withMermaid({
         {
           text: 'Reference',
           items: [
+            {
+              text: 'Configuration System',
+              link: '/guide/configuration-system',
+            },
             {
               text: 'Image Paths',
               link: '/guide/image-paths',
