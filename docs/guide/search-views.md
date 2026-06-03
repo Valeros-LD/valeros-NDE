@@ -58,8 +58,6 @@ Valeros supports the following built-in view types:
 - **`'grid'`** - Grid/masonry view for image-heavy collections (component: `'masonry-view'`)
 - **`'map'`** - Map view for geographic exploration (component: `'map-view'`)
 
-TODO: Add video of view switcher.
-
 ## View Options
 
 All views support the following **base options** (see `BaseViewOptions` in `src/app/search/views/types/view-options.ts`):

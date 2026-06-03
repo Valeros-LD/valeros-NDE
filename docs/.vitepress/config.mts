@@ -13,10 +13,7 @@ export default withMermaid({
 
     nav: [
       { text: 'Guide', link: '/guide/' },
-      {
-        text: 'GitHub',
-        link: 'https://github.com/Valeros-LD/Valeros-NDE',
-      },
+      { text: 'Live Demo', link: 'https://valeros.nl' },
     ],
 
     sidebar: {

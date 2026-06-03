@@ -6,6 +6,8 @@ It is designed as a standard solution for **targeted search** and **browsing and
 
 As a developer, Valeros lets you control what, how, and when data is shown to end users through **simple configuration files** (see [Configuration System](/guide/configuration-system)).
 
+<a href="https://valeros.nl" target="_blank">![Valeros Homepage](../valeros.png)</a>
+
 ## Key Features
 
 ### Search & Discovery
