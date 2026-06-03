@@ -5,7 +5,10 @@
     @apply mb-2;
   }
 
-  &.single app-image-gallery-item img {
-    @apply max-h-[33dvh];
+  &.single ::ng-deep app-image-with-skeleton {
+    img,
+    app-image-skeleton .skeleton {
+      @apply max-h-[33dvh] object-cover object-center;
+    }
   }
 }
