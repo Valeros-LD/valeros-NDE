@@ -1,0 +1,27 @@
+{
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "package-name": "valeros-nde",
+      "changelog-sections": [
+        { "type": "feat", "section": "Features" },
+        { "type": "fix", "section": "Bug Fixes" },
+        { "type": "perf", "section": "Performance Improvements" },
+        { "type": "docs", "section": "Documentation", "hidden": false },
+        { "type": "build", "hidden": true },
+        { "type": "ci", "hidden": true },
+        { "type": "refactor", "hidden": true },
+        { "type": "style", "hidden": true },
+        { "type": "test", "hidden": true },
+        { "type": "chore", "hidden": true }
+      ],
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "package.json",
+          "jsonpath": "$.version"
+        }
+      ]
+    }
+  }
+}
