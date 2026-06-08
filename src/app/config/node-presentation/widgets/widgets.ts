@@ -1,4 +1,7 @@
 import { Widget } from '../../../widgets/core/types/node-presentation-config';
+import { ImageGalleryWidgetOptions } from '../../../widgets/generic/image-gallery-widget/image-gallery-widget.options';
+import { MediaWidgetOptions } from '../../../widgets/generic/media-widget/media-widget.options';
+import { TextWidgetOptions } from '../../../widgets/generic/text-widget/text-widget.options';
 
 export const nameWidget: Widget = {
   id: 'name',
@@ -8,7 +11,7 @@ export const nameWidget: Widget = {
     showPropertyLabel: false,
     asH2: true,
     bold: true,
-  },
+  } as TextWidgetOptions,
 };
 
 export const typeWidget: Widget = {
@@ -52,7 +55,7 @@ export const imageThumbWidget: Widget = {
     maxThumbnails: 1,
     enableLightbox: false,
     noPadding: true,
-  },
+  } as ImageGalleryWidgetOptions,
 };
 
 export const descriptionWithoutLabelWidget: Widget = {
@@ -63,7 +66,7 @@ export const descriptionWithoutLabelWidget: Widget = {
     propertyLabel: 'Beschrijving',
     showPropertyLabel: false,
     maxLength: 200,
-  },
+  } as TextWidgetOptions,
 };
 
 export const descriptionHeaderWidget: Widget = {
@@ -73,7 +76,7 @@ export const descriptionHeaderWidget: Widget = {
   options: {
     showPropertyLabel: false,
     largeFont: true,
-  },
+  } as TextWidgetOptions,
 };
 
 export const isMockDataWidget: Widget = {
@@ -177,7 +180,7 @@ export const mediaWidget: Widget = {
     showPropertyLabel: false,
     position: 'left',
     iiifViewer: 'tify',
-  },
+  } as MediaWidgetOptions,
 };
 
 export const materialWidget: Widget = {
@@ -299,7 +302,7 @@ export const imageThumbLeftWidget: Widget = {
     maxThumbnails: 1,
     enableLightbox: false,
     noPadding: true,
-  },
+  } as ImageGalleryWidgetOptions,
 };
 
 export const datasetWithoutLabelWidget: Widget = {

@@ -141,12 +141,12 @@ export const DETAILS_PRESENTATION_CONFIG: NodePresentationConfig = {
 
 ## Custom Widget Options
 
-To add component-specific options, extend `BaseWidgetOptions` (see [TextWidget](/guide/built-in-widgets#textwidget) for an example):
+To add component-specific options, extend `WidgetOptions` (see [TextWidget](/guide/built-in-widgets#textwidget) for an example):
 
 ```ts
-import { BaseWidgetOptions } from '../../core/types/node-presentation-config';
+import { WidgetOptions } from '../../core/types/node-presentation-config';
 
-export interface YourWidgetOptions extends BaseWidgetOptions {
+export interface YourWidgetOptions extends WidgetOptions {
   customOption?: string;
   anotherOption?: boolean;
 }
@@ -160,7 +160,7 @@ export class YourWidget extends BaseWidget {
 }
 ```
 
-Then use these options in your widget configuration:
+Then use these options in your widget configuration with an explicit type cast:
 
 ```ts
 {
@@ -171,6 +171,6 @@ Then use these options in your widget configuration:
     propertyLabel: 'Your Property',
     customOption: 'special-value',
     anotherOption: true,
-  },
+  } as YourWidgetOptions,
 }
 ```

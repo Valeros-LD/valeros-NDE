@@ -1,6 +1,6 @@
-import { BaseWidgetOptions } from '../../core/types/node-presentation-config';
+import { WidgetOptions } from '../../core/types/node-presentation-config';
 
-export interface ImageGalleryWidgetOptions extends BaseWidgetOptions {
+export interface ImageGalleryWidgetOptions extends WidgetOptions {
   maxThumbnails?: number;
   enableLightbox?: boolean;
 }
