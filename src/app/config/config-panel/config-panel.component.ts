@@ -9,6 +9,9 @@ import { ConfigPageComponent } from '../config-page/config-page.component';
   imports: [NgIconComponent, ConfigPageComponent, CdkDrag, CdkDragHandle],
   templateUrl: './config-panel.component.html',
   viewProviders: [provideIcons({ featherSettings, featherX })],
+  host: {
+    '(document:keydown.escape)': 'handleEscape()',
+  },
 })
 export class ConfigPanelComponent {
   protected readonly isPanelOpen = signal(false);
@@ -19,5 +22,11 @@ export class ConfigPanelComponent {
 
   closePanel(): void {
     this.isPanelOpen.set(false);
+  }
+
+  handleEscape(): void {
+    if (this.isPanelOpen()) {
+      this.closePanel();
+    }
   }
 }
