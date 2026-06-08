@@ -262,6 +262,8 @@ export const imageThumbWidget: Widget = {
 
 ### Responsive Behavior
 
+<img src="./widget-positioning-mobile.jpg" alt="Widget positioning on mobile" style="max-width: 300px">
+
 On mobile devices, the layout collapses into a single column in this order:
 
 1. Top
