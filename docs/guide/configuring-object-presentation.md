@@ -80,6 +80,60 @@ All widgets support **base options** like `propertyLabel`, `icon`, and `position
 
 Individual widget components can extend these with **component-specific options**. For example, `TextWidgetOptions` (used by `TextWidget`) extends `BaseWidgetOptions` to add `maxLength`, `largeFont`, and other text-specific options.
 
+## Widget Positioning
+
+Widgets can be positioned in different areas using the `position` option.
+
+::: tip Implementation Details
+The widget positioning layout structure is defined in `NodeComponent`. Widget position grouping logic is handled by `WidgetService`.
+:::
+
+### Available Positions
+
+![Widget positioning](widget-positioning.jpg)
+
+- **`top`** - Full-width area at the top
+- **`left`** - Left sidebar (on desktop)
+- **`main`** - Main content area (default)
+- **`right`** - Right sidebar (on desktop)
+- **`bottom`** - Full-width area at the bottom
+
+### Example: Positioning Widgets
+
+```ts
+export const mediaWidget: Widget = {
+  id: 'media',
+  properties: ['associatedMedia'],
+  componentId: 'media-widget',
+  options: {
+    showPropertyLabel: false,
+    position: 'left', // Display in left sidebar
+  },
+};
+
+export const imageThumbWidget: Widget = {
+  id: 'image-thumb',
+  properties: ['associatedMedia'],
+  componentId: 'image-gallery-widget',
+  options: {
+    position: 'top', // Display at the top
+    noPadding: true, // Extend edge-to-edge, strip default padding
+  },
+};
+```
+
+### Responsive Behavior
+
+<img src="./widget-positioning-mobile.jpg" alt="Widget positioning on mobile" style="max-width: 300px">
+
+On mobile devices, the layout collapses into a single column in this order:
+
+1. Top
+2. Left
+3. Main
+4. Right
+5. Bottom
+
 ## Common Tasks
 
 ### Changing Widget Order
@@ -217,57 +271,3 @@ displayedWidgetIds: [
   'description',
 ];
 ```
-
-## Widget Positioning
-
-Widgets can be positioned in different areas using the `position` option.
-
-::: tip Implementation Details
-The widget positioning layout structure is defined in `NodeComponent`. Widget position grouping logic is handled by `WidgetService`.
-:::
-
-### Available Positions
-
-![Widget positioning](widget-positioning.jpg)
-
-- **`top`** - Full-width area at the top
-- **`left`** - Left sidebar (on desktop)
-- **`main`** - Main content area (default)
-- **`right`** - Right sidebar (on desktop)
-- **`bottom`** - Full-width area at the bottom
-
-### Example: Positioning Widgets
-
-```ts
-export const mediaWidget: Widget = {
-  id: 'media',
-  properties: ['associatedMedia'],
-  componentId: 'media-widget',
-  options: {
-    showPropertyLabel: false,
-    position: 'left', // Display in left sidebar
-  },
-};
-
-export const imageThumbWidget: Widget = {
-  id: 'image-thumb',
-  properties: ['associatedMedia'],
-  componentId: 'image-gallery-widget',
-  options: {
-    position: 'top', // Display at the top
-    noPadding: true, // Extend edge-to-edge, strip default padding
-  },
-};
-```
-
-### Responsive Behavior
-
-<img src="./widget-positioning-mobile.jpg" alt="Widget positioning on mobile" style="max-width: 300px">
-
-On mobile devices, the layout collapses into a single column in this order:
-
-1. Top
-2. Left
-3. Main
-4. Right
-5. Bottom
