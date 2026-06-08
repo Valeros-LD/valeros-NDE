@@ -228,6 +228,8 @@ The widget positioning layout structure is defined in `NodeComponent`. Widget po
 
 ### Available Positions
 
+![Widget positioning](widget-positioning.jpg)
+
 - **`top`** - Full-width area at the top
 - **`left`** - Left sidebar (on desktop)
 - **`main`** - Main content area (default)
