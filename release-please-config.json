@@ -6,6 +6,7 @@
       "changelog-sections": [
         { "type": "feat", "section": "Features" },
         { "type": "fix", "section": "Bug Fixes" },
+        { "type": "revert", "section": "Reverts" },
         { "type": "perf", "section": "Performance Improvements" },
         { "type": "docs", "section": "Documentation", "hidden": false },
         { "type": "build", "hidden": true },
