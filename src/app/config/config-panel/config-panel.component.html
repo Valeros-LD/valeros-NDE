@@ -8,11 +8,15 @@
 
 @if (isPanelOpen()) {
   <div
-    class="fixed inset-0 bg-black bg-opacity-50 z-[1000] transition-opacity cursor-pointer"
+    animate.enter="backdrop-enter"
+    animate.leave="backdrop-leave"
+    class="fixed inset-0 bg-black bg-opacity-50 z-[1000] cursor-pointer"
     (click)="closePanel()"
   ></div>
 
   <div
+    animate.enter="panel-enter"
+    animate.leave="panel-leave"
     cdkDrag
     cdkDragBoundary=".cdk-overlay-container"
     class="fixed bg-base-100 z-[1001] flex flex-col shadow-2xl rounded-lg overflow-hidden w-[40rem] max-w-[calc(100vw-3rem)] mx-6 max-h-[80vh] right-0 bottom-20"

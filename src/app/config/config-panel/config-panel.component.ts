@@ -8,6 +8,7 @@ import { ConfigPageComponent } from '../config-page/config-page.component';
   selector: 'app-config-panel',
   imports: [NgIconComponent, ConfigPageComponent, CdkDrag, CdkDragHandle],
   templateUrl: './config-panel.component.html',
+  styleUrl: './config-panel.component.scss',
   viewProviders: [provideIcons({ featherSettings, featherX })],
   host: {
     '(document:keydown.escape)': 'handleEscape()',
