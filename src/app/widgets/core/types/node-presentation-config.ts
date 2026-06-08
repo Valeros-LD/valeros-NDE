@@ -1,5 +1,5 @@
 import { IconKey } from '../../../config/icon.registry';
-import { WidgetComponentKey } from '../../../config/presentation/widgets/widget-component.registry';
+import { WidgetComponentKey } from '../../../config/node-presentation/widgets/widget-component.registry';
 
 export interface NodePresentationConfig {
   widgets: Widget[];

@@ -1,7 +1,7 @@
 import { ViewsConfig } from '../../search/views/types/view-config';
-import { GRID_PRESENTATION_CONFIG } from '../presentation/grid-presentation.config';
-import { LIST_PRESENTATION_CONFIG } from '../presentation/list-presentation.config';
-import { MAP_PRESENTATION_CONFIG } from '../presentation/map-presentation.config';
+import { GRID_PRESENTATION_CONFIG } from '../node-presentation/grid-presentation.config';
+import { LIST_PRESENTATION_CONFIG } from '../node-presentation/list-presentation.config';
+import { MAP_PRESENTATION_CONFIG } from '../node-presentation/map-presentation.config';
 
 export const SEARCH_VIEWS_CONFIG: ViewsConfig = {
   views: [
