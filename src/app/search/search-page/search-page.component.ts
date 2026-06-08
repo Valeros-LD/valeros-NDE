@@ -5,7 +5,6 @@ import {
   effect,
   inject,
   OnInit,
-  untracked,
   viewChild,
   ViewContainerRef,
 } from '@angular/core';
@@ -94,14 +93,12 @@ export class SearchPageComponent implements OnInit {
 
         if (component) {
           const componentRef = viewContainer.createComponent(component);
-          untracked(() => {
-            componentRef.setInput('results', this.store.results());
-            componentRef.setInput('totalResults', this.store.totalResults());
-            componentRef.setInput('currentPage', this.store.currentPage());
-            componentRef.setInput('pageSize', this.store.pageSize());
-            componentRef.setInput('options', options);
-            componentRef.setInput('presentationConfig', presentationConfig);
-          });
+          componentRef.setInput('results', this.store.results());
+          componentRef.setInput('totalResults', this.store.totalResults());
+          componentRef.setInput('currentPage', this.store.currentPage());
+          componentRef.setInput('pageSize', this.store.pageSize());
+          componentRef.setInput('options', options);
+          componentRef.setInput('presentationConfig', presentationConfig);
         }
       }
     });
