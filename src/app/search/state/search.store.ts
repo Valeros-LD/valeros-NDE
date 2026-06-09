@@ -71,18 +71,11 @@ export class SearchStore {
           }),
         ),
         distinctUntilChanged((prev: SearchUrlParams, curr: SearchUrlParams) => {
-          const queryChanged = prev.q !== curr.q;
-          const filtersChanged = prev.filters !== curr.filters;
-          const pageChanged = prev.page !== curr.page;
-          const viewChanged = prev.view !== curr.view;
-          const sortChanged = prev.sort !== curr.sort;
-          return (
-            !queryChanged &&
-            !filtersChanged &&
-            !pageChanged &&
-            !viewChanged &&
-            !sortChanged
+          const paramKeys = Object.keys(prev) as (keyof SearchUrlParams)[];
+          const noParamsChanged = paramKeys.every(
+            (key) => prev[key] === curr[key],
           );
+          return noParamsChanged;
         }),
       )
       .subscribe((urlParams: SearchUrlParams) => {
