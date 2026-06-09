@@ -26,7 +26,7 @@ import { BreadcrumbService } from './breadcrumbs/breadcrumb.service';
 import { BreadcrumbComponent } from './breadcrumbs/breadcrumb/breadcrumb.component';
 
 @Component({
-  selector: 'app-details',
+  selector: 'app-details-page',
   imports: [
     CommonModule,
     NodeComponent,
@@ -35,9 +35,9 @@ import { BreadcrumbComponent } from './breadcrumbs/breadcrumb/breadcrumb.compone
     LoadingSpinnerComponent,
     ErrorAlertComponent,
   ],
-  templateUrl: './details.component.html',
+  templateUrl: './details-page.component.html',
 })
-export class DetailsComponent implements OnInit, OnDestroy {
+export class DetailsPageComponent implements OnInit, OnDestroy {
   id: string | null = null;
   data = signal<NodeModel | null>(null);
   loading = signal<boolean>(false);
