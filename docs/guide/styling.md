@@ -33,10 +33,6 @@ Valeros includes three pre-configured themes: **valeros-light** (default), **val
 
 Themes are defined in `tailwind.config.js` using DaisyUI's theme system with CSS variables for dynamic switching.
 
-## Customizing Styles
-
-Styling is mostly managed in `tailwind.config.js` at the root of the project.
-
 ### Adding or Modifying Themes
 
 Each theme is defined with CSS variables that control fonts, colors, and other properties:
