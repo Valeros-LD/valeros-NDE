@@ -26,7 +26,10 @@ DaisyUI provides pre-styled components like buttons, cards, and modals. Refer to
 
 Valeros includes three pre-configured themes: **valeros-light** (default), **valeros-dark**, and **valeros-purple**.
 
-<video src="./theme-switcher-demo.mp4" controls></video>
+<video controls width="100%" style="max-width: 800px; margin: 1rem 0;">
+  <source src="./theme-switching.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 Themes are defined in `tailwind.config.js` using DaisyUI's theme system with CSS variables for dynamic switching.
 
