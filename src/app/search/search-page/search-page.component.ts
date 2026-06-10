@@ -5,6 +5,7 @@ import {
   effect,
   inject,
   OnInit,
+  signal,
   viewChild,
   ViewContainerRef,
 } from '@angular/core';
@@ -55,6 +56,7 @@ export class SearchPageComponent implements OnInit {
   private pageTitleService = inject(PageTitleService);
 
   viewContainer = viewChild('viewContainer', { read: ViewContainerRef });
+  viewLoadError = signal<string | null>(null);
 
   currentViewOptions = computed(() => {
     return this.viewService.getViewOptions(this.store.currentView());
@@ -99,6 +101,11 @@ export class SearchPageComponent implements OnInit {
           componentRef.setInput('pageSize', this.store.pageSize());
           componentRef.setInput('options', options);
           componentRef.setInput('presentationConfig', presentationConfig);
+          this.viewLoadError.set(null);
+        } else {
+          const errorMessage = `View component for type "${currentView}" not found. Could not instantiate view.`;
+          console.warn(errorMessage);
+          this.viewLoadError.set(errorMessage);
         }
       }
     });

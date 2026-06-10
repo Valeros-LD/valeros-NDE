@@ -60,6 +60,12 @@
 
         <ng-container #viewContainer></ng-container>
 
+        @if (viewLoadError()) {
+          <div class="mt-6">
+            <app-error-alert [message]="viewLoadError()!" />
+          </div>
+        }
+
         @if (currentViewOptions().showPagination !== false) {
           <app-pagination
             [currentPage]="store.currentPage()"
