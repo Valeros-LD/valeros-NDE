@@ -19,7 +19,7 @@ export const SEARCH_VIEWS_CONFIG: ViewsConfig = {
     },
     {
       type: 'grid',
-      componentId: 'masonry-view',
+      componentId: 'grid-view',
       options: {
         pageSize: 20,
         showPagination: true,

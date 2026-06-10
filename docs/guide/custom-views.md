@@ -76,7 +76,7 @@ import { YourView } from '../../search/views/your-view/your-view.component';
 
 export const VIEW_COMPONENT_REGISTRY = {
   'list-view': ListViewComponent,
-  'masonry-view': MasonryViewComponent,
+  'grid-view': GridViewComponent,
   'map-view': MapViewComponent,
   'your-view': YourView, // Add your view
 } as const;

@@ -3,8 +3,8 @@ import { NodeComponent } from '../../../node/node.component';
 import { BaseResultsView } from '../base-results-view';
 
 @Component({
-  selector: 'app-masonry-view',
+  selector: 'app-grid-view',
   imports: [NodeComponent],
-  templateUrl: './masonry-view.component.html',
+  templateUrl: './grid-view.component.html',
 })
-export class MasonryViewComponent extends BaseResultsView {}
+export class GridViewComponent extends BaseResultsView {}
