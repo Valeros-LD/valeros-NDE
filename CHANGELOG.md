@@ -1,5 +1,33 @@
 # Changelog
 
+## [0.3.0](https://github.com/Valeros-LD/Valeros-NDE/compare/valeros-nde-v0.2.0...valeros-nde-v0.3.0) (2026-06-10)
+
+
+### Features
+
+* add theme-switcher component ([be466bb](https://github.com/Valeros-LD/Valeros-NDE/commit/be466bb0df64b17d13567ca59ba82e7b6c8bb261))
+* add theme-switcher component ([f388b08](https://github.com/Valeros-LD/Valeros-NDE/commit/f388b08e03652e129fd880d6d0fa4172ceff2dab))
+* only show view switcher if there are multiple views ([3ab9706](https://github.com/Valeros-LD/Valeros-NDE/commit/3ab97068024435e23a0e8f9bdc0e8b3c6825c64b))
+* show error in UI if view is not found ([1dfbafd](https://github.com/Valeros-LD/Valeros-NDE/commit/1dfbafd9a1733906f06b097e8b049bfea05fa811))
+
+
+### Bug Fixes
+
+* prevent double rendering when switching views ([15a0de5](https://github.com/Valeros-LD/Valeros-NDE/commit/15a0de529198cc002cf3cec1601c9259664ab1b9))
+
+
+### Reverts
+
+* prevent double rendering when switching views ([d88a70b](https://github.com/Valeros-LD/Valeros-NDE/commit/d88a70bcac779cbd5a65d316c13969139fdeb48c))
+
+
+### Documentation
+
+* add widget positioning image ([85b8f44](https://github.com/Valeros-LD/Valeros-NDE/commit/85b8f4496e8a6761d821f73bcba7073455e7eca0))
+* add widget positioning image for mobile ([4dfa5d4](https://github.com/Valeros-LD/Valeros-NDE/commit/4dfa5d4d345355e7b472c9db94041c1038fbc019))
+* rearrange sections ([793b460](https://github.com/Valeros-LD/Valeros-NDE/commit/793b460fda1362cc2a51ff7a84be10cdc979f18f))
+* update styling doc ([f05454f](https://github.com/Valeros-LD/Valeros-NDE/commit/f05454fb404ef007e62988680f547e5f28775d47))
+
 ## [0.2.0](https://github.com/Valeros-LD/Valeros-NDE/compare/valeros-nde-v0.1.0...valeros-nde-v0.2.0) (2026-06-08)
 
 
