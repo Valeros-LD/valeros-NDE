@@ -2,10 +2,12 @@
 
 We're currently experimenting with a UI for changing configuration at runtime. This feature would allow you to adjust all of the [configuration settings](/guide/configuration-system) through a visual interface, without needing to edit TypeScript files or write code.
 
-<video controls width="100%" style="max-width: 800px; margin: 1rem 0;">
+<video controls>
   <source src="./config-ui.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+
+<span class="video-caption">Video: Using the experimental configuration UI</span>
 
 ## Components
 

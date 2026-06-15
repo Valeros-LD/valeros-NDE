@@ -1,0 +1,17 @@
+.vp-doc video {
+  width: 100%;
+  max-width: 800px;
+  margin: 1rem 0;
+}
+
+.vp-doc .video-caption {
+  font-size: 0.9em;
+  color: #666;
+  font-style: italic;
+  margin-top: -0.5rem;
+  display: block;
+}
+
+.dark .vp-doc .video-caption {
+  color: #999;
+}

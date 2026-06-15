@@ -2,10 +2,12 @@
 
 Facets allow users to filter search results by properties like `dataset`, `location`, `creator`, and more. The facets themselves are returned by the data layer (see [API spec](https://github.com/netwerk-digitaal-erfgoed/prototypes-data-layers/blob/main/apps/valeros-api/API.md#get-the-heritage-objects-collection)), but you can customize their presentation through configuration.
 
-<video controls width="100%" style="max-width: 800px; margin: 1rem 0;">
+<video controls>
   <source src="./facets.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+
+<span class="video-caption">Video: Using facets to filter search results</span>
 
 ## Facets Configuration File
 
