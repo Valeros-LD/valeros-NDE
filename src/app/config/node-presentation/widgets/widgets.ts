@@ -316,7 +316,6 @@ export const datasetWithoutLabelWidget: Widget = {
 
 export const separatorWidget: Widget = {
   id: 'separator',
-  properties: [],
   componentId: 'separator-widget',
   options: {
     showPropertyLabel: false,
@@ -325,7 +324,6 @@ export const separatorWidget: Widget = {
 
 export const fallbackWidget: Widget = {
   id: 'fallback',
-  properties: [],
   componentId: 'json-widget',
-  options: {},
+  isFallback: true,
 };

@@ -36,17 +36,12 @@ export const DETAILS_PRESENTATION_CONFIG: NodePresentationConfig = {
     mediaWidget,
     // ... more widgets
   ],
-  displayedWidgetIds: ['name', 'description', 'media'],
-  fallbackWidget: fallbackWidget,
-  showArrowIndicator: true,
 };
 ```
 
 ### Configuration Properties
 
-- **`widgets`** - Array of all available widgets for this view
-- **`displayedWidgetIds`** - Array of widget IDs that controls which widgets are shown and in which order
-- **`fallbackWidget`** - Widget to use when a property has no matching widget
+- **`widgets`** - Array of widgets that defines which widgets are shown and in what order
 - **`showArrowIndicator`** - Whether to show an arrow indicator on clickable items (optional)
 
 ## What is a Widget?
@@ -72,9 +67,10 @@ export const materialWidget: Widget = {
 ### Widget Properties
 
 - **`id`** - Unique identifier for the widget
-- **`properties`** - Array of data property names this widget handles
+- **`properties`** - Array of data property names this widget handles (optional, see [Widgets Without Properties](#widgets-without-properties))
 - **`componentId`** - The component used to render this widget (see [Built-in Widgets](/guide/built-in-widgets) for available components)
 - **`options`** - Configuration options passed to the widget component (optional)
+- **`isFallback`** - When true, this widget handles any properties that have data but don't match other widgets (optional, see [Handling Unmatched Properties](#handling-unmatched-properties))
 
 ### Widget Options
 
@@ -140,36 +136,18 @@ On mobile devices, the layout collapses into a single column in this order:
 
 ### Changing Widget Order
 
-The order of widgets is controlled by the `displayedWidgetIds` array. Simply reorder the IDs:
+Widgets are displayed in the order they appear in the `widgets` array. Simply reorder the widgets:
 
 ```ts
 export const DETAILS_PRESENTATION_CONFIG: NodePresentationConfig = {
-  widgets: [nameWidget, descriptionWidget, mediaWidget],
-  displayedWidgetIds: [
-    'media', // Shows first
-    'name', // Shows second
-    'description', // Shows third
+  widgets: [
+    mediaWidget, // Shows first
+    nameWidget, // Shows second
+    descriptionWidget, // Shows third
   ],
   // ...
 };
 ```
-
-**Using `*` to show remaining widgets**
-
-Use the wildcard `*` to automatically include all widgets that aren't explicitly listed:
-
-```ts
-displayedWidgetIds: [
-  'name', // Explicitly first
-  'description', // Explicitly second
-  '*', // All remaining widgets, sorted alphabetically by property
-  'dataset', // Explicitly at the end
-];
-```
-
-::: tip
-The wildcard behavior is implemented in `WidgetService`. To customize how widgets are ordered or filtered, check out `src/app/widgets/widget.service.ts`.
-:::
 
 ### Showing Widgets for Properties
 
@@ -200,7 +178,6 @@ export const DETAILS_PRESENTATION_CONFIG: NodePresentationConfig = {
     customWidget,
     // ...
   ],
-  displayedWidgetIds: ['name', 'custom'],
   // ...
 };
 ```
@@ -221,7 +198,6 @@ export const DETAILS_PRESENTATION_CONFIG: NodePresentationConfig = {
       },
     },
   ],
-  displayedWidgetIds: ['name', 'custom'],
   // ...
 };
 ```
@@ -251,12 +227,11 @@ Different widget components accept different options. Check the widget's impleme
 
 ### Widgets Without Properties
 
-Widgets can have an empty `properties` array if they don't depend on specific data properties:
+Widgets can omit the `properties` field if they don't depend on specific data properties:
 
 ```ts
 export const separatorWidget: Widget = {
   id: 'separator',
-  properties: [], // No properties needed
   componentId: 'separator-widget',
   options: {
     showPropertyLabel: false,
@@ -264,12 +239,45 @@ export const separatorWidget: Widget = {
 };
 ```
 
-These widgets will only appear if their ID is listed in `displayedWidgetIds`:
+These widgets will always appear when included in the `widgets` array:
 
 ```ts
-displayedWidgetIds: [
-  'name',
-  'separator', // Must be explicitly included
-  'description',
-];
+export const DETAILS_PRESENTATION_CONFIG: NodePresentationConfig = {
+  widgets: [
+    nameWidget,
+    separatorWidget, // Always appears at this position
+    descriptionWidget,
+  ],
+};
 ```
+
+### Handling Unmatched Properties
+
+Use a fallback widget to display properties that don't have specific widgets defined. Set `isFallback: true` on a widget:
+
+```ts
+export const fallbackWidget: Widget = {
+  id: 'fallback',
+  componentId: 'json-widget',
+  isFallback: true, // This widget handles unmatched properties
+};
+```
+
+The fallback widget's position in the `widgets` array determines where unmatched properties appear:
+
+```ts
+export const DETAILS_PRESENTATION_CONFIG: NodePresentationConfig = {
+  widgets: [
+    nameWidget,
+    descriptionWidget,
+    fallbackWidget, // Unmatched properties appear here
+    datasetWidget,
+  ],
+};
+```
+
+In this example, `name`, `description` and `dataset` properties are matched by their respective widgets. Other properties like `type` or `birthDate` that don't match any specific widget would be handled by the `fallbackWidget`.
+
+::: tip
+Widget matching logic is implemented in `WidgetService`. Check out `src/app/widgets/widget.service.ts` for details.
+:::

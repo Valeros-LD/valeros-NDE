@@ -3,16 +3,19 @@ import { WidgetComponentKey } from '../../../config/node-presentation/widgets/wi
 
 export interface NodePresentationConfig {
   widgets: Widget[];
-  displayedWidgetIds: string[];
-  fallbackWidget: Widget;
   showArrowIndicator?: boolean;
 }
 
 export interface Widget {
   id: string;
-  properties: string[];
+  properties?: string[];
   componentId: WidgetComponentKey;
   options?: WidgetOptions;
+  /**
+   * When true, this widget will be used for any properties that have data
+   * but don't match any other widget.
+   */
+  isFallback?: boolean;
 }
 
 export type WidgetOptions = BaseWidgetOptions & Record<string, unknown>;

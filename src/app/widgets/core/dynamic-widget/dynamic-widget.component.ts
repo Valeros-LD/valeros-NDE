@@ -63,7 +63,7 @@ export class DynamicWidgetComponent implements AfterViewInit {
     this.componentRef = this.widgetContainer().createComponent(componentClass);
     this.componentRef.setInput('node', this.data());
     this.componentRef.setInput('property', this.property());
-    this.componentRef.setInput('options', widget.options);
+    this.componentRef.setInput('options', widget.options ?? {});
 
     this.widgetInstance.set(this.componentRef.instance);
 

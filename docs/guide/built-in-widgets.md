@@ -148,9 +148,9 @@ Orchestrator widget that selects the appropriate media viewer based on available
 
 **Component ID**: `json-widget`
 
-Fallback widget for unmapped properties. Displays raw JSON data.
+Displays raw JSON data. Commonly used with `isFallback: true` to handle properties without specific widgets (see [Handling Unmatched Properties](/guide/configuring-object-presentation#handling-unmatched-properties)).
 
-**Used for**: Any property without specific widget mapping
+**Example Properties**: Any property
 
 ## ReferringNodesWidget
 
@@ -189,7 +189,6 @@ Visual separator between sections.
 ```ts
 {
   id: 'separator',
-  properties: [],
   componentId: 'separator-widget',
   options: {
     showPropertyLabel: false,

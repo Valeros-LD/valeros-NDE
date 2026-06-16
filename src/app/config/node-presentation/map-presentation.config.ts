@@ -1,10 +1,10 @@
 import { NodePresentationConfig } from '../../widgets/core/types/node-presentation-config';
-import { searchResultWidgets } from './widgets/search-results-widgets';
-import { fallbackWidget } from './widgets/widgets';
+import {
+  descriptionWithoutLabelWidget,
+  imageThumbWidget,
+  nameWidget,
+} from './widgets/widgets';
 
 export const MAP_PRESENTATION_CONFIG: NodePresentationConfig = {
-  widgets: [...searchResultWidgets],
-  displayedWidgetIds: ['image-thumb', 'name', 'description-without-label'],
-  fallbackWidget: fallbackWidget,
-  showArrowIndicator: false,
+  widgets: [imageThumbWidget, nameWidget, descriptionWithoutLabelWidget],
 };
