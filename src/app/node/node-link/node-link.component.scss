@@ -2,7 +2,7 @@ a {
   @apply inline-flex items-center gap-2;
 
   &.image-card {
-    @apply block relative rounded overflow-visible cursor-pointer;
+    @apply block relative rounded overflow-visible cursor-pointer max-w-32;
 
     .image-wrapper {
       @apply rounded overflow-hidden;
