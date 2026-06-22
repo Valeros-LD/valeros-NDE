@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.4.0](https://github.com/Valeros-LD/Valeros-NDE/compare/valeros-nde-v0.3.0...valeros-nde-v0.4.0) (2026-06-16)
+
+
+### Features
+
+* set max width for image cards ([40a6e62](https://github.com/Valeros-LD/Valeros-NDE/commit/40a6e62c2f3f423505bd5fb5b47aa9aa31367876))
+* simplify widget configuration ([18bc460](https://github.com/Valeros-LD/Valeros-NDE/commit/18bc460df3be559e2fd6030724c4549901980955))
+* update config UI warning text ([3b301c6](https://github.com/Valeros-LD/Valeros-NDE/commit/3b301c6686061e7394b4b6d40def5546bf216a3f))
+
+
+### Documentation
+
+* add video captions ([1fda1eb](https://github.com/Valeros-LD/Valeros-NDE/commit/1fda1eb8108b0e6f59b3c8a7ec35280a22f74883))
+* update widgets video ([fec8e6c](https://github.com/Valeros-LD/Valeros-NDE/commit/fec8e6c8e67579619addb148dd2d9dc06cbefc7a))
+
 ## [0.3.0](https://github.com/Valeros-LD/Valeros-NDE/compare/valeros-nde-v0.2.0...valeros-nde-v0.3.0) (2026-06-10)
 
 
