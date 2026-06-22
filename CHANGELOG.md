@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/Valeros-LD/valeros-NDE/compare/valeros-nde-v0.5.0...valeros-nde-v0.5.1) (2026-06-22)
+
+
+### Bug Fixes
+
+* set page title for home page ([2b29617](https://github.com/Valeros-LD/valeros-NDE/commit/2b29617ce800d933a1e0dad8c5c81dae1a79260d))
+
 ## [0.5.0](https://github.com/Valeros-LD/valeros-NDE/compare/valeros-nde-v0.4.0...valeros-nde-v0.5.0) (2026-06-22)
 
 
