@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.0](https://github.com/Valeros-LD/valeros-NDE/compare/valeros-nde-v0.5.1...valeros-nde-v0.6.0) (2026-06-22)
+
+
+### Features
+
+* add NDE partner logo to home page ([dcfa50d](https://github.com/Valeros-LD/valeros-NDE/commit/dcfa50da8f0a669b27240001448e9be7a8d0e0d9))
+* show random placeholder in search bar ([1264fe5](https://github.com/Valeros-LD/valeros-NDE/commit/1264fe539154b268fa2a1b8a377a6f397ce710b9))
+
 ## [0.5.1](https://github.com/Valeros-LD/valeros-NDE/compare/valeros-nde-v0.5.0...valeros-nde-v0.5.1) (2026-06-22)
 
 
