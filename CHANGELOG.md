@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/Valeros-LD/valeros-NDE/compare/valeros-nde-v0.4.0...valeros-nde-v0.5.0) (2026-06-22)
+
+
+### Features
+
+* add home page ([eeb675e](https://github.com/Valeros-LD/valeros-NDE/commit/eeb675e7aa740d9f665d736f515f7b62809470be))
+
 ## [0.4.0](https://github.com/Valeros-LD/Valeros-NDE/compare/valeros-nde-v0.3.0...valeros-nde-v0.4.0) (2026-06-16)
 
 
