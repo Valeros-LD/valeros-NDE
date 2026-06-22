@@ -1,6 +1,7 @@
 import { Route } from '@angular/router';
 import { ConfigPageComponent } from '../config/config-page/config-page.component';
 import { DetailsPageComponent } from '../details-page/details-page.component';
+import { HomePageComponent } from '../home-page/home-page.component';
 import { SearchPageComponent } from '../search/search-page/search-page.component';
 import { NotFoundComponent } from '../ui/not-found/not-found.component';
 import { detailsRouteMatcher } from './details-route.matcher';
@@ -8,7 +9,7 @@ import { detailsRouteMatcher } from './details-route.matcher';
 export const appRoutes: Route[] = [
   {
     path: '',
-    component: SearchPageComponent,
+    component: HomePageComponent,
   },
   {
     path: 'search',

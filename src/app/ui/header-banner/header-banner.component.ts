@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,9 +8,10 @@ import { Router } from '@angular/router';
 })
 export class HeaderBannerComponent {
   private router = inject(Router);
+  hideSubtitle = input(false);
 
   goToHome(): void {
-    this.router.navigate(['/search'], {
+    this.router.navigate(['/'], {
       queryParams: {},
     });
   }
