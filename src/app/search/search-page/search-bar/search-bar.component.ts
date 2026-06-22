@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect, inject, viewChild } from '@angular/core';
+import { Component, effect, inject, signal, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { featherSearch } from '@ng-icons/feather-icons';
 import { LoadingSpinnerComponent } from '../../../ui/loading-spinner/loading-spinner.component';
@@ -23,9 +23,18 @@ import { AutocompleteDropdownComponent } from './autocomplete-dropdown/autocompl
 export class SearchBarComponent {
   store = inject(SearchStore);
   private router = inject(Router);
-  private route = inject(ActivatedRoute);
 
   autocomplete = viewChild<AutocompleteDropdownComponent>('autocomplete');
+
+  protected readonly placeholder = signal(
+    (() => {
+      const placeholderExamples = ['mijnbouw', 'bloem', 'brief', 'instrument'];
+      const randomIndex = Math.floor(
+        Math.random() * placeholderExamples.length,
+      );
+      return `Bijv. '${placeholderExamples[randomIndex]}'`;
+    })(),
+  );
 
   private debounceTimer: ReturnType<typeof setTimeout> | null = null;
   private skipFirstDebouncedSearch = true;

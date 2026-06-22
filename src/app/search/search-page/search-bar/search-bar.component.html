@@ -3,7 +3,7 @@
     <label class="input input-bordered rounded-full flex items-center gap-2">
       <input
         type="text"
-        placeholder="Zoeken..."
+        [placeholder]="placeholder()"
         class="grow min-w-0"
         [ngModel]="store.searchTerm()"
         (ngModelChange)="onSearchTermChange($event)"
