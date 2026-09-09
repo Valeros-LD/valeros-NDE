@@ -13,6 +13,8 @@
     "@rjsf/daisyui": "^6.8.0",
     "@rjsf/utils": "^6.8.0",
     "@rjsf/validator-ajv8": "^6.8.0",
+    "@valeros/icon-registry": "workspace:*",
+    "clsx": "^2.1.1",
     "daisyui": "^5.7.28",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",

@@ -5,6 +5,7 @@ import validator from '@rjsf/validator-ajv8';
 import defaultConfig from '../../valeros/public/config/valeros.config.json';
 import rawSchema from '../../valeros/public/config/valeros.config.schema.json';
 import { FacetRowTemplate } from './FacetRowTemplate';
+import { IconSelectWidget } from './IconSelectWidget';
 import { PresentationConfigTemplate } from './PresentationConfigTemplate';
 import { ViewRowTemplate } from './ViewRowTemplate';
 
@@ -21,7 +22,7 @@ const uiSchema: UiSchema = {
       'ui:ObjectFieldTemplate': FacetRowTemplate,
       name: { 'ui:title': 'Naam' },
       label: { 'ui:title': 'Label' },
-      icon: { 'ui:title': 'Icoon' },
+      icon: { 'ui:title': 'Icoon', 'ui:widget': IconSelectWidget },
       hidden: { 'ui:title': 'Verborgen' },
     },
   },

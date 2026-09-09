@@ -136,6 +136,12 @@ importers:
       '@rjsf/validator-ajv8':
         specifier: ^6.8.0
         version: 6.8.0(@rjsf/utils@6.8.0(react@19.2.8))
+      '@valeros/icon-registry':
+        specifier: workspace:*
+        version: link:../../packages/icon-registry
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       daisyui:
         specifier: ^5.7.28
         version: 5.7.28

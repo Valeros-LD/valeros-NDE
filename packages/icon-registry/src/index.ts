@@ -47,6 +47,10 @@ export const ICON_REGISTRY: Record<IconKey, string> = {
   maximize: featherMaximize2,
 };
 
+export function isRegisteredIcon(value: unknown): value is IconKey {
+  return typeof value === 'string' && Object.hasOwn(ICON_REGISTRY, value);
+}
+
 export function getIcon(key: IconKey): string {
   return ICON_REGISTRY[key];
 }
