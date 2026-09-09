@@ -37,6 +37,7 @@ const uiSchema: UiSchema = {
     },
   },
   views: {
+    'ui:order': ['defaultView', 'views'],
     views: {
       items: {
         'ui:ObjectFieldTemplate': ViewRowTemplate,
