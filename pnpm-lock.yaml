@@ -200,6 +200,9 @@ importers:
       '@valeros/config-schema':
         specifier: workspace:*
         version: link:../../packages/config-schema
+      '@valeros/icon-registry':
+        specifier: workspace:*
+        version: link:../../packages/icon-registry
       graphql:
         specifier: ^16.14.2
         version: 16.14.2
@@ -300,6 +303,19 @@ importers:
       zod:
         specifier: ^4.5.4
         version: 4.5.4
+
+  packages/icon-registry:
+    dependencies:
+      '@ng-icons/feather-icons':
+        specifier: ^35.0.1
+        version: 35.1.0
+      '@valeros/config-schema':
+        specifier: workspace:*
+        version: link:../config-schema
+    devDependencies:
+      typescript:
+        specifier: ~6.0.3
+        version: 6.0.3
 
 packages:
 

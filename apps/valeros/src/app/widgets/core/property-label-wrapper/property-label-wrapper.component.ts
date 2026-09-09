@@ -5,8 +5,8 @@ import {
   input,
 } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
-import { getIconOrUndefined } from '../../../config/icon.registry';
 import { WidgetOptions } from '@valeros/config-schema';
+import { getIconOrUndefined } from '@valeros/icon-registry';
 
 @Component({
   selector: 'app-property-label-wrapper',

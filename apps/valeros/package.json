@@ -29,6 +29,7 @@
     "@ng-icons/core": "^35.0.1",
     "@ng-icons/feather-icons": "^35.0.1",
     "@valeros/config-schema": "workspace:*",
+    "@valeros/icon-registry": "workspace:*",
     "graphql": "^16.14.2",
     "graphql-request": "^7.4.0",
     "leaflet": "^1.9.4",

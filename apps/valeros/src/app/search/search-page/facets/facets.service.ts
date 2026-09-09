@@ -1,7 +1,7 @@
 import { Injectable, computed, inject } from '@angular/core';
 import { IconKey } from '@valeros/config-schema';
+import { getIcon } from '@valeros/icon-registry';
 import { ConfigService } from '../../../config/config.service';
-import { getIcon } from '../../../config/icon.registry';
 
 @Injectable({ providedIn: 'root' })
 export class FacetsService {
