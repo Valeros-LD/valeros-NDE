@@ -42,7 +42,7 @@ const uiSchema: UiSchema = {
         'ui:ObjectFieldTemplate': ViewRowTemplate,
         type: { 'ui:title': 'Type' },
         componentId: { 'ui:title': 'Component' },
-        icon: { 'ui:title': 'Icoon' },
+        icon: { 'ui:title': 'Icoon', 'ui:widget': IconSelectWidget },
         label: { 'ui:title': 'Label' },
         presentationConfig: {
           'ui:ObjectFieldTemplate': PresentationConfigTemplate,
