@@ -6,12 +6,22 @@ import defaultConfig from '../../valeros/public/config/valeros.config.json';
 import rawSchema from '../../valeros/public/config/valeros.config.schema.json';
 import { FacetRowTemplate } from './FacetRowTemplate';
 import { IconSelectWidget } from './IconSelectWidget';
-import { PresentationConfigTemplate } from './PresentationConfigTemplate';
+import {
+  PresentationConfigTemplate,
+  WidgetTemplate,
+} from './PresentationConfigTemplate';
 import { ViewRowTemplate } from './ViewRowTemplate';
 
 const { $schema: _, ...rest } = rawSchema;
 const schema = rest as RJSFSchema;
 const formData = defaultConfig as Record<string, unknown>;
+
+const widgetsUiSchema: UiSchema = {
+  items: {
+    'ui:ObjectFieldTemplate': WidgetTemplate,
+    options: { 'ui:title': 'Opties' },
+  },
+};
 
 const uiSchema: UiSchema = {
   $schema: {
@@ -36,8 +46,14 @@ const uiSchema: UiSchema = {
         label: { 'ui:title': 'Label' },
         presentationConfig: {
           'ui:ObjectFieldTemplate': PresentationConfigTemplate,
+          widgets: widgetsUiSchema,
         },
       },
+    },
+  },
+  presentation: {
+    details: {
+      widgets: widgetsUiSchema,
     },
   },
 };
