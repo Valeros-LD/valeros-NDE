@@ -1,10 +1,11 @@
 import type { ObjectFieldTemplateProps } from '@rjsf/utils';
 import type { NodePresentationConfig, Widget } from '@valeros/config-schema';
 
-import { Collapse } from './Collapse';
+import { Collapse, getFieldTitle } from './Collapse';
 
 export function WidgetTemplate({
   properties,
+  schema,
 }: ObjectFieldTemplateProps<Widget>) {
   const options = properties.find((p) => p.name === 'options');
   const widgetProperties = properties.find((p) => p.name === 'properties');
@@ -18,25 +19,36 @@ export function WidgetTemplate({
         <div key={p.name}>{p.content}</div>
       ))}
       {widgetProperties && (
-        <Collapse title="Properties">{widgetProperties.content}</Collapse>
+        <Collapse title={getFieldTitle(schema, 'properties', 'Properties')}>
+          {widgetProperties.content}
+        </Collapse>
       )}
-      {options && <Collapse title="Opties">{options.content}</Collapse>}
+      {options && (
+        <Collapse title={getFieldTitle(schema, 'options', 'Options')}>
+          {options.content}
+        </Collapse>
+      )}
     </div>
   );
 }
 
 export function PresentationConfigTemplate({
   properties,
+  schema,
 }: ObjectFieldTemplateProps<NodePresentationConfig>) {
   const widgets = properties.find((p) => p.name === 'widgets');
   const rest = properties.filter((p) => p.name !== 'widgets');
 
   return (
     <div>
-      {widgets && <Collapse title="Widgets">{widgets.content}</Collapse>}
       {rest.map((p) => (
         <div key={p.name}>{p.content}</div>
       ))}
+      {widgets && (
+        <Collapse title={getFieldTitle(schema, 'widgets', 'Widgets')}>
+          {widgets.content}
+        </Collapse>
+      )}
     </div>
   );
 }

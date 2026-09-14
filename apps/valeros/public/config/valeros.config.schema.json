@@ -1,24 +1,31 @@
 {
-  "$comment": "Auto-generated — do not edit directly. Run `npm run generate:config-schema` to regenerate from src/app/config/schema/valeros-config.schema.ts.",
+  "$comment": "Auto-generated — do not edit directly. Run `pnpm generate:config-schema` to regenerate this file from packages/config-schema/src/valeros-config.schema.ts.",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://valeros.nl/config/valeros.config.schema.json",
-  "title": "ValerosConfig",
   "type": "object",
   "properties": {
     "$schema": {
+      "title": "JSON Schema",
+      "readOnly": true,
       "type": "string"
     },
     "api": {
       "type": "object",
       "properties": {
         "baseUrl": {
-          "type": "string"
+          "type": "string",
+          "title": "Data layer URL",
+          "examples": [
+            "http://localhost:4000/graphql"
+          ]
         }
       },
       "required": [
         "baseUrl"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "title": "Data layer",
+      "description": "Connection to the data layer."
     },
     "facets": {
       "type": "array",
@@ -26,15 +33,27 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "title": "Name",
+            "description": "Facet property name in the data layer.",
+            "examples": [
+              "creator"
+            ]
           },
           "label": {
-            "type": "string"
+            "type": "string",
+            "title": "Label",
+            "description": "Name shown to visitors for this filter.",
+            "examples": [
+              "Creator"
+            ]
           },
           "icon": {
             "$ref": "#/$defs/iconKey"
           },
           "hidden": {
+            "title": "Hidden",
+            "description": "Hide this filter from visitors.",
             "type": "boolean"
           }
         },
@@ -42,8 +61,12 @@
           "name",
           "label"
         ],
-        "additionalProperties": false
-      }
+        "additionalProperties": false,
+        "title": "Filter",
+        "description": "Filter visitors can use to refine the results."
+      },
+      "title": "Filters",
+      "description": "Filters visitors can use to refine the results."
     },
     "views": {
       "type": "object",
@@ -63,33 +86,51 @@
                 "$ref": "#/$defs/iconKey"
               },
               "label": {
-                "type": "string"
+                "type": "string",
+                "title": "Label",
+                "description": "Accessible label for the view selector icon.",
+                "examples": [
+                  "List view"
+                ]
               },
               "options": {
                 "type": "object",
                 "properties": {
                   "pageSize": {
+                    "title": "Results per page",
+                    "description": "Number of results per page for this view.",
                     "type": "number"
                   },
                   "showPagination": {
+                    "title": "Show pagination controls",
                     "type": "boolean"
                   },
                   "showResultsCount": {
+                    "title": "Show total number of search results",
                     "type": "boolean"
                   },
                   "showSort": {
+                    "title": "Show sorting controls",
                     "type": "boolean"
                   },
                   "hidden": {
+                    "title": "Hide from the view selector",
                     "type": "boolean"
                   },
                   "defaultSort": {
+                    "title": "Default sorting",
+                    "description": "Sorting applied when this view opens.",
+                    "examples": [
+                      "dateCreated:asc"
+                    ],
                     "type": "string"
                   }
                 },
                 "additionalProperties": {}
               },
               "presentationConfig": {
+                "title": "Search result presentation",
+                "description": "Presentation of search results in this view.",
                 "$ref": "#/$defs/nodePresentationConfig"
               }
             },
@@ -101,10 +142,16 @@
               "options",
               "presentationConfig"
             ],
-            "additionalProperties": false
-          }
+            "additionalProperties": false,
+            "title": "View",
+            "description": "A way to display search results."
+          },
+          "title": "Views",
+          "description": "Available views for search results."
         },
         "defaultView": {
+          "title": "Default view",
+          "description": "View that opens first.",
           "$ref": "#/$defs/viewType"
         }
       },
@@ -112,7 +159,9 @@
         "views",
         "defaultView"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "title": "Search views",
+      "description": "Settings for displaying search results. Each view visualizes the search results in a different way."
     },
     "presentation": {
       "type": "object",
@@ -120,10 +169,18 @@
         "imagePaths": {
           "type": "array",
           "items": {
-            "type": "string"
-          }
+            "type": "string",
+            "title": "Property path",
+            "examples": [
+              "associatedMedia.thumbnailUrl"
+            ]
+          },
+          "title": "Image properties",
+          "description": "Property paths searched in order to find an object's image(s). The first match is used."
         },
         "details": {
+          "title": "Details page",
+          "description": "Presentation of an object on the details page.",
           "$ref": "#/$defs/nodePresentationConfig"
         }
       },
@@ -131,7 +188,9 @@
         "imagePaths",
         "details"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "title": "Presentation",
+      "description": "Settings for presenting objects."
     }
   },
   "required": [
@@ -141,6 +200,8 @@
     "presentation"
   ],
   "additionalProperties": false,
+  "title": "Valeros configuration",
+  "description": "Settings for how Valeros presents information from the data layer to end users.",
   "$defs": {
     "iconKey": {
       "type": "string",
@@ -166,7 +227,9 @@
         "user",
         "users",
         "maximize"
-      ]
+      ],
+      "title": "Icon",
+      "description": "Icon from the built-in icon registry."
     },
     "viewType": {
       "type": "string",
@@ -175,7 +238,9 @@
         "grid",
         "map",
         "timeline"
-      ]
+      ],
+      "title": "Type",
+      "description": "Unique name of the view."
     },
     "viewComponentKey": {
       "type": "string",
@@ -184,77 +249,9 @@
         "grid-view",
         "map-view",
         "timeline-view"
-      ]
-    },
-    "nodePresentationConfig": {
-      "type": "object",
-      "properties": {
-        "widgets": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "componentId": {
-                "$ref": "#/$defs/widgetComponentKey"
-              },
-              "properties": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "options": {
-                "type": "object",
-                "properties": {
-                  "showPropertyLabel": {
-                    "type": "boolean"
-                  },
-                  "propertyLabel": {
-                    "type": "string"
-                  },
-                  "propertyPath": {
-                    "type": "string"
-                  },
-                  "icon": {
-                    "$ref": "#/$defs/iconKey"
-                  },
-                  "position": {
-                    "$ref": "#/$defs/widgetPosition"
-                  },
-                  "noPadding": {
-                    "type": "boolean"
-                  },
-                  "showOriginalLink": {
-                    "type": "boolean"
-                  }
-                },
-                "additionalProperties": {}
-              },
-              "isFallback": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean"
-              }
-            },
-            "required": [
-              "id",
-              "componentId"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "showArrowIndicator": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "widgets"
       ],
-      "additionalProperties": false
+      "title": "Component",
+      "description": "Internal component that renders this view."
     },
     "widgetComponentKey": {
       "type": "string",
@@ -272,7 +269,9 @@
         "date-widget",
         "referring-nodes-widget",
         "separator-widget"
-      ]
+      ],
+      "title": "Component",
+      "description": "Internal widget that displays the data."
     },
     "widgetPosition": {
       "type": "string",
@@ -282,7 +281,117 @@
         "main",
         "right",
         "bottom"
-      ]
+      ],
+      "title": "Position",
+      "description": "Position of the widget within the presentation."
+    },
+    "nodePresentationConfig": {
+      "type": "object",
+      "properties": {
+        "widgets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "ID",
+                "description": "Unique identifier of the widget.",
+                "examples": [
+                  "creator"
+                ]
+              },
+              "componentId": {
+                "$ref": "#/$defs/widgetComponentKey"
+              },
+              "properties": {
+                "title": "Properties",
+                "description": "Data layer properties that cause this widget to render. Example: show an image-gallery-widget for the associatedMedia property. If no properties are listed, the widget is always shown.",
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "title": "Property",
+                  "examples": [
+                    "creator"
+                  ]
+                }
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "showPropertyLabel": {
+                    "title": "Show property label",
+                    "description": "Show a property label for the value.",
+                    "type": "boolean"
+                  },
+                  "propertyLabel": {
+                    "title": "Property label",
+                    "description": "Custom property label shown for the value.",
+                    "examples": [
+                      "Creator"
+                    ],
+                    "type": "string"
+                  },
+                  "propertyPath": {
+                    "title": "Property path",
+                    "description": "Path to a nested value within the property.",
+                    "examples": [
+                      "associatedMedia.thumbnailUrl"
+                    ],
+                    "type": "string"
+                  },
+                  "icon": {
+                    "$ref": "#/$defs/iconKey"
+                  },
+                  "position": {
+                    "$ref": "#/$defs/widgetPosition"
+                  },
+                  "noPadding": {
+                    "title": "Remove padding",
+                    "description": "Extend the widget to the surrounding edges.",
+                    "type": "boolean"
+                  },
+                  "showOriginalLink": {
+                    "title": "Show original link",
+                    "description": "Show a link to the original value alongside the widget. Example: for a map widget, show a link to the location's details page.",
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": {}
+              },
+              "isFallback": {
+                "title": "Fallback widget",
+                "description": "Use this widget for data layer properties that are not handled by other widgets.",
+                "type": "boolean"
+              },
+              "hidden": {
+                "title": "Hidden",
+                "description": "Hide this widget from visitors, even when its configured properties are present in the data layer.",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "componentId"
+            ],
+            "additionalProperties": false,
+            "title": "Widget",
+            "description": "Component that displays one or more data properties."
+          },
+          "title": "Widgets",
+          "description": "Widgets are displayed in this order. A widget is shown for each of its configured data layer properties. For example, a map widget might be used to visualize data for the location, contentLocation, and locationCreated properties."
+        },
+        "showArrowIndicator": {
+          "title": "Show arrow indicator on clickable objects",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "widgets"
+      ],
+      "additionalProperties": false,
+      "title": "Object presentation",
+      "description": "Settings for presenting an object."
     }
   }
 }

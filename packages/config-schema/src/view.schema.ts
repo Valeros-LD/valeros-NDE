@@ -4,36 +4,89 @@ import { NodePresentationConfigSchema } from './widget.schema';
 
 export const ViewComponentKeySchema = z
   .enum(['list-view', 'grid-view', 'map-view', 'timeline-view'])
-  .meta({ id: 'viewComponentKey' });
+  .meta({
+    id: 'viewComponentKey',
+    title: 'Component',
+    description: 'Internal component that renders this view.',
+  });
 
-export const ViewTypeSchema = z
-  .enum(['list', 'grid', 'map', 'timeline'])
-  .meta({ id: 'viewType' });
-
-export const BaseViewOptionsSchema = z.object({
-  pageSize: z.number().optional(),
-  showPagination: z.boolean().optional(),
-  showResultsCount: z.boolean().optional(),
-  showSort: z.boolean().optional(),
-  hidden: z.boolean().optional(),
-  defaultSort: z.string().optional(),
+export const ViewTypeSchema = z.enum(['list', 'grid', 'map', 'timeline']).meta({
+  id: 'viewType',
+  title: 'Type',
+  description: 'Unique name of the view.',
 });
+
+export const BaseViewOptionsSchema = z
+  .object({
+    pageSize: z.number().optional().meta({
+      title: 'Results per page',
+      description: 'Number of results per page for this view.',
+    }),
+    showPagination: z.boolean().optional().meta({
+      title: 'Show pagination controls',
+    }),
+    showResultsCount: z.boolean().optional().meta({
+      title: 'Show total number of search results',
+    }),
+    showSort: z.boolean().optional().meta({
+      title: 'Show sorting controls',
+    }),
+    hidden: z.boolean().optional().meta({
+      title: 'Hide from the view selector',
+    }),
+    defaultSort: z
+      .string()
+      .optional()
+      .meta({
+        title: 'Default sorting',
+        description: 'Sorting applied when this view opens.',
+        examples: ['dateCreated:asc'],
+      }),
+  })
+  .meta({
+    title: 'Options',
+    description: 'General settings for this view.',
+  });
 
 export const ViewOptionsSchema = BaseViewOptionsSchema.loose();
 
-export const ViewDefinitionSchema = z.object({
-  type: ViewTypeSchema,
-  componentId: ViewComponentKeySchema,
-  icon: IconKeySchema,
-  label: z.string(),
-  options: ViewOptionsSchema,
-  presentationConfig: NodePresentationConfigSchema,
-});
+export const ViewDefinitionSchema = z
+  .object({
+    type: ViewTypeSchema,
+    componentId: ViewComponentKeySchema,
+    icon: IconKeySchema,
+    label: z.string().meta({
+      title: 'Label',
+      description: 'Accessible label for the view selector icon.',
+      examples: ['List view'],
+    }),
+    options: ViewOptionsSchema,
+    presentationConfig: NodePresentationConfigSchema.meta({
+      title: 'Search result presentation',
+      description: 'Presentation of search results in this view.',
+    }),
+  })
+  .meta({
+    title: 'View',
+    description: 'A way to display search results.',
+  });
 
-export const ViewsConfigSchema = z.object({
-  views: z.array(ViewDefinitionSchema),
-  defaultView: ViewTypeSchema,
-});
+export const ViewsConfigSchema = z
+  .object({
+    views: z.array(ViewDefinitionSchema).meta({
+      title: 'Views',
+      description: 'Available views for search results.',
+    }),
+    defaultView: ViewTypeSchema.meta({
+      title: 'Default view',
+      description: 'View that opens first.',
+    }),
+  })
+  .meta({
+    title: 'Search views',
+    description:
+      'Settings for displaying search results. Each view visualizes the search results in a different way.',
+  });
 
 export type ViewComponentKey = z.infer<typeof ViewComponentKeySchema>;
 export type ViewType = z.infer<typeof ViewTypeSchema>;

@@ -1,7 +1,7 @@
 import type { ObjectFieldTemplateProps } from '@rjsf/utils';
 import type { ViewDefinition } from '@valeros/config-schema';
 import { clsx } from 'clsx';
-import { Collapse } from './Collapse';
+import { Collapse, getFieldTitle } from './Collapse';
 import { ConfigRowTitle } from './ConfigRowTitle';
 
 const viewRowFields = ['type', 'componentId', 'icon', 'label'] as ReadonlyArray<
@@ -11,6 +11,7 @@ const viewRowFields = ['type', 'componentId', 'icon', 'label'] as ReadonlyArray<
 export function ViewRowTemplate({
   properties,
   formData: view,
+  schema,
 }: ObjectFieldTemplateProps<ViewDefinition>) {
   const hidden = Boolean(view?.options?.hidden);
 
@@ -33,9 +34,17 @@ export function ViewRowTemplate({
           );
         })}
       </div>
-      {options && <Collapse title="Opties">{options.content}</Collapse>}
+      {options && (
+        <Collapse title={getFieldTitle(schema, 'options', 'Options')}>
+          {options.content}
+        </Collapse>
+      )}
       {presentationConfig && (
-        <Collapse title="Weergave">{presentationConfig.content}</Collapse>
+        <Collapse
+          title={getFieldTitle(schema, 'presentationConfig', 'Presentation')}
+        >
+          {presentationConfig.content}
+        </Collapse>
       )}
     </div>
   );

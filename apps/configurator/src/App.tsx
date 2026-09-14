@@ -16,24 +16,22 @@ const { $schema: _, ...rest } = rawSchema;
 const schema = rest as RJSFSchema;
 const formData = defaultConfig as Record<string, unknown>;
 
+const iconUiSchema: UiSchema = {
+  'ui:widget': IconSelectWidget,
+};
+
 const widgetsUiSchema: UiSchema = {
   items: {
     'ui:ObjectFieldTemplate': WidgetTemplate,
-    options: { 'ui:title': 'Opties' },
+    options: { icon: iconUiSchema },
   },
 };
 
 const uiSchema: UiSchema = {
-  $schema: {
-    'ui:readonly': true,
-  },
   facets: {
     items: {
       'ui:ObjectFieldTemplate': FacetRowTemplate,
-      name: { 'ui:title': 'Naam' },
-      label: { 'ui:title': 'Label' },
-      icon: { 'ui:title': 'Icoon', 'ui:widget': IconSelectWidget },
-      hidden: { 'ui:title': 'Verborgen' },
+      icon: iconUiSchema,
     },
   },
   views: {
@@ -41,11 +39,9 @@ const uiSchema: UiSchema = {
     views: {
       items: {
         'ui:ObjectFieldTemplate': ViewRowTemplate,
-        type: { 'ui:title': 'Type' },
-        componentId: { 'ui:title': 'Component' },
-        icon: { 'ui:title': 'Icoon', 'ui:widget': IconSelectWidget },
-        label: { 'ui:title': 'Label' },
+        icon: iconUiSchema,
         presentationConfig: {
+          'ui:order': ['showArrowIndicator', 'widgets'],
           'ui:ObjectFieldTemplate': PresentationConfigTemplate,
           widgets: widgetsUiSchema,
         },
@@ -54,6 +50,7 @@ const uiSchema: UiSchema = {
   },
   presentation: {
     details: {
+      'ui:order': ['showArrowIndicator', 'widgets'],
       widgets: widgetsUiSchema,
     },
   },

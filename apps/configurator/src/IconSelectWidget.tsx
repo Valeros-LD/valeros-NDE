@@ -42,7 +42,7 @@ export function IconSelectWidget({
     label: string;
   }> = required
     ? iconOptions
-    : [{ icon: undefined, label: 'Geen icoon' }, ...iconOptions];
+    : [{ icon: undefined, label: 'No icon' }, ...iconOptions];
   const isDisabled = disabled || readonly;
 
   function selectIcon(icon: IconKey | undefined) {
@@ -63,7 +63,7 @@ export function IconSelectWidget({
           isDisabled && 'btn-disabled',
         )}
         aria-disabled={isDisabled}
-        aria-label={`${label}: ${selectedIcon ?? 'geen icoon'}`}
+        aria-label={`${label}: ${selectedIcon ?? 'no icon'}`}
         onBlur={() => onBlur(id, value)}
         onClick={(event) => isDisabled && event.preventDefault()}
         onFocus={() => onFocus(id, value)}

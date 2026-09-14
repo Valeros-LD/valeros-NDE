@@ -24,6 +24,10 @@ export const IconKeySchema = z
     'users',
     'maximize',
   ])
-  .meta({ id: 'iconKey' });
+  .meta({
+    id: 'iconKey',
+    title: 'Icon',
+    description: 'Icon from the built-in icon registry.',
+  });
 
 export type IconKey = z.infer<typeof IconKeySchema>;
