@@ -20,10 +20,19 @@ const iconUiSchema: UiSchema = {
   'ui:widget': IconSelectWidget,
 };
 
+const HiddenArrayFieldTitleTemplate = () => null;
+
 const widgetsUiSchema: UiSchema = {
+  'ui:ArrayFieldTitleTemplate': HiddenArrayFieldTitleTemplate,
   items: {
     'ui:ObjectFieldTemplate': WidgetTemplate,
-    options: { icon: iconUiSchema },
+    properties: {
+      'ui:ArrayFieldTitleTemplate': HiddenArrayFieldTitleTemplate,
+    },
+    options: {
+      'ui:title': '',
+      icon: iconUiSchema,
+    },
   },
 };
 
@@ -40,6 +49,9 @@ const uiSchema: UiSchema = {
       items: {
         'ui:ObjectFieldTemplate': ViewRowTemplate,
         icon: iconUiSchema,
+        options: {
+          'ui:title': '',
+        },
         presentationConfig: {
           'ui:order': ['showArrowIndicator', 'widgets'],
           'ui:ObjectFieldTemplate': PresentationConfigTemplate,
