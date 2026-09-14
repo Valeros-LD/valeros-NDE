@@ -1,5 +1,5 @@
 {
-  "apps/valeros": "0.14.0",
-  "apps/configurator": "0.2.0",
-  "packages/config-schema": "0.1.0"
+  "apps/valeros": "0.15.0",
+  "apps/configurator": "0.3.0",
+  "packages/config-schema": "0.2.0"
 }
