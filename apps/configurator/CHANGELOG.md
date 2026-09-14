@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.3.0](https://github.com/Valeros-LD/valeros-NDE/compare/configurator-v0.2.0...configurator-v0.3.0) (2026-09-14)
+
+
+### Features
+
+* hide redundant configurator titles ([3acd796](https://github.com/Valeros-LD/valeros-NDE/commit/3acd79624f0fb6ed1055fd06d7bd5640edca5b2a))
+* navigate configurator sections through tabs ([718a035](https://github.com/Valeros-LD/valeros-NDE/commit/718a0359c6ae4a016b07da0a3890213ce773a24e))
+* show default view before view settings in configurator ([2613d73](https://github.com/Valeros-LD/valeros-NDE/commit/2613d73b881a662d8eb9d44535cbbe9e3bcc0e25))
+* show icon in front of facet title in configurator ([8334e43](https://github.com/Valeros-LD/valeros-NDE/commit/8334e432f13e42c8789f445e63a08b9e28319148))
+* show icons for views in configurator ([25c7179](https://github.com/Valeros-LD/valeros-NDE/commit/25c7179f7c1dd4879221c6f0fb1ffd762eef238b))
+* show icons in configurator ([af12d22](https://github.com/Valeros-LD/valeros-NDE/commit/af12d222fc03b9d0ccda52eacf44b1be749c5030))
+* show widgets collapsed in configurator ([22b4f26](https://github.com/Valeros-LD/valeros-NDE/commit/22b4f265b3e7681a0baa758a84a7a4eda6954a45))
+* tweak configurator layout ([1f8bf59](https://github.com/Valeros-LD/valeros-NDE/commit/1f8bf599bcb33195eacb8d021d2b804078ba8cdc))
+* tweak configurator layout and labels ([2c36dcc](https://github.com/Valeros-LD/valeros-NDE/commit/2c36dcc88c8839ccfe5680a39ef861f511767782))
+
 ## [0.2.0](https://github.com/Valeros-LD/valeros-NDE/compare/configurator-v0.1.0...configurator-v0.2.0) (2026-09-08)
 
 
