@@ -1,14 +1,12 @@
-export type GeoCoordinates = {
+export type Coordinates = {
   latitude: number;
   longitude: number;
-  type: 'GeoCoordinates';
 };
 
-export function isGeoCoordinates(obj: unknown): obj is GeoCoordinates {
+export function isCoordinates(obj: unknown): obj is Coordinates {
   if (!obj || typeof obj !== 'object') return false;
   const candidate = obj as Record<string, unknown>;
   return (
-    candidate['type'] === 'GeoCoordinates' &&
     typeof candidate['latitude'] === 'number' &&
     typeof candidate['longitude'] === 'number'
   );

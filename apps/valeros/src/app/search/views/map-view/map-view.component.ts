@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   ApplicationRef,
+  ChangeDetectionStrategy,
   Component,
   createComponent,
   effect,
@@ -8,12 +9,11 @@ import {
   EnvironmentInjector,
   inject,
   viewChild,
-  ChangeDetectionStrategy,
 } from '@angular/core';
 import * as L from 'leaflet';
 import { NodeComponent } from '../../../node/node.component';
 import { NodeModel } from '../../../node/types/node.model';
-import { GeoCoordinates } from '../../../ui/map/geo-coordinates';
+import { Coordinates } from '../../../ui/map/coordinates';
 import { MapService } from '../../../ui/map/map.service';
 import { TooltipBadge } from '../../../ui/tooltip-badge/tooltip-badge';
 import { BaseResultsView } from '../base-results-view';
@@ -65,7 +65,7 @@ export class MapViewComponent extends BaseResultsView implements AfterViewInit {
     this.markers = [];
 
     const coordinatesWithNodes: Array<{
-      coordinates: GeoCoordinates;
+      coordinates: Coordinates;
       node: NodeModel;
     }> = [];
 
@@ -86,7 +86,7 @@ export class MapViewComponent extends BaseResultsView implements AfterViewInit {
     this.markers = this.mapService.addMarkersAndFitBounds(
       this.map,
       coordinates,
-      (coords: GeoCoordinates) => {
+      (coords: Coordinates) => {
         const item = coordinatesWithNodes.find(
           (item) =>
             item.coordinates.latitude === coords.latitude &&

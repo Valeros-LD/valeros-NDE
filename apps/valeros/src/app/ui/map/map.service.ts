@@ -3,7 +3,7 @@ import * as L from 'leaflet';
 import { getNestedValue } from '../../data-utils/property-path.util';
 import { normalizeToArray } from '../../data-utils/value-normalization.util';
 import { isNodeModel, NodeModel } from '../../node/types/node.model';
-import { GeoCoordinates, isGeoCoordinates } from './geo-coordinates';
+import { Coordinates, isCoordinates } from './coordinates';
 
 const defaultCircleMarkerOptions: L.CircleMarkerOptions = {
   radius: 8,
@@ -16,32 +16,33 @@ const defaultCircleMarkerOptions: L.CircleMarkerOptions = {
 
 @Injectable({ providedIn: 'root' })
 export class MapService {
+  extractCoordinatesFromValues(
+    values: unknown[],
+    propertyPaths?: string[],
+  ): Coordinates[] {
+    return values.flatMap((value) => {
+      if (isCoordinates(value)) return [value];
+      if (isNodeModel(value)) {
+        return this.extractCoordinatesFromNode(value, propertyPaths);
+      }
+      return [];
+    });
+  }
+
   extractCoordinatesFromNode(
     node: NodeModel,
     propertyPaths?: string[],
-  ): GeoCoordinates[] {
-    const coordinates: GeoCoordinates[] = [];
+  ): Coordinates[] {
+    const coordinates: Coordinates[] = isCoordinates(node) ? [node] : [];
 
-    const geo = node['geo'];
-    if (geo && isGeoCoordinates(geo)) {
-      coordinates.push(geo);
-    }
-
-    if (propertyPaths && propertyPaths.length > 0) {
-      for (const path of propertyPaths) {
-        const value = getNestedValue(node, path);
-        const values = normalizeToArray(value);
-
-        for (const item of values) {
-          if (isNodeModel(item)) {
-            const nestedCoords = this.extractCoordinatesFromNode(
-              item,
-              propertyPaths,
-            );
-            coordinates.push(...nestedCoords);
-          }
-        }
-      }
+    for (const path of propertyPaths ?? []) {
+      const value = getNestedValue(node, path);
+      coordinates.push(
+        ...this.extractCoordinatesFromValues(
+          normalizeToArray(value),
+          propertyPaths,
+        ),
+      );
     }
 
     return coordinates;
@@ -50,7 +51,7 @@ export class MapService {
   extractCoordinatesFromNodes(
     nodes: NodeModel[],
     propertyPaths?: string[],
-  ): GeoCoordinates[] {
+  ): Coordinates[] {
     return nodes.flatMap((node) =>
       this.extractCoordinatesFromNode(node, propertyPaths),
     );
@@ -76,8 +77,8 @@ export class MapService {
 
   addMarkersAndFitBounds(
     map: L.Map,
-    coordinates: GeoCoordinates[],
-    popupContent?: (coord: GeoCoordinates) => HTMLElement | string,
+    coordinates: Coordinates[],
+    popupContent?: (coord: Coordinates) => HTMLElement | string,
     popupOptions?: L.PopupOptions,
   ): L.CircleMarker[] {
     const markers: L.CircleMarker[] = [];
