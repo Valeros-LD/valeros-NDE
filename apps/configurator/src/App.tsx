@@ -10,6 +10,7 @@ import {
   PresentationConfigTemplate,
   WidgetTemplate,
 } from './PresentationConfigTemplate';
+import { TabbedObjectFieldTemplate } from './TabbedObjectFieldTemplate';
 import { ViewRowTemplate } from './ViewRowTemplate';
 
 const { $schema: _, ...rest } = rawSchema;
@@ -37,6 +38,7 @@ const widgetsUiSchema: UiSchema = {
 };
 
 const uiSchema: UiSchema = {
+  'ui:ObjectFieldTemplate': TabbedObjectFieldTemplate,
   facets: {
     items: {
       'ui:ObjectFieldTemplate': FacetRowTemplate,
