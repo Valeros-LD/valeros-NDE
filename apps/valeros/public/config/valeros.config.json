@@ -17,7 +17,7 @@
     { "name": "license", "label": "Licentie", "icon": "file-text" },
     { "name": "about", "label": "Over", "icon": "info" },
     { "name": "hasMedia", "label": "Met afbeelding", "icon": "image" },
-    { "name": "isPartOf", "label": "", "hidden": true }
+    { "name": "isPartOf", "label": "-", "hidden": true }
   ],
   "views": {
     "defaultView": "list",
