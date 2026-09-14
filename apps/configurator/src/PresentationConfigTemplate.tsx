@@ -5,6 +5,7 @@ import { Collapse, getFieldTitle } from './Collapse';
 
 export function WidgetTemplate({
   properties,
+  formData: widget,
   schema,
 }: ObjectFieldTemplateProps<Widget>) {
   const options = properties.find((p) => p.name === 'options');
@@ -14,7 +15,7 @@ export function WidgetTemplate({
   );
 
   return (
-    <div>
+    <Collapse title={widget?.id ?? getFieldTitle(schema, 'id', 'Widget')}>
       {rest.map((p) => (
         <div key={p.name}>{p.content}</div>
       ))}
@@ -28,7 +29,7 @@ export function WidgetTemplate({
           {options.content}
         </Collapse>
       )}
-    </div>
+    </Collapse>
   );
 }
 
