@@ -25,10 +25,19 @@ fragment PersonReferenceFields on PersonReference {
 
 fragment PlaceReferenceFields on PlaceReference {
   id
+  latitude
+  longitude
+  addressCountry
+  addressLocality
+  addressRegion
+  authority
+  fetchedAt
   name {
-    value
     language
+    value
   }
+  postalCode
+  streetAddress
 }
 
 fragment TermReferenceFields on TermReference {
