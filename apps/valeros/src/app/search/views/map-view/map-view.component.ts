@@ -73,7 +73,7 @@ export class MapViewComponent extends BaseResultsView implements AfterViewInit {
       // TODO: Make properties used to find geo coordinates configurable
       const allCoordinatesForNode = this.mapService.extractCoordinatesFromNode(
         node,
-        ['contentLocation', 'location'],
+        ['contentLocation', 'location', 'locationCreated'],
       );
 
       allCoordinatesForNode.forEach((coordinates) => {
