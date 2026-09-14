@@ -6,6 +6,26 @@
 }
 
 ::ng-deep {
+  .map-result-marker {
+    border: 2px solid var(--color-primary-content);
+    border-radius: 50%;
+    background: var(--color-primary);
+    /* box-shadow: 0 1px 4px rgb(0 0 0 / 35%); */
+  }
+
+  .marker-cluster {
+    background-color: color-mix(
+      in oklab,
+      var(--color-primary) 35%,
+      transparent
+    );
+
+    div {
+      background-color: var(--color-primary);
+      color: var(--color-primary-content);
+    }
+  }
+
   .map-popup-content {
     a {
       color: inherit;

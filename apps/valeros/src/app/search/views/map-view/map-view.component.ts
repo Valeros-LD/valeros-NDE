@@ -3,32 +3,42 @@ import {
   ApplicationRef,
   ChangeDetectionStrategy,
   Component,
+  ComponentRef,
   createComponent,
   effect,
   ElementRef,
   EnvironmentInjector,
   inject,
+  OnDestroy,
   viewChild,
 } from '@angular/core';
 import * as L from 'leaflet';
+import 'leaflet.markercluster';
 import { NodeComponent } from '../../../node/node.component';
 import { NodeModel } from '../../../node/types/node.model';
-import { Coordinates } from '../../../ui/map/coordinates';
 import { MapService } from '../../../ui/map/map.service';
-import { TooltipBadge } from '../../../ui/tooltip-badge/tooltip-badge';
 import { BaseResultsView } from '../base-results-view';
+
+const resultMarkerIcon = L.divIcon({
+  className: 'map-result-marker',
+  iconAnchor: [9, 9],
+  iconSize: [18, 18],
+});
 
 @Component({
   selector: 'app-map-view',
-  imports: [TooltipBadge],
   templateUrl: './map-view.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './map-view.component.scss',
 })
-export class MapViewComponent extends BaseResultsView implements AfterViewInit {
+export class MapViewComponent
+  extends BaseResultsView
+  implements AfterViewInit, OnDestroy
+{
   mapContainer = viewChild.required<ElementRef>('mapContainer');
   private map?: L.Map;
-  private markers: L.CircleMarker[] = [];
+  private markerCluster?: L.MarkerClusterGroup;
+  private popupComponentRefs: ComponentRef<NodeComponent>[] = [];
   private mapService = inject(MapService);
 
   constructor(
@@ -50,6 +60,11 @@ export class MapViewComponent extends BaseResultsView implements AfterViewInit {
     this.updateMarkers(this.results());
   }
 
+  ngOnDestroy(): void {
+    this.clearMarkers();
+    this.map?.remove();
+  }
+
   private initMap(): void {
     this.map = this.mapService.createMap(
       this.mapContainer().nativeElement,
@@ -61,44 +76,52 @@ export class MapViewComponent extends BaseResultsView implements AfterViewInit {
   private updateMarkers(results: NodeModel[]): void {
     if (!this.map) return;
 
-    this.markers.forEach((marker) => marker.remove());
-    this.markers = [];
+    this.clearMarkers();
 
-    const coordinatesWithNodes: Array<{
-      coordinates: Coordinates;
-      node: NodeModel;
-    }> = [];
-
-    results.forEach((node: NodeModel) => {
+    const markers = results.flatMap((node) => {
       // TODO: Make properties used to find geo coordinates configurable
-      const allCoordinatesForNode = this.mapService.extractCoordinatesFromNode(
-        node,
-        ['contentLocation', 'location', 'locationCreated'],
+      const coordinates = this.mapService.extractCoordinatesFromNode(node, [
+        'contentLocation',
+        'location',
+        'locationCreated',
+      ]);
+      const uniqueCoordinates = new Map(
+        coordinates.map((coordinate) => [
+          `${coordinate.latitude},${coordinate.longitude}`,
+          coordinate,
+        ]),
       );
 
-      allCoordinatesForNode.forEach((coordinates) => {
-        coordinatesWithNodes.push({ coordinates, node });
-      });
+      return [...uniqueCoordinates.values()].map((coordinate) =>
+        L.marker([coordinate.latitude, coordinate.longitude], {
+          icon: resultMarkerIcon,
+          title: 'Search result',
+        }).bindPopup(this.createPopupContent(node), {
+          maxWidth: 320,
+          minWidth: 280,
+        }),
+      );
     });
 
-    const coordinates = coordinatesWithNodes.map((item) => item.coordinates);
+    this.markerCluster = L.markerClusterGroup({
+      showCoverageOnHover: false,
+      spiderfyDistanceMultiplier: 1.5,
+    });
+    this.markerCluster.addLayers(markers);
+    this.map.addLayer(this.markerCluster);
 
-    this.markers = this.mapService.addMarkersAndFitBounds(
-      this.map,
-      coordinates,
-      (coords: Coordinates) => {
-        const item = coordinatesWithNodes.find(
-          (item) =>
-            item.coordinates.latitude === coords.latitude &&
-            item.coordinates.longitude === coords.longitude,
-        );
-        return this.createPopupContent(item!.node);
-      },
-      {
-        maxWidth: 320,
-        minWidth: 280,
-      },
-    );
+    if (markers.length > 1) {
+      this.map.fitBounds(this.markerCluster.getBounds().pad(0.1));
+    }
+  }
+
+  private clearMarkers(): void {
+    if (this.markerCluster && this.map) {
+      this.map.removeLayer(this.markerCluster);
+      this.markerCluster = undefined;
+    }
+    this.popupComponentRefs.forEach((componentRef) => componentRef.destroy());
+    this.popupComponentRefs = [];
   }
 
   private createPopupContent(node: NodeModel): HTMLElement {
@@ -114,6 +137,7 @@ export class MapViewComponent extends BaseResultsView implements AfterViewInit {
     componentRef.setInput('presentationConfig', this.presentationConfig());
 
     this.appRef.attachView(componentRef.hostView);
+    this.popupComponentRefs.push(componentRef);
     container.appendChild(componentRef.location.nativeElement);
 
     return container;
