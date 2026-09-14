@@ -13,7 +13,6 @@ fragment CreativeWorkFields on CreativeWork {
     ...DatasetReferenceFields
   }
   creator {
-    id
     role
     creator {
       ...PersonReferenceFields

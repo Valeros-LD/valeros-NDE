@@ -18,9 +18,8 @@ export type BooleanBucket = {
 
 export type ContributorRole = {
   __typename?: 'ContributorRole';
-  contributor: Array<PersonReference>;
-  id?: Maybe<Scalars['IRI']['output']>;
-  role: Array<Scalars['String']['output']>;
+  contributor?: Maybe<PersonReference>;
+  role?: Maybe<Scalars['String']['output']>;
 };
 
 /** A condition on ContributorRole: the ids its entries reference, or a condition on one entry. */
@@ -156,9 +155,8 @@ export type CreativeWorkWhere = {
 
 export type CreatorRole = {
   __typename?: 'CreatorRole';
-  creator: Array<PersonReference>;
-  id?: Maybe<Scalars['IRI']['output']>;
-  role: Array<Scalars['String']['output']>;
+  creator?: Maybe<PersonReference>;
+  role?: Maybe<Scalars['String']['output']>;
 };
 
 /** A condition on CreatorRole: the ids its entries reference, or a condition on one entry. */
@@ -279,7 +277,6 @@ export type MediaObject = {
   contentUrl?: Maybe<Scalars['IRI']['output']>;
   copyrightNotice: Array<LanguageString>;
   encodingFormat: Array<Scalars['String']['output']>;
-  id?: Maybe<Scalars['IRI']['output']>;
   license?: Maybe<Scalars['IRI']['output']>;
   thumbnailUrl?: Maybe<Scalars['IRI']['output']>;
 };
@@ -315,7 +312,7 @@ export type OccupationOrderBy = {
 export type OccupationReference = {
   __typename?: 'OccupationReference';
   dataset?: Maybe<DatasetReference>;
-  id: Scalars['IRI']['output'];
+  id?: Maybe<Scalars['IRI']['output']>;
   name: Array<LanguageString>;
 };
 
@@ -433,7 +430,6 @@ export type PersonFacets = {
   authority: Array<ValueBucket>;
   birthPlace: Array<IriBucket>;
   deathPlace: Array<IriBucket>;
-  hasOccupation: Array<IriBucket>;
 };
 
 /** Matches a field holding IRIs of Person. */
