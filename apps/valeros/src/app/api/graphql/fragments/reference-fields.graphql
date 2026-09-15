@@ -21,6 +21,23 @@ fragment PersonReferenceFields on PersonReference {
     value
     language
   }
+  birthDate
+  birthPlace {
+    ...PlaceReferenceFields
+  }
+  deathDate
+  deathPlace {
+    ...PlaceReferenceFields
+  }
+  hasOccupation {
+    ...OccupationReferenceFields
+  }
+  alternateName {
+    value
+    language
+  }
+  authority
+  fetchedAt
 }
 
 fragment PlaceReferenceFields on PlaceReference {
