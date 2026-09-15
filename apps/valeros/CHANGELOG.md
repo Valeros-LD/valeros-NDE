@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.16.0](https://github.com/Valeros-LD/valeros-NDE/compare/valeros-nde-v0.15.0...valeros-nde-v0.16.0) (2026-09-15)
+
+
+### Features
+
+* remove showArrowIndicator from schema for details page ([d178cef](https://github.com/Valeros-LD/valeros-NDE/commit/d178cefc6e239e547dc797fc27c2cb359d66efbb))
+* restructure config schema ([6b1fbc8](https://github.com/Valeros-LD/valeros-NDE/commit/6b1fbc8609a62efd47338fd150b64f5d318b3656))
+* update GraphQL person reference fields ([d96e075](https://github.com/Valeros-LD/valeros-NDE/commit/d96e0754383d4323bd2ae1ffc663976659d54110))
+
 ## [0.15.0](https://github.com/Valeros-LD/valeros-NDE/compare/valeros-nde-v0.14.0...valeros-nde-v0.15.0) (2026-09-14)
 
 

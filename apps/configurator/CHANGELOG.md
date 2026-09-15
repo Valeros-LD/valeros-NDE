@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.4.0](https://github.com/Valeros-LD/valeros-NDE/compare/configurator-v0.3.0...configurator-v0.4.0) (2026-09-15)
+
+
+### Features
+
+* add help video for view switching in configurator ([fab58ec](https://github.com/Valeros-LD/valeros-NDE/commit/fab58ecb4ba38a3ff96a47f601e57e9995caed64))
+* add more help images to configurator ([ac1939f](https://github.com/Valeros-LD/valeros-NDE/commit/ac1939f5d2793bab581cb41c017aed0aaddde0a4))
+* edit widgets in configurator through a dialog ([ea525ee](https://github.com/Valeros-LD/valeros-NDE/commit/ea525ee428c67838f887e7421c178ab951eec951))
+* remove showArrowIndicator from schema for details page ([d178cef](https://github.com/Valeros-LD/valeros-NDE/commit/d178cefc6e239e547dc797fc27c2cb359d66efbb))
+* restructure config schema ([6b1fbc8](https://github.com/Valeros-LD/valeros-NDE/commit/6b1fbc8609a62efd47338fd150b64f5d318b3656))
+* show help images in configurator ([da4c376](https://github.com/Valeros-LD/valeros-NDE/commit/da4c376e08d76abfe2d5ef80182709a789a334b1))
+* tweak configurator row layout on mobile ([34b6415](https://github.com/Valeros-LD/valeros-NDE/commit/34b6415d8b9100fe7fdca8c162aefd7eb8026a32))
+
 ## [0.3.0](https://github.com/Valeros-LD/valeros-NDE/compare/configurator-v0.2.0...configurator-v0.3.0) (2026-09-14)
 
 
