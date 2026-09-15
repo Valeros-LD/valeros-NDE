@@ -5,7 +5,11 @@ import validator from '@rjsf/validator-ajv8';
 import defaultConfig from '../../valeros/public/config/valeros.config.json';
 import rawSchema from '../../valeros/public/config/valeros.config.schema.json';
 import { FacetRowTemplate } from './FacetRowTemplate';
-import { arrowIndicatorHelp, filtersHelp } from './help/content';
+import {
+  arrowIndicatorHelp,
+  filtersHelp,
+  viewSwitchingHelp,
+} from './help/content';
 import { HelpFieldTemplate } from './help/HelpFieldTemplate';
 import { IconSelectWidget } from './IconSelectWidget';
 import {
@@ -66,6 +70,9 @@ const uiSchema: UiSchema = {
     views: {
       items: {
         'ui:ObjectFieldTemplate': ViewRowTemplate,
+        'ui:options': {
+          helpMedia: viewSwitchingHelp,
+        },
         icon: iconUiSchema,
         options: {
           'ui:title': '',

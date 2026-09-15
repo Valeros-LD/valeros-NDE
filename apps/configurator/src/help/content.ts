@@ -23,3 +23,16 @@ export const arrowIndicatorHelp = {
     },
   ],
 } satisfies FieldHelp;
+
+export const viewSwitchingHelp = {
+  title: 'View switching',
+  description:
+    'Visitors can switch between views to explore data in different ways.',
+  media: [
+    {
+      type: 'video',
+      src: 'help/view-switching.mp4',
+      title: 'Switching between views',
+    },
+  ],
+} satisfies FieldHelp;
