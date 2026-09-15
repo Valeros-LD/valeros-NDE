@@ -1,5 +1,5 @@
 import type { ObjectFieldTemplateProps } from '@rjsf/utils';
-import type { NodePresentationConfig, Widget } from '@valeros/config-schema';
+import type { Widget } from '@valeros/config-schema';
 
 import { Collapse, getFieldTitle } from './Collapse';
 
@@ -36,7 +36,7 @@ export function WidgetTemplate({
 export function PresentationConfigTemplate({
   properties,
   schema,
-}: ObjectFieldTemplateProps<NodePresentationConfig>) {
+}: ObjectFieldTemplateProps) {
   const widgets = properties.find((p) => p.name === 'widgets');
   const rest = properties.filter((p) => p.name !== 'widgets');
 

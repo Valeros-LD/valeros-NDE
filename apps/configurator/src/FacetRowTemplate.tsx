@@ -1,7 +1,9 @@
-import type { ObjectFieldTemplateProps } from '@rjsf/utils';
+import { getUiOptions, type ObjectFieldTemplateProps } from '@rjsf/utils';
 import type { FacetConfig } from '@valeros/config-schema';
 import { clsx } from 'clsx';
 import { ConfigRowTitle } from './ConfigRowTitle';
+import { HelpMedia } from './help/HelpMedia';
+import { isFieldHelp } from './help/types';
 
 const facetFieldOrder = ['name', 'label', 'icon', 'hidden'] as ReadonlyArray<
   keyof FacetConfig
@@ -10,8 +12,10 @@ const facetFieldOrder = ['name', 'label', 'icon', 'hidden'] as ReadonlyArray<
 export function FacetRowTemplate({
   properties,
   formData: facetConfig,
+  uiSchema,
 }: ObjectFieldTemplateProps<FacetConfig>) {
   const hidden = Boolean(facetConfig?.hidden);
+  const help = getUiOptions(uiSchema).helpMedia;
 
   return (
     <div className={clsx(hidden && 'opacity-40')}>
@@ -26,6 +30,11 @@ export function FacetRowTemplate({
           ) : null;
         })}
       </div>
+      {isFieldHelp(help) && (
+        <div className="mt-1">
+          <HelpMedia help={help} />
+        </div>
+      )}
     </div>
   );
 }

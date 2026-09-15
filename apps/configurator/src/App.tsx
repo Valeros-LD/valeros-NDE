@@ -5,6 +5,8 @@ import validator from '@rjsf/validator-ajv8';
 import defaultConfig from '../../valeros/public/config/valeros.config.json';
 import rawSchema from '../../valeros/public/config/valeros.config.schema.json';
 import { FacetRowTemplate } from './FacetRowTemplate';
+import { arrowIndicatorHelp, filtersHelp } from './help/content';
+import { HelpFieldTemplate } from './help/HelpFieldTemplate';
 import { IconSelectWidget } from './IconSelectWidget';
 import {
   PresentationConfigTemplate,
@@ -37,11 +39,25 @@ const widgetsUiSchema: UiSchema = {
   },
 };
 
+const presentationUiSchema: UiSchema = {
+  'ui:order': ['showArrowIndicator', 'widgets'],
+  showArrowIndicator: {
+    'ui:FieldTemplate': HelpFieldTemplate,
+    'ui:options': {
+      helpMedia: arrowIndicatorHelp,
+    },
+  },
+  widgets: widgetsUiSchema,
+};
+
 const uiSchema: UiSchema = {
   'ui:ObjectFieldTemplate': TabbedObjectFieldTemplate,
   facets: {
     items: {
       'ui:ObjectFieldTemplate': FacetRowTemplate,
+      'ui:options': {
+        helpMedia: filtersHelp,
+      },
       icon: iconUiSchema,
     },
   },
@@ -55,18 +71,14 @@ const uiSchema: UiSchema = {
           'ui:title': '',
         },
         presentationConfig: {
-          'ui:order': ['showArrowIndicator', 'widgets'],
+          ...presentationUiSchema,
           'ui:ObjectFieldTemplate': PresentationConfigTemplate,
-          widgets: widgetsUiSchema,
         },
       },
     },
   },
   presentation: {
-    details: {
-      'ui:order': ['showArrowIndicator', 'widgets'],
-      widgets: widgetsUiSchema,
-    },
+    details: presentationUiSchema,
   },
 };
 
