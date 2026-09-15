@@ -111,9 +111,7 @@ const uiSchema: UiSchema = {
       },
     },
   },
-  presentation: {
-    details: detailsPresentationUiSchema,
-  },
+  detailsPresentation: detailsPresentationUiSchema,
 };
 
 function downloadConfig(data: object) {

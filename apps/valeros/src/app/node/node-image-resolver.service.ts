@@ -8,9 +8,7 @@ import { NodeModel } from './types/node.model';
 export class NodeImageResolverService {
   private configService = inject(ConfigService);
 
-  private imagePaths = computed(
-    () => this.configService.presentation()?.imagePaths ?? ['image'],
-  );
+  private imagePaths = computed(() => this.configService.imagePaths());
 
   getImageUrl(node: NodeModel): string | null {
     for (const path of this.imagePaths()) {

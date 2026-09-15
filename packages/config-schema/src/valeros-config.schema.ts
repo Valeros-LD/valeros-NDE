@@ -17,30 +17,23 @@ export const ValerosConfigSchema = z
       description: 'Filters visitors can use to refine the results.',
     }),
     views: ViewsConfigSchema,
-    presentation: z
-      .object({
-        imagePaths: z
-          .array(
-            z.string().meta({
-              title: 'Property path',
-              examples: ['associatedMedia.thumbnailUrl'],
-            }),
-          )
-          .meta({
-            title: 'Image properties',
-            description:
-              "Property paths searched in order to find an object's image(s). The first match is used.",
-          }),
-        details: NodePresentationConfigSchema.omit({
-          showArrowIndicator: true,
-        }).meta({
-          title: 'Details page',
-          description: 'Presentation of an object on the details page.',
+    detailsPresentation: NodePresentationConfigSchema.omit({
+      showArrowIndicator: true,
+    }).meta({
+      title: 'Details page',
+      description: 'Presentation of an object on the details page.',
+    }),
+    imagePaths: z
+      .array(
+        z.string().meta({
+          title: 'Property path',
+          examples: ['associatedMedia.thumbnailUrl'],
         }),
-      })
+      )
       .meta({
-        title: 'Presentation',
-        description: 'Settings for presenting objects.',
+        title: 'Image properties',
+        description:
+          "Property paths searched in order to find an object's image(s). The first match is used.",
       }),
   })
   .strict()

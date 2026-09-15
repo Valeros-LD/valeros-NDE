@@ -9,7 +9,10 @@ export class ConfigService {
 
   readonly apiBaseUrl = computed(() => this.config()?.api.baseUrl ?? '');
   readonly facets = computed(() => this.config()?.facets ?? []);
-  readonly presentation = computed(() => this.config()?.presentation);
+  readonly imagePaths = computed(() => this.config()?.imagePaths ?? ['image']);
+  readonly detailsPresentation = computed(
+    () => this.config()?.detailsPresentation,
+  );
   readonly views = computed(() => this.config()?.views);
   readonly defaultView = computed(
     () => this.config()?.views?.defaultView ?? 'list',

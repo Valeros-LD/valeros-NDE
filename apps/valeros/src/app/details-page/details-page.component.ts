@@ -53,11 +53,11 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   private routeSubscription?: Subscription;
 
   protected presentationConfig = computed(() => {
-    const presentation = this.configService.presentation();
-    if (!presentation) {
+    const detailsPresentation = this.configService.detailsPresentation();
+    if (!detailsPresentation) {
       throw new Error('Config not initialized');
     }
-    return presentation.details;
+    return detailsPresentation;
   });
 
   ngOnInit() {
