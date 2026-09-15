@@ -1,4 +1,9 @@
-import { getUiOptions, type ObjectFieldTemplateProps } from '@rjsf/utils';
+import {
+  ArrayFieldItemTemplateProps,
+  getTemplate,
+  getUiOptions,
+  type ObjectFieldTemplateProps,
+} from '@rjsf/utils';
 import type { ViewDefinition } from '@valeros/config-schema';
 import { clsx } from 'clsx';
 import { Collapse, getFieldTitle } from './Collapse';
@@ -9,6 +14,32 @@ import { isFieldHelp } from './help/types';
 const viewRowFields = ['type', 'componentId', 'icon', 'label'] as ReadonlyArray<
   keyof ViewDefinition
 >;
+
+export function ViewArrayItemTemplate({
+  buttonsProps,
+  children,
+  displayLabel,
+  hasToolbar,
+  registry,
+  uiSchema,
+}: ArrayFieldItemTemplateProps) {
+  const ArrayFieldItemButtonsTemplate = getTemplate(
+    'ArrayFieldItemButtonsTemplate',
+    registry,
+    getUiOptions(uiSchema),
+  );
+
+  return (
+    <fieldset className="fieldset mb-4 flex rounded-lg border border-base-300 bg-base-100 p-4">
+      {children}
+      {hasToolbar && (
+        <div className={`flex justify-end ${displayLabel ? 'mt-5' : 'mt-1'}`}>
+          <ArrayFieldItemButtonsTemplate {...buttonsProps} />
+        </div>
+      )}
+    </fieldset>
+  );
+}
 
 export function ViewRowTemplate({
   properties,

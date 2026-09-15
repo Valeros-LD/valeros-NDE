@@ -18,7 +18,7 @@ export function HelpMediaDialog({ help }: { help: DialogFieldHelp }) {
       triggerClassName="link link-primary text-sm"
       triggerLabel={help.linkLabel ?? 'See an example'}
     >
-      {help.description && <p>{help.description}</p>}
+      {help.description && <p className="text-lg">{help.description}</p>}
       <div className={help.description ? 'mt-4' : ''}>
         <HelpMediaContent media={help.media} />
       </div>

@@ -20,7 +20,7 @@ import {
   WidgetTemplate,
 } from './PresentationConfigTemplate';
 import { TabbedObjectFieldTemplate } from './TabbedObjectFieldTemplate';
-import { ViewRowTemplate } from './ViewRowTemplate';
+import { ViewArrayItemTemplate, ViewRowTemplate } from './ViewRowTemplate';
 
 const { $schema: _, ...rest } = rawSchema;
 const schema = rest as RJSFSchema;
@@ -31,6 +31,7 @@ const iconUiSchema: UiSchema = {
 };
 
 const HiddenArrayFieldTitleTemplate = () => null;
+const HiddenDescriptionFieldTemplate = () => null;
 
 const widgetItemUiSchema: UiSchema = {
   'ui:ObjectFieldTemplate': WidgetTemplate,
@@ -65,7 +66,11 @@ const detailsPresentationUiSchema: UiSchema = {
 
 const uiSchema: UiSchema = {
   'ui:ObjectFieldTemplate': TabbedObjectFieldTemplate,
+  'ui:submitButtonOptions': {
+    norender: true,
+  },
   facets: {
+    'ui:ArrayFieldItemTemplate': ViewArrayItemTemplate,
     items: {
       'ui:ObjectFieldTemplate': FacetRowTemplate,
       'ui:options': {
@@ -77,6 +82,7 @@ const uiSchema: UiSchema = {
   views: {
     'ui:order': ['defaultView', 'views'],
     views: {
+      'ui:ArrayFieldItemTemplate': ViewArrayItemTemplate,
       items: {
         'ui:ObjectFieldTemplate': ViewRowTemplate,
         'ui:options': {
@@ -128,11 +134,12 @@ function downloadConfig(data: object) {
 
 export function App() {
   return (
-    <main className="max-w-4xl mx-auto p-6">
+    <main className="max-w-4xl mx-auto px-6 pb-6">
       <Form
         schema={schema}
         uiSchema={uiSchema}
         formData={formData}
+        templates={{ DescriptionFieldTemplate: HiddenDescriptionFieldTemplate }}
         validator={validator}
         onSubmit={({ formData: data }) => downloadConfig(data)}
       />
