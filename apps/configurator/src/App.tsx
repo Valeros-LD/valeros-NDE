@@ -32,18 +32,20 @@ const iconUiSchema: UiSchema = {
 
 const HiddenArrayFieldTitleTemplate = () => null;
 
+const widgetItemUiSchema: UiSchema = {
+  'ui:ObjectFieldTemplate': WidgetTemplate,
+  properties: {
+    'ui:ArrayFieldTitleTemplate': HiddenArrayFieldTitleTemplate,
+  },
+  options: {
+    'ui:title': '',
+    icon: iconUiSchema,
+  },
+};
+
 const widgetsUiSchema: UiSchema = {
   'ui:ArrayFieldTitleTemplate': HiddenArrayFieldTitleTemplate,
-  items: {
-    'ui:ObjectFieldTemplate': WidgetTemplate,
-    properties: {
-      'ui:ArrayFieldTitleTemplate': HiddenArrayFieldTitleTemplate,
-    },
-    options: {
-      'ui:title': '',
-      icon: iconUiSchema,
-    },
-  },
+  items: widgetItemUiSchema,
 };
 
 const presentationUiSchema: UiSchema = {
