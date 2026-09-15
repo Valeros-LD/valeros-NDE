@@ -13,7 +13,7 @@ export function TabbedObjectFieldTemplate({
     <div>
       <div
         aria-label="Configuration sections"
-        className="tabs tabs-box mb-6 overflow-x-auto flex-nowrap"
+        className="tabs tabs-box tabs-vertical mb-6 w-full sm:tabs-horizontal sm:flex-nowrap sm:overflow-x-auto"
         role="tablist"
       >
         {properties.map(({ name }) => {
@@ -28,7 +28,7 @@ export function TabbedObjectFieldTemplate({
             <button
               aria-controls={`panel-${name}`}
               aria-selected={isActive}
-              className={`tab whitespace-nowrap ${isActive ? 'tab-active' : ''}`}
+              className={`tab w-full justify-start whitespace-normal sm:w-auto sm:justify-center sm:whitespace-nowrap ${isActive ? 'tab-active' : ''}`}
               id={`tab-${name}`}
               key={name}
               onClick={() => setActiveTab(name)}

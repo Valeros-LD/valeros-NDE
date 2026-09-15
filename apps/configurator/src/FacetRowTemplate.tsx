@@ -16,7 +16,7 @@ export function FacetRowTemplate({
   return (
     <div className={clsx(hidden && 'opacity-40')}>
       <ConfigRowTitle icon={facetConfig?.icon} label={facetConfig?.label} />
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         {facetFieldOrder.map((name) => {
           const prop = properties.find((p) => p.name === name);
           return prop ? (

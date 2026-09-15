@@ -22,7 +22,7 @@ export function ViewRowTemplate({
   return (
     <div className={clsx(hidden && 'opacity-40')}>
       <ConfigRowTitle icon={view?.icon} label={view?.label} />
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         {viewRowFields.map((name) => {
           const p = prop(name);
           return (
