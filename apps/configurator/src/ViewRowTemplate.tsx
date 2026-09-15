@@ -1,6 +1,5 @@
 import {
   ArrayFieldItemTemplateProps,
-  getTemplate,
   getUiOptions,
   type ObjectFieldTemplateProps,
 } from '@rjsf/utils';
@@ -10,35 +9,14 @@ import { Collapse, getFieldTitle } from './Collapse';
 import { ConfigRowTitle } from './ConfigRowTitle';
 import { HelpMedia } from './help/HelpMedia';
 import { isFieldHelp } from './help/types';
+import { SortableArrayItem } from './SortableArrayTemplates';
 
 const viewRowFields = ['type', 'componentId', 'icon', 'label'] as ReadonlyArray<
   keyof ViewDefinition
 >;
 
-export function ViewArrayItemTemplate({
-  buttonsProps,
-  children,
-  displayLabel,
-  hasToolbar,
-  registry,
-  uiSchema,
-}: ArrayFieldItemTemplateProps) {
-  const ArrayFieldItemButtonsTemplate = getTemplate(
-    'ArrayFieldItemButtonsTemplate',
-    registry,
-    getUiOptions(uiSchema),
-  );
-
-  return (
-    <fieldset className="fieldset mb-4 flex rounded-lg border border-base-300 bg-base-100 p-4">
-      {children}
-      {hasToolbar && (
-        <div className={`flex justify-end ${displayLabel ? 'mt-5' : 'mt-1'}`}>
-          <ArrayFieldItemButtonsTemplate {...buttonsProps} />
-        </div>
-      )}
-    </fieldset>
-  );
+export function ViewArrayItemTemplate(props: ArrayFieldItemTemplateProps) {
+  return <SortableArrayItem {...props} separated />;
 }
 
 export function ViewRowTemplate({

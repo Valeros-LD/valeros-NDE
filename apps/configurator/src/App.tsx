@@ -19,6 +19,10 @@ import {
   PresentationConfigTemplate,
   WidgetTemplate,
 } from './PresentationConfigTemplate';
+import {
+  SortableArrayFieldTemplate,
+  SortableArrayItemTemplate,
+} from './SortableArrayTemplates';
 import { TabbedObjectFieldTemplate } from './TabbedObjectFieldTemplate';
 import { ViewArrayItemTemplate, ViewRowTemplate } from './ViewRowTemplate';
 
@@ -139,7 +143,11 @@ export function App() {
         schema={schema}
         uiSchema={uiSchema}
         formData={formData}
-        templates={{ DescriptionFieldTemplate: HiddenDescriptionFieldTemplate }}
+        templates={{
+          ArrayFieldItemTemplate: SortableArrayItemTemplate,
+          ArrayFieldTemplate: SortableArrayFieldTemplate,
+          DescriptionFieldTemplate: HiddenDescriptionFieldTemplate,
+        }}
         validator={validator}
         onSubmit={({ formData: data }) => downloadConfig(data)}
       />
