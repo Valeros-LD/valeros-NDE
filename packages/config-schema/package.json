@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "generate:config-schema": "node --import tsx/esm scripts/generate-config-schema.mjs"
+    "generate:config-schema": "pnpm run build && node --import tsx/esm scripts/generate-config-schema.mjs"
   },
   "peerDependencies": {
     "zod": "^4.5.4"
