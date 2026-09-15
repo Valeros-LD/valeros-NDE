@@ -68,6 +68,11 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "prebundle": {
+              "exclude": ["@valeros/config-schema"]
+            }
+          },
           "configurations": {
             "production": {
               "buildTarget": "valeros-nde:build:production"
