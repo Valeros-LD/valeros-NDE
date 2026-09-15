@@ -48,7 +48,7 @@ const widgetsUiSchema: UiSchema = {
   items: widgetItemUiSchema,
 };
 
-const presentationUiSchema: UiSchema = {
+const searchResultPresentationUiSchema: UiSchema = {
   'ui:order': ['showArrowIndicator', 'widgets'],
   showArrowIndicator: {
     'ui:FieldTemplate': HelpFieldTemplate,
@@ -56,6 +56,10 @@ const presentationUiSchema: UiSchema = {
       helpMedia: arrowIndicatorHelp,
     },
   },
+  widgets: widgetsUiSchema,
+};
+
+const detailsPresentationUiSchema: UiSchema = {
   widgets: widgetsUiSchema,
 };
 
@@ -101,14 +105,14 @@ const uiSchema: UiSchema = {
           },
         },
         presentationConfig: {
-          ...presentationUiSchema,
+          ...searchResultPresentationUiSchema,
           'ui:ObjectFieldTemplate': PresentationConfigTemplate,
         },
       },
     },
   },
   presentation: {
-    details: presentationUiSchema,
+    details: detailsPresentationUiSchema,
   },
 };
 

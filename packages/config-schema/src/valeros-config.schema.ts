@@ -31,7 +31,9 @@ export const ValerosConfigSchema = z
             description:
               "Property paths searched in order to find an object's image(s). The first match is used.",
           }),
-        details: NodePresentationConfigSchema.meta({
+        details: NodePresentationConfigSchema.omit({
+          showArrowIndicator: true,
+        }).meta({
           title: 'Details page',
           description: 'Presentation of an object on the details page.',
         }),
