@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.0](https://github.com/Valeros-LD/valeros-NDE/compare/configurator-v0.4.0...configurator-v0.5.0) (2026-09-15)
+
+
+### Features
+
+* allow drag and drop to reorder configurator elements ([cbe0348](https://github.com/Valeros-LD/valeros-NDE/commit/cbe0348e7f432352e9f89ccc6e8031f06139c0fc))
+* tweak configurator styling and layout ([d91a0f1](https://github.com/Valeros-LD/valeros-NDE/commit/d91a0f1ba4550deb31c09c12c230e97da77989fa))
+
 ## [0.4.0](https://github.com/Valeros-LD/valeros-NDE/compare/configurator-v0.3.0...configurator-v0.4.0) (2026-09-15)
 
 
