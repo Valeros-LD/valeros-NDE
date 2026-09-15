@@ -36,3 +36,39 @@ export const viewSwitchingHelp = {
     },
   ],
 } satisfies FieldHelp;
+
+export const paginationHelp = {
+  description:
+    'Pagination controls let visitors navigate between pages of search results.',
+  media: [
+    {
+      type: 'image',
+      src: 'help/pagination.png',
+      alt: 'Pagination controls below a page of search results.',
+    },
+  ],
+} satisfies FieldHelp;
+
+export const resultsCountHelp = {
+  description:
+    'The results count shows visitors the total number of matching search results.',
+  media: [
+    {
+      type: 'image',
+      src: 'help/results-count.png',
+      alt: 'The total number of search results displayed above the results.',
+    },
+  ],
+} satisfies FieldHelp;
+
+export const sortingHelp = {
+  description:
+    'Sorting controls let visitors change the order of their search results.',
+  media: [
+    {
+      type: 'image',
+      src: 'help/sorting.png',
+      alt: 'Sorting controls displayed above the search results.',
+    },
+  ],
+} satisfies FieldHelp;

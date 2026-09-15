@@ -8,6 +8,9 @@ import { FacetRowTemplate } from './FacetRowTemplate';
 import {
   arrowIndicatorHelp,
   filtersHelp,
+  paginationHelp,
+  resultsCountHelp,
+  sortingHelp,
   viewSwitchingHelp,
 } from './help/content';
 import { HelpFieldTemplate } from './help/HelpFieldTemplate';
@@ -76,6 +79,24 @@ const uiSchema: UiSchema = {
         icon: iconUiSchema,
         options: {
           'ui:title': '',
+          showPagination: {
+            'ui:FieldTemplate': HelpFieldTemplate,
+            'ui:options': {
+              helpMedia: paginationHelp,
+            },
+          },
+          showResultsCount: {
+            'ui:FieldTemplate': HelpFieldTemplate,
+            'ui:options': {
+              helpMedia: resultsCountHelp,
+            },
+          },
+          showSort: {
+            'ui:FieldTemplate': HelpFieldTemplate,
+            'ui:options': {
+              helpMedia: sortingHelp,
+            },
+          },
         },
         presentationConfig: {
           ...presentationUiSchema,
