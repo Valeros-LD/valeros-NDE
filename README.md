@@ -14,7 +14,7 @@ As a developer, Valeros lets you control what, how, and when data is shown to en
 ## Prerequisites
 
 > [!IMPORTANT]
-> Valeros requires a **data layer** endpoint to function. NDE's specification is still in development, so both GraphQL and REST are supported. See [Getting Started](https://docs.valeros.nl/guide/getting-started) for available implementations.
+> Valeros requires a **data layer** endpoint to function. NDE's specification is still in development, so both GraphQL and REST are supported. See [Getting Started](https://docs.valeros.nl/guide/getting-started.html) for available implementations.
 
 - [Node.js](https://nodejs.org/) v20.19.0 (or newer) and [pnpm](https://pnpm.io/)
 - A data layer endpoint (see above)
