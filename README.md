@@ -11,15 +11,13 @@ It is designed as a standard solution for **targeted search** and **browsing and
 
 As a developer, Valeros lets you control what, how, and when data is shown to end users through **simple configuration files**.
 
-
 ## Prerequisites
 
 > [!IMPORTANT]
-> Valeros is built on top of the [NDE](https://netwerkdigitaalerfgoed.nl/en/)'s [data layer API specification](https://github.com/netwerk-digitaal-erfgoed/prototypes-data-layers/blob/main/apps/valeros-api/API.md). The data layer provides a standardized API for retrieving heritage datasets. Valeros consumes this API to power its search, filtering, and data presentation features.
-> By default, Valeros works with a hosted [demo implementation](https://datalaag.valeros.nl/v1) (see [this repo](https://github.com/netwerk-digitaal-erfgoed/prototypes-data-layers) for self-hosting), but you can also implement your own data layer following the [API specification](https://github.com/netwerk-digitaal-erfgoed/prototypes-data-layers/blob/main/apps/valeros-api/API.md).
+> Valeros requires a **data layer** endpoint to function. NDE's specification is still in development, so both GraphQL and REST are supported. See [Getting Started](https://docs.valeros.nl/guide/getting-started) for available implementations.
 
-- [Node.js](https://nodejs.org/) v20.19.0 (or newer) and [npm](https://www.npmjs.com/)
-- A publicly available [data layer](https://github.com/netwerk-digitaal-erfgoed/prototypes-data-layers/blob/main/apps/valeros-api/API.md) endpoint (the hosted demo at `https://datalaag.valeros.nl/v1` works out of the box)
+- [Node.js](https://nodejs.org/) v20.19.0 (or newer) and [pnpm](https://pnpm.io/)
+- A data layer endpoint (see above)
 
 ## Installation
 
@@ -33,13 +31,19 @@ npm install
 
 ## Configuration
 
-To use a different data layer endpoint, update the `baseUrl` in `src/app/config/api.config.ts`:
+Valeros is configured through `apps/valeros/public/config/valeros.config.json`. To get started, set the data layer protocol and URL:
 
-```typescript
-export const API_CONFIG: ApiConfig = {
-  baseUrl: 'https://datalaag.valeros.nl/v1', // Change this to your data layer URL
-};
+```json
+{
+  "$schema": "./valeros.config.schema.json",
+  "api": {
+    "type": "graphql",
+    "baseUrl": "http://localhost:4000/graphql"
+  }
+}
 ```
+
+Use the Configurator app (`pnpm run configurator:dev`) to edit all Valeros settings through an intuitive UI. See [docs.valeros.nl](https://docs.valeros.nl) for the full configuration reference.
 
 ## Running the Application
 

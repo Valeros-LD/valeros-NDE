@@ -20,7 +20,10 @@ If you prefer, you can also edit the JSON config file (`valeros.config.json`) di
 ```json
 {
   "$schema": "./valeros.config.schema.json",
-  "api": { "baseUrl": "https://datalaag.valeros.nl/v1" },
+  "api": {
+    "type": "graphql",
+    "baseUrl": "http://localhost:4000/graphql"
+  },
   "facets": [],
   "views": { ... }
 }
