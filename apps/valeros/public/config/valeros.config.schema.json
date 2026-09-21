@@ -15,25 +15,26 @@
         "type": {
           "default": "graphql",
           "title": "API type",
-          "description": "The protocol used by the data layer. Use \"graphql\" for a GraphQL endpoint and \"rest\" for a REST endpoint.",
+          "description": "The protocol used by the data layer.",
           "type": "string",
           "enum": [
             "graphql",
-            "rest"
+            "rest",
+            "mock"
           ]
         },
         "baseUrl": {
-          "type": "string",
           "title": "Data layer URL",
           "examples": [
             "http://localhost:4000/graphql",
             "https://datalaag.valeros.nl/v1"
-          ]
+          ],
+          "description": "Required when type is \"graphql\" or \"rest\". Not used when type is \"mock\".",
+          "type": "string"
         }
       },
       "required": [
-        "type",
-        "baseUrl"
+        "type"
       ],
       "additionalProperties": false,
       "title": "Data layer",
