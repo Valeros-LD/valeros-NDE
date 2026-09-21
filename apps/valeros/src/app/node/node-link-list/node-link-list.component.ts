@@ -1,8 +1,8 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   inject,
   input,
-  ChangeDetectionStrategy,
 } from '@angular/core';
 import { NodeImageResolverService } from '../node-image-resolver.service';
 import { NodeLinkVariant } from '../node-link/node-link-variant';
@@ -17,7 +17,6 @@ import { NodeModel } from '../types/node.model';
 })
 export class NodeLinkListComponent {
   readonly nodes = input.required<NodeModel[]>();
-  readonly showType = input<boolean>(false);
   readonly mode = input<NodeLinkVariant | 'auto'>('auto');
   readonly isExternal = input<boolean | undefined>(undefined);
 

@@ -1,10 +1,10 @@
 import { NgTemplateOutlet } from '@angular/common';
 import {
+  ChangeDetectionStrategy,
   Component,
   computed,
   inject,
   input,
-  ChangeDetectionStrategy,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
@@ -26,7 +26,6 @@ import { NodeLinkVariant } from './node-link-variant';
 })
 export class NodeLinkComponent {
   readonly node = input.required<NodeModel>();
-  readonly showType = input<boolean>(true);
   readonly variant = input<NodeLinkVariant>('inline');
   readonly isExternal = input<boolean | undefined>(undefined);
 
@@ -52,10 +51,6 @@ export class NodeLinkComponent {
     } catch {
       return node.id;
     }
-  }
-
-  getNodeType(node: NodeModel): string | undefined {
-    return normalizeToFirst<string>(node.type);
   }
 
   getImageUrl(node: NodeModel): string {

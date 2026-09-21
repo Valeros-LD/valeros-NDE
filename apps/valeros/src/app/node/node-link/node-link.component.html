@@ -63,9 +63,4 @@
 
 <ng-template #inlineContent>
   <span class="underline">{{ getNodeName(node()) }}</span>
-  @if (showType() && getNodeType(node())) {
-    <span class="text-xs text-base-content/60" aria-label="Type">
-      ({{ getNodeType(node()) }})
-    </span>
-  }
 </ng-template>
