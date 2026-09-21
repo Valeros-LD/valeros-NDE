@@ -10,7 +10,9 @@ import {
 import { provideRouter, UrlSerializer } from '@angular/router';
 import { ApiService } from './api/api.service';
 import { GraphqlApiService } from './api/graphql-api.service';
+import { RestApiService } from './api/rest-api.service';
 import { initializeAppConfig } from './config/config.initializer';
+import { ConfigService } from './config/config.service';
 import { appRoutes } from './routing/app.routes';
 import { ValerosUrlSerializer } from './routing/valeros-url-serializer';
 
@@ -23,7 +25,17 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withXhr()),
     { provide: LOCALE_ID, useValue: 'nl-NL' },
     { provide: UrlSerializer, useClass: ValerosUrlSerializer },
-    { provide: ApiService, useClass: GraphqlApiService },
+    GraphqlApiService,
+    RestApiService,
+    {
+      provide: ApiService,
+      useFactory: (
+        config: ConfigService,
+        graphql: GraphqlApiService,
+        rest: RestApiService,
+      ) => (config.apiType() === 'rest' ? rest : graphql),
+      deps: [ConfigService, GraphqlApiService, RestApiService],
+    },
     provideAppInitializer(initializeAppConfig),
   ],
 };

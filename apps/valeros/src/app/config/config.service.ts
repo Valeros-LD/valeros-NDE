@@ -7,6 +7,7 @@ export class ConfigService {
 
   readonly loadError = signal<string | null>(null);
 
+  readonly apiType = computed(() => this.config()?.api.type ?? 'graphql');
   readonly apiBaseUrl = computed(() => this.config()?.api.baseUrl ?? '');
   readonly facets = computed(() => this.config()?.facets ?? []);
   readonly imagePaths = computed(() => this.config()?.imagePaths ?? ['image']);
