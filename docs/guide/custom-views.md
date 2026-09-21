@@ -1,15 +1,15 @@
 # Creating Custom Views
 
-While Valeros provides [built-in views](/guide/search-views#built-in-view-types) (list, grid, map), you can create custom views for specialized search result presentations.
+While Valeros provides built-in views (list, grid, map, timeline), you can create custom views for specialized search result presentations.
 
 ## When to Create a Custom View
 
 Create a custom view when:
 
 - You need a specialized layout for search results
-- [Built-in views](/guide/search-views#built-in-view-types) don't provide the presentation you need
+- The built-in views don't provide the presentation you need
 
-For simple customization, consider using [view options](/guide/search-views#view-options) with existing views first.
+For simple customization, consider adjusting existing view options (e.g. `pageSize`, `showPagination`) through the [Configurator](/guide/configuration-system) first.
 
 ## Creating a View Component
 
@@ -52,8 +52,8 @@ export class YourView extends BaseResultsView {}
 - **`totalResults()`** - Total number of results available
 - **`currentPage()`** - Current page number
 - **`pageSize()`** - Number of results per page
-- **`options()`** - Configuration options passed from the view config (e.g., `{ pageSize: 20, showPagination: true, ... }`, see [View Options](/guide/search-views#view-options))
-- **`presentationConfig()`** - [Object presentation configuration](/guide/configuring-object-presentation) for rendering nodes
+- **`options()`** - Configuration options passed from the view config (e.g., `{ pageSize: 20, showPagination: true, ... }`)
+- **`presentationConfig()`** - Object presentation configuration for rendering nodes
 
 ### 4. Create the Template
 
@@ -82,35 +82,28 @@ export const VIEW_COMPONENT_REGISTRY = {
 } as const;
 ```
 
-### 6. Add View Type
+### 6. Use in Configuration
 
-Add your view type to `src/app/search/views/types/view-type.ts`:
+Once registered, reference your view by its `componentId` in `valeros.config.json` (or via the [Configurator](/guide/configuration-system)):
 
-```ts
-export type ViewType = 'list' | 'grid' | 'map' | 'your-view';
-```
-
-### 7. Use in Configuration
-
-Now you can use your view in the [views configuration](/guide/search-views#basic-structure):
-
-```ts
-export const SEARCH_VIEWS_CONFIG: ViewsConfig = {
-  views: [
-    {
-      type: 'your-view',
-      componentId: 'your-view',
-      options: {
-        pageSize: 20,
-        showPagination: true,
-        showResultsCount: true,
-      },
-      icon: 'layout-grid',
-      label: 'Your View',
-      presentationConfig: YOUR_PRESENTATION_CONFIG,
-    },
-    // ... other views
-  ],
-  defaultView: 'list',
-};
+```json
+{
+  "views": {
+    "defaultView": "your-view",
+    "views": [
+      {
+        "type": "your-view",
+        "componentId": "your-view",
+        "icon": "layout-grid",
+        "label": "Your View",
+        "options": {
+          "pageSize": 20,
+          "showPagination": true,
+          "showResultsCount": true
+        },
+        "presentationConfig": { "widgets": [] }
+      }
+    ]
+  }
+}
 ```

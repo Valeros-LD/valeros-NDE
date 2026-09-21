@@ -29,47 +29,16 @@ export default withMermaid({
           text: 'Configuration',
           items: [
             {
-              text: 'Data Layer / API',
-              link: '/guide/api-configuration',
-            },
-
-            {
-              text: 'Facets',
-              link: '/guide/facets-configuration',
-            },
-            {
-              text: 'Search Views (List/Grid/Map)',
-              link: '/guide/search-views',
-            },
-            {
-              text: 'Object Presentation & Widgets',
-              link: '/guide/configuring-object-presentation',
-            },
-            { text: 'Built-in Widgets', link: '/guide/built-in-widgets' },
-            { text: 'Styling', link: '/guide/styling' },
-          ],
-        },
-        {
-          text: 'Reference',
-          items: [
-            {
               text: 'Configuration System',
               link: '/guide/configuration-system',
             },
-            {
-              text: 'Configuration UI (Experimental)',
-              link: '/guide/config-ui',
-            },
-            {
-              text: 'Image Paths',
-              link: '/guide/image-paths',
-            },
-            { text: 'Icon Registry', link: '/guide/icon-registry' },
+            { text: 'Styling', link: '/guide/styling' },
           ],
         },
         {
           text: 'Advanced',
           items: [
+            { text: 'Built-in Widgets', link: '/guide/built-in-widgets' },
             { text: 'Creating Custom Widgets', link: '/guide/custom-widgets' },
             { text: 'Creating Custom Views', link: '/guide/custom-views' },
           ],

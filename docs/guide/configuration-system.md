@@ -1,70 +1,98 @@
 # Configuration System
 
-Valeros uses a centralized configuration system that controls many aspects of the application. This system is built around the `ConfigService` and is initialized at application startup.
+Valeros is configured through a single JSON file. A [Zod](https://zod.dev/) schema is the single source of truth from which both the JSON Schema and Valeros TypeScript types are derived.
 
-## Architecture
+<img src="../valeros-configurator.jpg" alt="Valeros Configurator" />
 
-The configuration system consists of three main components:
+<span class="media-caption">The Valeros Configurator allows you to generate a Valeros configuration file (<code>valeros.config.json</code>) through an intuitive web interface.</span>
 
-1. **Configuration Files** - TypeScript files that define settings
-2. **ConfigService** - A service that manages and provides access to configuration
-3. **Initialization** - App startup logic that loads all configurations
+## Configuring Valeros
 
-## Configuration Files
+Use the **Configurator** app (a standalone React app) to edit configuration:
 
-Configuration is split into separate files for maintainability. These files are combined into a single centralized Valeros configuration during initialization (see [Initialization](#initialization)).
+1. Run the Configurator: `pnpm run configurator:dev`
+2. Open `http://localhost:5173/` and adjust settings
+3. Download the generated JSON
+4. Replace `apps/valeros/public/config/valeros.config.json` with the downloaded file
 
-### Available Configurations
+If you prefer, you can also edit the JSON config file (`valeros.config.json`) directly in your editor. The `$schema` reference at the top provides autocompletion and validation in your editor:
 
-Valeros provides several configuration files to customize different aspects of the application:
-
-- **[Data Layer / API](/guide/api-configuration)** - Configure the data layer endpoint
-- **[Facets](/guide/facets-configuration)** - Customize how facets are displayed
-- **[Search Views](/guide/search-views)** - Configure how search results are displayed (list, grid, map, ...)
-- **[Object Presentation](/guide/configuring-object-presentation)** - Control how heritage objects are displayed through widgets
-- **[Styling](/guide/styling)** - Customize the visual appearance of Valeros
-
-## Initialization
-
-Configuration is loaded at application startup through the `initializeAppConfig` function:
-
-**Location:** `src/app/config/config.initializer.ts`
-
-```ts
-export function initializeAppConfig() {
-  const configService = inject(ConfigService);
-
-  configService.initialize({
-    api: API_CONFIG,
-    facets: FACETS_CONFIG,
-    presentation: {
-      default: LIST_PRESENTATION_CONFIG,
-      details: DETAILS_PRESENTATION_CONFIG,
-      searchResults: {
-        list: LIST_PRESENTATION_CONFIG,
-        grid: GRID_PRESENTATION_CONFIG,
-        map: MAP_PRESENTATION_CONFIG,
-      },
-    },
-    views: SEARCH_VIEWS_CONFIG,
-    imagePaths: IMAGE_PATHS_CONFIG,
-  });
+```json
+{
+  "$schema": "./valeros.config.schema.json",
+  "api": { "baseUrl": "https://datalaag.valeros.nl/v1" },
+  "facets": [],
+  "views": { ... }
 }
 ```
 
-This function is registered as an [app initializer](https://angular.dev/api/core/provideAppInitializer) in `src/app/app.config.ts`:
+## How It Works
 
-```ts
-export const appConfig: ApplicationConfig = {
-  providers: [
-    // ...
-    provideAppInitializer(initializeAppConfig),
-  ],
-};
+```mermaid
+flowchart TD
+    ZOD["Zod schema\n(source of truth)\n<code>packages/config-schema/src/</code>"]
+    JSON_SCHEMA["JSON Schema (generated)\n<code>valeros.config.schema.json</code>"]
+    CONFIG["Config file\n<code>valeros.config.json</code>"]
+    CONF(["Configurator\n<code>apps/configurator</code>"])
+    APP(["Valeros app\n<code>apps/valeros</code>"])
+
+    ZOD -->|"pnpm run generate:config-schema"| JSON_SCHEMA
+    ZOD -->|"TS types + runtime validation"| APP
+    JSON_SCHEMA -->|"drives form UI"| CONF
+    CONFIG -->|"loaded + validated at startup"| APP
+    CONFIG -.->|"starting values"| CONF
+    CONF -.->|"user downloads + replaces"| CONFIG
+
+    classDef default padding:0px 1px
 ```
 
-## ConfigService
+The Zod schema is the single source of truth. It generates the JSON Schema and provides TypeScript types and runtime validation directly to the Valeros app. The Configurator uses the JSON Schema to render its form UI and outputs a JSON config file that the app loads at startup.
 
-**Location:** `src/app/config/config-page/config.service.ts`
+## Modifying the Schema
 
-The `ConfigService` manages the application configuration and makes it available throughout the application. All configuration files are loaded at startup and accessed via this service internally by Valeros components.
+When adding or changing a configurable property, update the Zod schema in `packages/config-schema/src/`, then run `pnpm run generate:config-schema` to regenerate the JSON Schema. The Configurator and editor tooling pick up the changes automatically.
+
+If your schema change affects the shape of the config (new required fields, renamed keys, etc.), you might need to update `valeros.config.json` accordingly (see [Configuring Valeros](#configuring-valeros)).
+
+## Icon Registry
+
+The icon registry (`packages/icon-registry/src/index.ts`) maps string icon keys to SVG strings from the [@ng-icons](https://ng-icons.github.io/ng-icons/) library. The available keys are defined as a Zod enum (`IconKey`) in `packages/config-schema/src/icon.schema.ts`.
+
+<img src="../configurator-icons.jpg" alt="Configurator Icons" />
+
+<span class="media-caption">Selecting a facet icon from the icon registry through the Valeros Configurator.</span>
+
+### Adding a New Icon
+
+#### 1. Add the key to the schema
+
+In `packages/config-schema/src/icon.schema.ts`, add the new key to the `IconKeySchema` enum:
+
+```ts
+export const IconKeySchema = z.enum([
+  // ... existing keys
+  'new-icon',
+]);
+```
+
+Then regenerate the JSON Schema so the Configurator and editor tooling pick it up:
+
+```sh
+pnpm run generate:config-schema
+```
+
+#### 2. Register the icon
+
+Import the icon from `@ng-icons/feather-icons` (or another [@ng-icons](https://ng-icons.github.io/ng-icons/) icon set) and add it to `ICON_REGISTRY` in `packages/icon-registry/src/index.ts`:
+
+```ts
+import {
+  // ... existing imports
+  featherNewIcon,
+} from '@ng-icons/feather-icons';
+
+export const ICON_REGISTRY: Record<IconKey, string> = {
+  // ... existing entries
+  'new-icon': featherNewIcon,
+};
+```

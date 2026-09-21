@@ -31,7 +31,7 @@ Valeros includes three pre-configured themes: **light** (default), **dark**, and
   Your browser does not support the video tag.
 </video>
 
-<span class="video-caption">Video: Switching between themes through the <a href="/guide/config-ui">Configuration UI</a></span>
+<span class="media-caption">Video: Switching between themes</span>
 
 Configuration is CSS-first: themes are defined in `src/styles.css`.
 
@@ -59,7 +59,3 @@ Each theme is registered with the `@plugin "daisyui"` block, then defined with i
 ```
 
 See the [DaisyUI Theme Generator](https://daisyui.com/theme-generator/) for more customization options.
-
-::: tip
-When adding a new theme, remember to also add it to the theme switcher component at `src/app/config/config-page/theme-switcher/theme-switcher.component.ts`.
-:::

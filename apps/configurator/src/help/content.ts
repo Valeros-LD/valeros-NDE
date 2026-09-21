@@ -72,3 +72,21 @@ export const sortingHelp = {
     },
   ],
 } satisfies FieldHelp;
+
+export const widgetPositionHelp = {
+  title: 'Widget positioning',
+  description:
+    'Choose where this widget appears in the layout. On mobile, all areas stack into a single column.',
+  media: [
+    {
+      type: 'image',
+      src: 'help/widget-positioning.jpg',
+      alt: 'Layout diagram showing the top, left, main, right, and bottom widget positions.',
+    },
+    {
+      type: 'image',
+      src: 'help/widget-positioning-mobile.jpg',
+      alt: 'Mobile layout showing widget positions stacked in a single column.',
+    },
+  ],
+} satisfies FieldHelp;

@@ -4,7 +4,7 @@
   margin: 1rem 0;
 }
 
-.vp-doc .video-caption {
+.vp-doc .media-caption {
   font-size: 0.9em;
   color: #666;
   font-style: italic;
@@ -12,6 +12,6 @@
   display: block;
 }
 
-.dark .vp-doc .video-caption {
+.dark .vp-doc .media-caption {
   color: #999;
 }

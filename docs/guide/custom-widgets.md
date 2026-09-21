@@ -9,7 +9,7 @@ Create a custom widget when:
 - You need specialized rendering logic for a specific data type
 - [Built-in widgets](/guide/built-in-widgets) don't provide the functionality you need
 
-For simple customization, consider using [widget options](/guide/configuring-object-presentation#widget-options) with existing widgets first.
+For simple customization of existing widgets, consider adjusting widget options (e.g. `propertyLabel`, `icon`, `position`) through the [Configurator](/guide/configuration-system) first.
 
 ## Creating a Widget Component
 
@@ -53,7 +53,7 @@ export class YourWidget extends BaseWidget {
 
 - **`node()`** - The current heritage object
 - **`property()`** - The property name this widget is rendering (e.g., `"creator"`)
-- **`options()`** - Configuration options passed from the widget config (e.g., `{  maxLength: 200, largeFont: true, ... }`, see [Widget Options](/guide/configuring-object-presentation#widget-options))
+- **`options()`** - Configuration options passed from the widget config (e.g., `{ maxLength: 200, largeFont: true, ... }`)
 - **`values()`** - Array of property values (e.g., `[{ id: "...", type: "Person", name: "John Doe" }, ...]`)
 
 - **`showPropertyLabel()`** - Whether to show the property label
@@ -119,24 +119,24 @@ export const WIDGET_COMPONENT_REGISTRY = {
 
 ### 7. Use in Configuration
 
-Now you can use your widget in any [presentation configuration](/guide/configuring-object-presentation#basic-structure):
+Once registered, reference your widget by its `componentId` in `valeros.config.json` (or via the [Configurator](/guide/configuration-system)):
 
-```ts
-export const yourWidget: Widget = {
-  id: 'your-widget',
-  properties: ['yourProperty'],
-  componentId: 'your-widget',
-  options: {
-    propertyLabel: 'Your Property',
-    icon: 'star',
-  },
-};
-
-export const DETAILS_PRESENTATION_CONFIG: NodePresentationConfig = {
-  widgets: [yourWidget /* ... */],
-  displayedWidgetIds: ['your-widget' /* ... */],
-  // ...
-};
+```json
+{
+  "detailsPresentation": {
+    "widgets": [
+      {
+        "id": "your-widget",
+        "properties": ["yourProperty"],
+        "componentId": "your-widget",
+        "options": {
+          "propertyLabel": "Your Property",
+          "icon": "star"
+        }
+      }
+    ]
+  }
+}
 ```
 
 ## Custom Widget Options
@@ -160,17 +160,17 @@ export class YourWidget extends BaseWidget {
 }
 ```
 
-Then use these options in your widget configuration with an explicit type cast:
+Then pass custom options in the JSON config:
 
-```ts
+```json
 {
-  id: 'your-widget',
-  properties: ['yourProperty'],
-  componentId: 'your-widget',
-  options: {
-    propertyLabel: 'Your Property',
-    customOption: 'special-value',
-    anotherOption: true,
-  } as YourWidgetOptions,
+  "id": "your-widget",
+  "properties": ["yourProperty"],
+  "componentId": "your-widget",
+  "options": {
+    "propertyLabel": "Your Property",
+    "customOption": "special-value",
+    "anotherOption": true
+  }
 }
 ```

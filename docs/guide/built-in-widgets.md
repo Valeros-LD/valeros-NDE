@@ -166,7 +166,7 @@ Orchestrator widget that selects the appropriate media viewer based on available
 
 **Component ID**: `json-widget`
 
-Displays raw JSON data. Commonly used with `isFallback: true` to handle properties without specific widgets (see [Handling Unmatched Properties](/guide/configuring-object-presentation#handling-unmatched-properties)).
+Displays raw JSON data. Commonly used with `isFallback: true` to handle properties that don't match any other widget.
 
 **Example Properties**: Any property
 
