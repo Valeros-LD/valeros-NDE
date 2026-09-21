@@ -10,12 +10,11 @@ import {
 import * as L from 'leaflet';
 import { isNodeModel, NodeModel } from '../../../node/types/node.model';
 import { MapService } from '../../../ui/map/map.service';
-import { TooltipBadge } from '../../../ui/tooltip-badge/tooltip-badge';
 import { BaseWidget } from '../../base-widget';
 
 @Component({
   selector: 'app-map-widget',
-  imports: [TooltipBadge],
+  imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './map-widget.component.html',
 })
