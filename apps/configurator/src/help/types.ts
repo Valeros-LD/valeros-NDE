@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type HelpImage = {
   type: 'image';
   src: string;
@@ -15,7 +17,7 @@ export type HelpMedia = HelpImage | HelpVideo;
 
 type FieldHelpContent = {
   title?: string;
-  description?: string;
+  description?: ReactNode;
   media: HelpMedia[];
 };
 

@@ -8,13 +8,18 @@ import { FacetRowTemplate } from './FacetRowTemplate';
 import {
   arrowIndicatorHelp,
   filtersHelp,
+  isFallbackHelp,
+  noPaddingHelp,
   paginationHelp,
+  propertyPathHelp,
   resultsCountHelp,
+  showOriginalLinkHelp,
   sortingHelp,
   viewSwitchingHelp,
+  widgetComponentHelp,
   widgetPositionHelp,
   widgetPropertyLabelHelp,
-} from './help/content';
+} from './help/content.tsx';
 import { HelpFieldTemplate } from './help/HelpFieldTemplate';
 import { IconSelectWidget } from './IconSelectWidget';
 import {
@@ -44,6 +49,18 @@ const widgetItemUiSchema: UiSchema = {
   properties: {
     'ui:ArrayFieldTitleTemplate': HiddenArrayFieldTitleTemplate,
   },
+  componentId: {
+    'ui:FieldTemplate': HelpFieldTemplate,
+    'ui:options': {
+      helpMedia: widgetComponentHelp,
+    },
+  },
+  isFallback: {
+    'ui:FieldTemplate': HelpFieldTemplate,
+    'ui:options': {
+      helpMedia: isFallbackHelp,
+    },
+  },
   options: {
     'ui:title': '',
     icon: iconUiSchema,
@@ -57,6 +74,24 @@ const widgetItemUiSchema: UiSchema = {
       'ui:FieldTemplate': HelpFieldTemplate,
       'ui:options': {
         helpMedia: widgetPropertyLabelHelp,
+      },
+    },
+    propertyPath: {
+      'ui:FieldTemplate': HelpFieldTemplate,
+      'ui:options': {
+        helpMedia: propertyPathHelp,
+      },
+    },
+    showOriginalLink: {
+      'ui:FieldTemplate': HelpFieldTemplate,
+      'ui:options': {
+        helpMedia: showOriginalLinkHelp,
+      },
+    },
+    noPadding: {
+      'ui:FieldTemplate': HelpFieldTemplate,
+      'ui:options': {
+        helpMedia: noPaddingHelp,
       },
     },
   },
