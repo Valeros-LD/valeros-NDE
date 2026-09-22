@@ -223,6 +223,12 @@
                     ],
                     "type": "string"
                   },
+                  "icon": {
+                    "$ref": "#/$defs/iconKey"
+                  },
+                  "position": {
+                    "$ref": "#/$defs/widgetPosition"
+                  },
                   "propertyPath": {
                     "title": "Property path",
                     "description": "Path to a nested value within the property.",
@@ -230,12 +236,6 @@
                       "associatedMedia.thumbnailUrl"
                     ],
                     "type": "string"
-                  },
-                  "icon": {
-                    "$ref": "#/$defs/iconKey"
-                  },
-                  "position": {
-                    "$ref": "#/$defs/widgetPosition"
                   },
                   "noPadding": {
                     "title": "Remove padding",
@@ -433,6 +433,12 @@
                     ],
                     "type": "string"
                   },
+                  "icon": {
+                    "$ref": "#/$defs/iconKey"
+                  },
+                  "position": {
+                    "$ref": "#/$defs/widgetPosition"
+                  },
                   "propertyPath": {
                     "title": "Property path",
                     "description": "Path to a nested value within the property.",
@@ -440,12 +446,6 @@
                       "associatedMedia.thumbnailUrl"
                     ],
                     "type": "string"
-                  },
-                  "icon": {
-                    "$ref": "#/$defs/iconKey"
-                  },
-                  "position": {
-                    "$ref": "#/$defs/widgetPosition"
                   },
                   "noPadding": {
                     "title": "Remove padding",

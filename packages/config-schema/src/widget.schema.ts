@@ -45,6 +45,8 @@ export const BaseWidgetOptionsSchema = z
         description: 'Custom property label shown for the value.',
         examples: ['Creator'],
       }),
+    icon: IconKeySchema.optional(),
+    position: WidgetPositionSchema.optional(),
     propertyPath: z
       .string()
       .optional()
@@ -53,8 +55,6 @@ export const BaseWidgetOptionsSchema = z
         description: 'Path to a nested value within the property.',
         examples: ['associatedMedia.thumbnailUrl'],
       }),
-    icon: IconKeySchema.optional(),
-    position: WidgetPositionSchema.optional(),
     noPadding: z.boolean().optional().meta({
       title: 'Remove padding',
       description: 'Extend the widget to the surrounding edges.',
