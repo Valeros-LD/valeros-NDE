@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.17.0](https://github.com/Valeros-LD/valeros-NDE/compare/valeros-nde-v0.16.0...valeros-nde-v0.17.0) (2026-09-22)
+
+
+### Features
+
+* add mock API service ([9ac9007](https://github.com/Valeros-LD/valeros-NDE/commit/9ac900782dddcc73dc165b28c4baf30e331b179e))
+* allow switching between GraphQL and REST APIs through the configurator ([bdde14e](https://github.com/Valeros-LD/valeros-NDE/commit/bdde14e7cf30e0027874161c74a5a215fdcb6aa2))
+* reorder fields in config schema ([48ca2a3](https://github.com/Valeros-LD/valeros-NDE/commit/48ca2a3ec8c19915fefb1c3686c1454fe16bace9))
+
 ## [0.16.0](https://github.com/Valeros-LD/valeros-NDE/compare/valeros-nde-v0.15.0...valeros-nde-v0.16.0) (2026-09-15)
 
 
