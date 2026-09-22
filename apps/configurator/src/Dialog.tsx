@@ -6,7 +6,7 @@ type DialogProps = {
   onClose?: (dialog: HTMLDialogElement) => void;
   title: string;
   triggerClassName: string;
-  triggerLabel: string;
+  triggerLabel: ReactNode;
 };
 
 export function Dialog({

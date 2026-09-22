@@ -1,4 +1,5 @@
 import { Dialog } from '../Dialog';
+import questionCircleIcon from '../assets/question-circle.svg';
 import { HelpMediaContent } from './HelpMediaContent';
 import type { DialogFieldHelp } from './types';
 
@@ -15,8 +16,18 @@ export function HelpMediaDialog({ help }: { help: DialogFieldHelp }) {
       closeAriaLabel="Close help dialog"
       onClose={resetVideos}
       title={help.title || ''}
-      triggerClassName="link link-primary text-sm"
-      triggerLabel={help.linkLabel ?? 'See an example'}
+      triggerClassName="btn btn-xs gap-1 min-h-0 h-auto py-0.5 px-2 text-[0.7rem] font-light opacity-75"
+      triggerLabel={
+        <>
+          <img
+            src={questionCircleIcon}
+            alt=""
+            aria-hidden="true"
+            className="size-3 mr-[0.1rem]"
+          />
+          {help.linkLabel ?? 'See an example'}
+        </>
+      }
     >
       {help.description && <p className="text-lg">{help.description}</p>}
       {help.media.length > 0 && (
