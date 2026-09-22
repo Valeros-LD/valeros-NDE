@@ -25,7 +25,7 @@ export function HelpMediaDialog({ help }: { help: DialogFieldHelp }) {
             aria-hidden="true"
             className="size-3 mr-[0.1rem]"
           />
-          {help.linkLabel ?? 'See an example'}
+          {help.linkLabel ?? 'How does this work?'}
         </>
       }
     >
