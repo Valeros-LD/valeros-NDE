@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.6.0](https://github.com/Valeros-LD/valeros-NDE/compare/configurator-v0.5.0...configurator-v0.6.0) (2026-09-22)
+
+
+### Features
+
+* add configurator help texts and images ([111cfa4](https://github.com/Valeros-LD/valeros-NDE/commit/111cfa453398d678b5f7e735aa544a6c39b69f7b))
+* add example for widget properties in configurator ([e689da4](https://github.com/Valeros-LD/valeros-NDE/commit/e689da4fe05a3653f1094c44f2b1c2a6dae0387d))
+* tweak configurator help button styling ([70e5990](https://github.com/Valeros-LD/valeros-NDE/commit/70e5990bbb7facd3387e21d088279ee603e16a37))
+* tweak styling of icon select in configurator ([ca0e493](https://github.com/Valeros-LD/valeros-NDE/commit/ca0e493526aeb46e47940127765d1365380591d1))
+* update configurator default help label ([3b3f71a](https://github.com/Valeros-LD/valeros-NDE/commit/3b3f71a40a80813de0750b66897cb56a8a6c64b5))
+
+
+### Documentation
+
+* update docs to reflect new configuration strategy ([a8066cb](https://github.com/Valeros-LD/valeros-NDE/commit/a8066cb6a59dfda0cd58ced1ac0e3e837df452c2))
+
 ## [0.5.0](https://github.com/Valeros-LD/valeros-NDE/compare/configurator-v0.4.0...configurator-v0.5.0) (2026-09-15)
 
 
