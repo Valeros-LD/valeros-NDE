@@ -90,3 +90,16 @@ export const widgetPositionHelp = {
     },
   ],
 } satisfies FieldHelp;
+
+export const widgetPropertyLabelHelp = {
+  title: 'Widget property label',
+  description:
+    'Choose whether or not to show the property label and/or a matching icon for this widget.',
+  media: [
+    {
+      type: 'image',
+      src: 'help/widget-property-label.jpg',
+      alt: '',
+    },
+  ],
+} satisfies FieldHelp;

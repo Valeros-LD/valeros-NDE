@@ -13,6 +13,7 @@ import {
   sortingHelp,
   viewSwitchingHelp,
   widgetPositionHelp,
+  widgetPropertyLabelHelp,
 } from './help/content';
 import { HelpFieldTemplate } from './help/HelpFieldTemplate';
 import { IconSelectWidget } from './IconSelectWidget';
@@ -50,6 +51,12 @@ const widgetItemUiSchema: UiSchema = {
       'ui:FieldTemplate': HelpFieldTemplate,
       'ui:options': {
         helpMedia: widgetPositionHelp,
+      },
+    },
+    showPropertyLabel: {
+      'ui:FieldTemplate': HelpFieldTemplate,
+      'ui:options': {
+        helpMedia: widgetPropertyLabelHelp,
       },
     },
   },
