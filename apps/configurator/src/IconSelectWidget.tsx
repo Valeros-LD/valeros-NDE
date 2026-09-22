@@ -80,7 +80,7 @@ export function IconSelectWidget({
         )}
         <span aria-hidden="true">▾</span>
       </summary>
-      <div className="mt-1 grid w-full grid-cols-4 gap-1 rounded-box bg-base-100 p-2 shadow-lg">
+      <div className="absolute z-10 w-48 mt-1 grid grid-cols-4 gap-1 rounded-box bg-base-100 p-2 shadow-lg">
         {selectableIconOptions.map(({ icon, label: iconLabel }) => {
           const isSelected = selectedIcon === icon;
 
