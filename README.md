@@ -1,15 +1,13 @@
 # Valeros
 
-> [!WARNING]  
-> This project is currently in active development and not yet ready for production use.
+> [!CAUTION]  
+> Valeros is under active development, things may change or break as we work toward releasing v1.0
 
-<a href="https://valeros.nl" target="_blank"><img width="3023" height="1554" alt="image" src="https://github.com/user-attachments/assets/27c2adbd-d500-4b90-8bdc-46e7a0b3807a" /></a>
+<a href="https://valeros.nl" target="_blank"><img alt="image" src="https://github.com/user-attachments/assets/27c2adbd-d500-4b90-8bdc-46e7a0b3807a" /></a>
 
-Valeros is a **reusable, flexible heritage data browser**.
+Valeros is a **reusable, flexible heritage data browser**: an off-the-shelf solution for searching and browsing heritage data. You can use it to configure exactly what, how, and when your data is shown to users through an intuitive web interface, no technical knowledge required.
 
-It is designed as a standard solution for **targeted search** and **browsing and discovery** of heritage data. See the [Netwerk Digitaal Erfgoed](https://netwerkdigitaalerfgoed.nl/en/) (NDE) [behavior profiles publication](https://zenodo.org/records/14938780) for more information about these types of users and their needs.
-
-As a developer, Valeros lets you control what, how, and when data is shown to end users through **simple configuration files**.
+Valeros is built to conform to two [NDE behavior profiles](https://zenodo.org/records/14938780): **Targeted search** and **Browsing and discovery**. Connect it to an [NDE-compatible data layer](https://docs.valeros.nl/guide/getting-started.html#data-layer-dependency) (GraphQL or REST) to go from a raw linked data dump (.ttl, .trig, .jsonld, ...) to a fully featured search interface for your end users.
 
 ## Prerequisites
 
