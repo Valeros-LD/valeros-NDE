@@ -41,7 +41,7 @@ Valeros is configured through `apps/valeros/public/config/valeros.config.json`. 
 }
 ```
 
-Use the Configurator app (`pnpm run configurator:dev`) to edit all Valeros settings through an intuitive UI. See [docs.valeros.nl](https://docs.valeros.nl) for the full configuration reference.
+Alternatively, use the Configurator app (`pnpm run configurator:dev`) to edit all Valeros settings through an intuitive UI. See [docs.valeros.nl](https://docs.valeros.nl) for the full configuration reference.
 
 ## Running the Application
 
