@@ -9,7 +9,11 @@ Valeros is a **reusable, flexible heritage data browser**: an off-the-shelf solu
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | <img alt="image" src="https://github.com/user-attachments/assets/27c2adbd-d500-4b90-8bdc-46e7a0b3807a" /> | <img alt="image" src="https://github.com/user-attachments/assets/622b0c74-0739-41af-8aa0-62f60287a312" /> |
 
-Valeros is built to conform to two [NDE behavior profiles](https://zenodo.org/records/14938780): **Targeted search** and **Browsing and discovery**. Connect it to an [NDE-compatible data layer](https://docs.valeros.nl/guide/getting-started.html#data-layer-dependency) (GraphQL or REST) to go from a raw linked data dump (.ttl, .trig, .jsonld, ...) to a fully featured search interface in a couple of minutes.
+Valeros is built to conform to two [NDE behavior profiles](https://zenodo.org/records/14938780):
+1. Targeted search
+2. Browsing and discovery
+
+Connect it to an [NDE-compatible data layer](https://docs.valeros.nl/guide/getting-started.html#data-layer-dependency) (GraphQL or REST) to go from a raw linked data dump (.ttl, .trig, .jsonld, ...) to a fully featured search interface in a couple of minutes.
 
 ## Prerequisites
 
